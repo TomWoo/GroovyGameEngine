@@ -1,12 +1,15 @@
-package sample;
+package com.core;
 
+import com.components.IComponent;
+
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 
 /**
  * Created by Tom on 6/8/2017.
  */
-public interface IEntity {
+public interface IEntity extends Serializable {
     String getUID();
     String getName();
     void setName(String name);

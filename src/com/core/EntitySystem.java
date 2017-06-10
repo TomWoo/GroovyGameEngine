@@ -1,4 +1,4 @@
-package sample;
+package com.core;
 
 import java.util.*;
 
@@ -94,5 +94,10 @@ public class EntitySystem implements IEntitySystem {
     @Override
     public IReturnMessage removeEntities(Collection<String> uniqueIDs) {
         return removeEntities(uniqueIDs.toArray(new String[uniqueIDs.size()]));
+    }
+
+    @Override
+    public void clear() {
+        entitiesMap.clear();
     }
 }

@@ -1,4 +1,6 @@
-package sample;
+package com.core;
+
+import com.components.IComponent;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package sample;
+package com.core;
 
 /**
  * Created by Tom on 6/8/2017.
