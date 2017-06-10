@@ -1,26 +1,21 @@
 package sample;
 
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Tom on 6/8/2017.
  */
 public class Entity implements IEntity {
     private final String uniqueID;
-    private final String name;
+    private String name;
     private final Set<String> groupIDs;
-    private final Set<IComponent> components;
-    private final Set<String> template;
+    private final Map<String, IComponent> componentsMap;
 
     public Entity(String name, Set<String> groupIDs) {
         this.uniqueID = UUID.randomUUID().toString();
         this.name = name;
         this.groupIDs = groupIDs;
-        this.components = new LinkedHashSet<IComponent>();
-        this.template = new LinkedHashSet<String>();
+        this.componentsMap = new HashMap<String, IComponent>();
     }
 
     @Override
@@ -34,23 +29,72 @@ public class Entity implements IEntity {
     }
 
     @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public Set<String> getGroupIDs() {
         return groupIDs;
     }
 
     @Override
+    public IReturnMessage addGroupIDs(String... groupIDs) {
+        IReturnMessage returnMessage = new ReturnMessage();
+        for(String groupID : groupIDs) {
+            if (this.groupIDs.add(groupID)) {
+                returnMessage.appendInfo(getName() + " is now part of " + groupID + ". ");
+            } else {
+                returnMessage.appendErrors(getName() + " is already part of " + groupID + ". ");
+                returnMessage.setExitStatus(1);
+            }
+        }
+        return returnMessage;
+    }
+
+    @Override
+    public IReturnMessage addGroupIDs(Collection<String> groupIDs) {
+        return addGroupIDs(groupIDs.toArray(new String[groupIDs.size()]));
+    }
+
+    @Override
     public Set<IComponent> getComponents() {
-        return new LinkedHashSet<IComponent>(components);
+        return new HashSet<IComponent>(componentsMap.values());
+    }
+
+    @Override
+    public Set<IComponent> getComponents(String... names) {
+        Set<IComponent> components = new HashSet<IComponent>();
+        for(String name : names) {
+            components.add(componentsMap.get(name)); // TODO: check null?
+        }
+        return components;
+    }
+
+    @Override
+    public Set<IComponent> getComponents(Collection<String> names) {
+        return getComponents(names.toArray(new String[names.size()]));
+    }
+
+    @Override
+    public boolean hasComponent(String name) {
+        return componentsMap.containsKey(name);
     }
 
     @Override
     public IReturnMessage addComponents(IComponent... components) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IComponent component : components) {
-            if(UtilityFunctions.isComponent(componentName)) {
-                returnMessage.appendInfo(componentName + " has been removed from " + getName() + ". ");
+            String name = component.getClass().getName();
+            if(!UtilityFunctions.isComponent(name)) {
+                returnMessage.appendErrors(name + " is not an existing component. ");
+                returnMessage.setExitStatus(1);
+            } else if(componentsMap.containsKey(name)) {
+                returnMessage.appendErrors(getName() + " already has " + name + ". ");
+                returnMessage.setExitStatus(2);
             } else {
-                returnMessage.appendErrors(componentName + " is not an existing component. ");
+                componentsMap.put(name, component);
+                returnMessage.appendInfo(name + " has been added to " + getName() + ". ");
             }
         }
         return returnMessage;
@@ -62,65 +106,25 @@ public class Entity implements IEntity {
     }
 
     @Override
-    public IReturnMessage removeComponents(String... componentNames) {
+    public IReturnMessage removeComponents(String... names) {
         IReturnMessage returnMessage = new ReturnMessage();
-        for(String componentName : componentNames) {
-            if(UtilityFunctions.isComponent(componentName)) {
-                returnMessage.appendInfo(componentName + " has been removed from " + getName() + ". ");
+        for(String name : names) {
+            if(!UtilityFunctions.isComponent(name)) {
+                returnMessage.appendErrors(name + " is not an existing component. ");
+                returnMessage.setExitStatus(1);
+            } else if(!componentsMap.containsKey(name)) {
+                returnMessage.appendErrors(getName() + " does not have " + name + ". ");
+                returnMessage.setExitStatus(2);
             } else {
-                returnMessage.appendErrors(componentName + " is not an existing component. ");
+                componentsMap.remove(name);
+                returnMessage.appendInfo(name + " has been removed from " + getName() + ". ");
             }
         }
         return returnMessage;
     }
 
     @Override
-    public IReturnMessage removeComponents(Collection<String> componentNames) {
-        return removeComponents(componentNames.toArray(new String[componentNames.size()]));
-    }
-
-    @Override
-    public Set<String> getTemplate() {
-        return new LinkedHashSet<String>(template);
-    }
-
-    @Override
-    public IReturnMessage addToTemplate(String... componentNames) {
-
-    }
-
-    @Override
-    public IReturnMessage addToTemplate(Collection<String> componentNames) {
-        return addToTemplate(componentNames.toArray(new String[template.size()]));
-    }
-
-    @Override
-    public IReturnMessage removeFromTemplate(String... componentNames) {
-        IReturnMessage returnMessage = new ReturnMessage();
-
-    }
-
-    @Override
-    public IReturnMessage removeFromTemplate(Collection<String> componentNames) {
-        return removeFromTemplate(componentNames.toArray(new String[template.size()]));
-    }
-
-    @Override
-    public IReturnMessage setTemplate(String... componentNames) {
-        Set<String> newTemplate = new LinkedHashSet<String>();
-        IReturnMessage returnMessage = addToTemplate(componentNames);
-        if(returnMessage.getExitStatus()==0) {
-            template.clear();
-            template.addAll(newTemplate);
-            return returnMessage;
-        } else {
-            returnMessage.appendErrors("Unable to set template. ");
-            return returnMessage;
-        }
-    }
-
-    @Override
-    public IReturnMessage setTemplate(Collection<String> componentNames) {
-        return setTemplate(componentNames.toArray(new String[template.size()]));
+    public IReturnMessage removeComponents(Collection<String> names) {
+        return removeComponents(names.toArray(new String[names.size()]));
     }
 }

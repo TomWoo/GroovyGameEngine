@@ -8,6 +8,6 @@ public final class UtilityFunctions {
     private UtilityFunctions() {} // behave as static class
 
     public static boolean isComponent(String componentName) {
-        return true; // TODO: check name
+        return true; // TODO: implement
     }
 }

@@ -9,19 +9,18 @@ import java.util.Set;
 public interface IEntity {
     String getUID();
     String getName();
+    void setName(String name);
+
     Set<String> getGroupIDs();
+    IReturnMessage addGroupIDs(String... groupIDs);
+    IReturnMessage addGroupIDs(Collection<String> groupIDs);
 
     Set<IComponent> getComponents();
+    Set<IComponent> getComponents(String... names);
+    Set<IComponent> getComponents(Collection<String> names);
+    boolean hasComponent(String name);
     IReturnMessage addComponents(IComponent... components);
     IReturnMessage addComponents(Collection<IComponent> components);
-    IReturnMessage removeComponents(String... componentName);
-    IReturnMessage removeComponents(Collection<String> componentNames);
-
-    Set<String> getTemplate();
-    IReturnMessage addToTemplate(String... componentNames);
-    IReturnMessage addToTemplate(Collection<String> componentNames);
-    IReturnMessage removeFromTemplate(String... componentNames);
-    IReturnMessage removeFromTemplate(Collection<String> componentNames);
-    IReturnMessage setTemplate(String... componentNames);
-    IReturnMessage setTemplate(Collection<String> componentNames);
+    IReturnMessage removeComponents(String... names);
+    IReturnMessage removeComponents(Collection<String> names);
 }
