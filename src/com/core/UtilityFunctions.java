@@ -9,10 +9,6 @@ import java.util.UUID;
 public final class UtilityFunctions {
     private UtilityFunctions() {} // behave as static class
 
-    public static boolean isComponent(String name) {
-        return true; // TODO: implement
-    }
-
     public static void serialize(Serializable obj, File file) throws IOException, ClassNotFoundException {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
         out.writeObject(obj);

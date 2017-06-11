@@ -1,6 +1,7 @@
 package com.core;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tom on 6/8/2017.
@@ -21,35 +22,26 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public Set<IEntity> getEntities() {
-        return new HashSet<>(entitiesMap.values());
+        return new LinkedHashSet<>(entitiesMap.values());
     }
 
     @Override
     public Set<IEntity> getEntities(String... uniqueIDs) {
-        Set<IEntity> entities = new HashSet<>();
-        for(String uniqueID : uniqueIDs) {
-            entities.add(entitiesMap.get(uniqueID)); // TODO: check null?
+        return getEntities(new LinkedHashSet<>(Arrays.asList(uniqueIDs)));
+    }
+
+    @Override
+    public Set<IEntity> getEntities(Set<String> uniqueIDs) {
+        Set<IEntity> entities = new LinkedHashSet<>();
+        for(String uniqueID : uniqueIDs) { // TODO: stream
+            entities.add(entitiesMap.get(uniqueID));
         }
         return entities;
     }
 
     @Override
-    public Set<IEntity> getEntities(Collection<String> uniqueIDs) {
-        return getEntities(uniqueIDs.toArray(new String[uniqueIDs.size()]));
-    }
-
-    @Override
-    public Set<IEntity> getEntitiesByNames(String... names) {
-        Set<IEntity> entities = new HashSet<>();
-        for(String name : names) {
-            entities.add(entitiesMap.get(name));
-        }
-        return entities;
-    }
-
-    @Override
-    public Set<IEntity> getEntitiesByNames(Collection<String> names) {
-        return getEntitiesByNames(names.toArray(new String[names.size()]));
+    public Set<IEntity> getEntitiesByName(String name) {
+        return entitiesMap.values().stream().filter(e -> e.getName().equals(name)).collect(Collectors.toSet());
     }
 
     @Override
@@ -59,6 +51,11 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public IReturnMessage addEntities(IEntity... entities) {
+        return addEntities(new LinkedHashSet<>(Arrays.asList(entities)));
+    }
+
+    @Override
+    public IReturnMessage addEntities(Set<IEntity> entities) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IEntity entity : entities) {
             if (entitiesMap.containsKey(entity.getUID())) {
@@ -73,12 +70,12 @@ public class EntitySystem implements IEntitySystem {
     }
 
     @Override
-    public IReturnMessage addEntities(Collection<IEntity> entities) {
-        return addEntities(entities.toArray(new IEntity[entities.size()]));
+    public IReturnMessage removeEntities(String... uniqueIDs) {
+        return removeEntities(new LinkedHashSet<>(Arrays.asList(uniqueIDs)));
     }
 
     @Override
-    public IReturnMessage removeEntities(String... uniqueIDs) {
+    public IReturnMessage removeEntities(Set<String> uniqueIDs) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(String uniqueID : uniqueIDs) {
             if (!entitiesMap.containsKey(uniqueID)) {
@@ -90,11 +87,6 @@ public class EntitySystem implements IEntitySystem {
             }
         }
         return returnMessage;
-    }
-
-    @Override
-    public IReturnMessage removeEntities(Collection<String> uniqueIDs) {
-        return removeEntities(uniqueIDs.toArray(new String[uniqueIDs.size()]));
     }
 
     @Override

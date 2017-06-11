@@ -6,7 +6,15 @@ package com.components
 class Mass extends Component {
     public static final String MASS_KEY = "mass"
 
-    def init(Map<String, Serializable> data) {
+    def void init(Map<String, Serializable> data) {
         data.put(MASS_KEY, 1.0)
+    }
+
+    def double getMass() {
+        return (Double) getValue(MASS_KEY)
+    }
+
+    def void setMass(double mass) {
+        setValue(MASS_KEY, mass)
     }
 }

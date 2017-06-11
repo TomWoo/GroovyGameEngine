@@ -11,13 +11,12 @@ public interface IEntitySystem extends Serializable {
     String getUID();
     Set<IEntity> getEntities();
     Set<IEntity> getEntities(String... uniqueIDs);
-    Set<IEntity> getEntities(Collection<String> uniqueIDs);
-    Set<IEntity> getEntitiesByNames(String... names);
-    Set<IEntity> getEntitiesByNames(Collection<String> names);
+    Set<IEntity> getEntities(Set<String> uniqueIDs);
+    Set<IEntity> getEntitiesByName(String name);
     boolean containsEntity(String uniqueID);
     IReturnMessage addEntities(IEntity... entities);
-    IReturnMessage addEntities(Collection<IEntity> entities);
+    IReturnMessage addEntities(Set<IEntity> entities);
     IReturnMessage removeEntities(String... uniqueIDs);
-    IReturnMessage removeEntities(Collection<String> uniqueIDs);
+    IReturnMessage removeEntities(Set<String> uniqueIDs);
     void clear();
 }

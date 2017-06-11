@@ -17,24 +17,21 @@ public abstract class Component implements IComponent {
         init(dataMap);
     }
 
-    @Override
-    public String getName() {
-        return getClass().getName();
-    }
+    public abstract void init(Map<String, Serializable> data);
 
     @Override
-    public List<String> getKeys() {
+    public final List<String> getKeys() {
         return new ArrayList<>(dataMap.keySet());
     }
 
     @Override
-    public Serializable getValue(String key) {
+    public final Serializable getValue(String key) {
         return dataMap.get(key);
     }
 
     @Override
-    public IReturnMessage setValue(String key, Serializable newValue) {
-        IReturnMessage returnMessage = new ReturnMessage(0, "Setting value of " + getName() + " : " + key + ". ", "");
+    public final IReturnMessage setValue(String key, Serializable newValue) {
+        IReturnMessage returnMessage = new ReturnMessage(0, "Setting value of " + getClass() + " : " + key + ". ", "");
         Serializable value = dataMap.get(key);
         if(newValue.getClass().equals(value.getClass())) {
             dataMap.put(key, newValue);

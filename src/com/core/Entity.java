@@ -1,8 +1,10 @@
 package com.core;
 
 import com.components.IComponent;
+import com.sun.istack.internal.NotNull;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tom on 6/8/2017.
@@ -12,7 +14,7 @@ public class Entity implements IEntity {
     private final transient String uniqueID;
     private String name;
     private final Set<String> groupIDs;
-    private final Map<String, IComponent> componentsMap;
+    private final Map<Class, IComponent> componentsMap;
 
     public Entity(String name, String... groupIDs) {
         this(name, Arrays.asList(groupIDs));
@@ -47,6 +49,11 @@ public class Entity implements IEntity {
 
     @Override
     public IReturnMessage addGroupIDs(String... groupIDs) {
+        return addGroupIDs(new LinkedHashSet<>(Arrays.asList(groupIDs)));
+    }
+
+    @Override
+    public IReturnMessage addGroupIDs(Set<String> groupIDs) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(String groupID : groupIDs) {
             if (this.groupIDs.add(groupID)) {
@@ -60,78 +67,64 @@ public class Entity implements IEntity {
     }
 
     @Override
-    public IReturnMessage addGroupIDs(Collection<String> groupIDs) {
-        return addGroupIDs(groupIDs.toArray(new String[groupIDs.size()]));
-    }
-
-    @Override
     public Set<IComponent> getComponents() {
-        return new HashSet<>(componentsMap.values());
+        return new LinkedHashSet<>(componentsMap.values());
+    }
+
+    @Override @NotNull
+    public <T extends IComponent>T getComponent(Class<T> c) {
+        return (T) componentsMap.get(c);
     }
 
     @Override
-    public Set<IComponent> getComponents(String... names) {
-        Set<IComponent> components = new HashSet<>();
-        for(String name : names) {
-            components.add(componentsMap.get(name)); // TODO: check null?
-        }
-        return components;
+    public boolean hasComponents(Class... names) {
+        return hasComponents(new LinkedHashSet<>(Arrays.asList(names)));
     }
 
     @Override
-    public Set<IComponent> getComponents(Collection<String> names) {
-        return getComponents(names.toArray(new String[names.size()]));
-    }
-
-    @Override
-    public boolean hasComponent(String name) {
-        return componentsMap.containsKey(name);
+    public boolean hasComponents(Set<Class> classes) {
+        Set<Class> relevantNames = classes.stream().filter(e -> componentsMap.containsKey(e)).collect(Collectors.toSet()); // TODO: warning
+        return relevantNames.equals(classes);
     }
 
     @Override
     public IReturnMessage addComponents(IComponent... components) {
+        return addComponents(new LinkedHashSet<>(Arrays.asList(components)));
+    }
+
+    @Override
+    public IReturnMessage addComponents(Set<IComponent> components) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IComponent component : components) {
-            String name = component.getName();
-            if(!UtilityFunctions.isComponent(name)) {
-                returnMessage.appendErrors(name + " is not an existing component. ");
-                returnMessage.setExitStatus(1);
-            } else if(componentsMap.containsKey(name)) {
-                returnMessage.appendErrors(getName() + " already has " + name + ". ");
+            Class c = component.getClass();
+            if(componentsMap.containsKey(c)) {
+                returnMessage.appendErrors(getName() + " already has " + c + ". ");
                 returnMessage.setExitStatus(2);
             } else {
-                componentsMap.put(name, component);
-                returnMessage.appendInfo(name + " has been added to " + getName() + ". ");
+                componentsMap.put(c, component);
+                returnMessage.appendInfo(c + " has been added to " + getName() + ". ");
             }
         }
         return returnMessage;
     }
 
     @Override
-    public IReturnMessage addComponents(Collection<IComponent> components) {
-        return addComponents(components.toArray(new IComponent[components.size()]));
+    public IReturnMessage removeComponents(Class... classes) {
+        return removeComponents(new LinkedHashSet<>(Arrays.asList(classes)));
     }
 
     @Override
-    public IReturnMessage removeComponents(String... names) {
+    public IReturnMessage removeComponents(Set<Class> classes) {
         IReturnMessage returnMessage = new ReturnMessage();
-        for(String name : names) {
-            if(!UtilityFunctions.isComponent(name)) {
-                returnMessage.appendErrors(name + " is not an existing component. ");
-                returnMessage.setExitStatus(1);
-            } else if(!componentsMap.containsKey(name)) {
-                returnMessage.appendErrors(getName() + " does not have " + name + ". ");
+        for(Class c : classes) {
+            if(!componentsMap.containsKey(c)) {
+                returnMessage.appendErrors(getName() + " does not have " + c + ". ");
                 returnMessage.setExitStatus(2);
             } else {
-                componentsMap.remove(name);
-                returnMessage.appendInfo(name + " has been removed from " + getName() + ". ");
+                componentsMap.remove(c);
+                returnMessage.appendInfo(c + " has been removed from " + getName() + ". ");
             }
         }
         return returnMessage;
-    }
-
-    @Override
-    public IReturnMessage removeComponents(Collection<String> names) {
-        return removeComponents(names.toArray(new String[names.size()]));
     }
 }

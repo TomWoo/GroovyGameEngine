@@ -3,7 +3,6 @@ package com.core;
 import com.components.IComponent;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -16,14 +15,14 @@ public interface IEntity extends Serializable {
 
     Set<String> getGroupIDs();
     IReturnMessage addGroupIDs(String... groupIDs);
-    IReturnMessage addGroupIDs(Collection<String> groupIDs);
+    IReturnMessage addGroupIDs(Set<String> groupIDs);
 
     Set<IComponent> getComponents();
-    Set<IComponent> getComponents(String... names);
-    Set<IComponent> getComponents(Collection<String> names);
-    boolean hasComponent(String name);
+    public <T extends IComponent>T getComponent(Class<T> c);
+    boolean hasComponents(Class... classes);
+    boolean hasComponents(Set<Class> classes);
     IReturnMessage addComponents(IComponent... components);
-    IReturnMessage addComponents(Collection<IComponent> components);
-    IReturnMessage removeComponents(String... names);
-    IReturnMessage removeComponents(Collection<String> names);
+    IReturnMessage addComponents(Set<IComponent> components);
+    IReturnMessage removeComponents(Class... classes);
+    IReturnMessage removeComponents(Set<Class> classes);
 }

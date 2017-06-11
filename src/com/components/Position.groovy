@@ -8,22 +8,33 @@ class Position extends Component {
     public static final String Y_KEY = "y"
     public static final String THETA_KEY = "theta"
 
-    def init(Map<String, Serializable> data) {
+    def void init(Map<String, Serializable> data) {
         data.put(X_KEY, 0.0)
         data.put(Y_KEY, 0.0)
         data.put(THETA_KEY, 0.0)
     }
 
-    // TODO: remove?
-    def getX() {
-        return getValue(X_KEY)
+    def double getX() {
+        return (Double) getValue(X_KEY)
     }
 
-    def getY() {
-        return getValue(Y_KEY)
+    def void setX(double x) {
+        setValue(X_KEY, x)
     }
 
-    def getTheta() {
-        return getValue(THETA_KEY)
+    def double getY() {
+        return (Double) getValue(Y_KEY)
+    }
+
+    def void setY(double y) {
+        setValue(Y_KEY, y)
+    }
+
+    def double getTheta() {
+        return (Double) getValue(THETA_KEY)
+    }
+
+    def void setTheta(double theta) {
+        setValue(THETA_KEY, theta)
     }
 }
