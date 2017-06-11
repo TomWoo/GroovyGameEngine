@@ -69,7 +69,7 @@ public class Controller implements IEditorController {
 
     @Override
     public IReturnMessage addSprite(IEntity sprite, double x, double y) {
-        return null;
+        return getUniverse().addEntities();
     }
 
     @Override

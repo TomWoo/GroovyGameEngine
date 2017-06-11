@@ -6,18 +6,23 @@ import java.util.*;
 
 /**
  * Created by Tom on 6/8/2017.
+ * Object composed of components.
  */
 public class Entity implements IEntity {
-    private final String uniqueID;
+    private final transient String uniqueID;
     private String name;
     private final Set<String> groupIDs;
     private final Map<String, IComponent> componentsMap;
 
-    public Entity(String name, Set<String> groupIDs) {
-        this.uniqueID = UUID.randomUUID().toString();
+    public Entity(String name, String... groupIDs) {
+        this(name, Arrays.asList(groupIDs));
+    }
+
+    public Entity(String name, List<String> groupIDs) {
+        this.uniqueID = UtilityFunctions.generateUID();
         this.name = name;
-        this.groupIDs = groupIDs;
-        this.componentsMap = new HashMap<String, IComponent>();
+        this.groupIDs = new LinkedHashSet<>(groupIDs); // TODO: warn?
+        this.componentsMap = new LinkedHashMap<>();
     }
 
     @Override
@@ -61,12 +66,12 @@ public class Entity implements IEntity {
 
     @Override
     public Set<IComponent> getComponents() {
-        return new HashSet<IComponent>(componentsMap.values());
+        return new HashSet<>(componentsMap.values());
     }
 
     @Override
     public Set<IComponent> getComponents(String... names) {
-        Set<IComponent> components = new HashSet<IComponent>();
+        Set<IComponent> components = new HashSet<>();
         for(String name : names) {
             components.add(componentsMap.get(name)); // TODO: check null?
         }
@@ -87,7 +92,7 @@ public class Entity implements IEntity {
     public IReturnMessage addComponents(IComponent... components) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IComponent component : components) {
-            String name = component.getClass().getName();
+            String name = component.getName();
             if(!UtilityFunctions.isComponent(name)) {
                 returnMessage.appendErrors(name + " is not an existing component. ");
                 returnMessage.setExitStatus(1);

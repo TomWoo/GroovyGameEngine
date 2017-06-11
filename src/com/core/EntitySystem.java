@@ -4,14 +4,15 @@ import java.util.*;
 
 /**
  * Created by Tom on 6/8/2017.
+ * System containing entities, which contain components.
  */
 public class EntitySystem implements IEntitySystem {
-    private final String uniqueID;
+    private final transient String uniqueID;
     private final Map<String, IEntity> entitiesMap;
 
     public EntitySystem() {
-        uniqueID = UUID.randomUUID().toString();
-        entitiesMap = new HashMap<String, IEntity>();
+        uniqueID = UtilityFunctions.generateUID();
+        entitiesMap = new LinkedHashMap<>(); // TODO: pushToFront() and pushToBack()
     }
 
     public String getUID() {
@@ -20,12 +21,12 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public Set<IEntity> getEntities() {
-        return new HashSet<IEntity>(entitiesMap.values());
+        return new HashSet<>(entitiesMap.values());
     }
 
     @Override
     public Set<IEntity> getEntities(String... uniqueIDs) {
-        Set<IEntity> entities = new HashSet<IEntity>();
+        Set<IEntity> entities = new HashSet<>();
         for(String uniqueID : uniqueIDs) {
             entities.add(entitiesMap.get(uniqueID)); // TODO: check null?
         }
@@ -39,7 +40,7 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public Set<IEntity> getEntitiesByNames(String... names) {
-        Set<IEntity> entities = new HashSet<IEntity>();
+        Set<IEntity> entities = new HashSet<>();
         for(String name : names) {
             entities.add(entitiesMap.get(name));
         }
