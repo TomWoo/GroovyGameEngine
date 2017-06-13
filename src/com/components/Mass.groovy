@@ -1,5 +1,7 @@
 package com.components
 
+import com.core.IReturnMessage
+
 /**
  * Created by Tom on 6/11/2017.
  */
@@ -14,7 +16,7 @@ class Mass extends Component {
         return (Double) getValue(MASS_KEY)
     }
 
-    def void setMass(double mass) {
+    def setMass(double mass) {
         setValue(MASS_KEY, mass)
     }
 }

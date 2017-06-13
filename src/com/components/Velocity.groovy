@@ -7,7 +7,7 @@ class Velocity extends Component {
     public static final String V_X_KEY = "v_x"
     public static final String V_Y_KEY = "v_y"
 
-    def init(Map<String, Serializable> data) {
+    def void init(Map<String, Serializable> data) {
         data.put(V_X_KEY, 0.0)
         data.put(V_Y_KEY, 0.0)
     }

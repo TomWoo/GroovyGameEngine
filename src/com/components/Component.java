@@ -31,10 +31,11 @@ public abstract class Component implements IComponent {
 
     @Override
     public final IReturnMessage setValue(String key, Serializable newValue) {
-        IReturnMessage returnMessage = new ReturnMessage(0, "Setting value of " + getClass() + " : " + key + ". ", "");
+        IReturnMessage returnMessage = new ReturnMessage(0, "Setting value of " + getClass() + " component: " + key + ". ", "");
         Serializable value = dataMap.get(key);
         if(newValue.getClass().equals(value.getClass())) {
             dataMap.put(key, newValue);
+            returnMessage.appendInfo("Successfully set to " + newValue + ". ");
         } else {
             returnMessage.appendErrors("Expecting " + value.getClass());
         }
