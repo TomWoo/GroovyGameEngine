@@ -28,7 +28,12 @@ public abstract class System implements ISystem {
 
     @Override
     public final IReturnMessage execute(IEntitySystem universe) {
-        Set<IEntity> relevantEntities = universe.getEntities().stream().filter(e -> e.hasComponents(componentClasses)).collect(Collectors.toSet());
+        Set<IEntity> relevantEntities;
+        if(componentClasses.isEmpty()) {
+            relevantEntities = universe.getEntities();
+        } else {
+            relevantEntities = universe.getEntities().stream().filter(e -> e.hasComponents(componentClasses)).collect(Collectors.toSet());
+        }
         return execute(relevantEntities);
     }
 

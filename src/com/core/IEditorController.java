@@ -11,14 +11,14 @@ public interface IEditorController extends IGamePlayerController {
     IReturnMessage loadPalette(File file);
     IReturnMessage savePalette(IEntitySystem palette, File file);
     Set<IEntity> getSpritesInPalette(String... uniqueIDs);
-    Set<IEntity> getSpritesInPalette(Collection<String> uniqueIDs);
+    Set<IEntity> getSpritesInPalette(Set<String> uniqueIDs);
     IReturnMessage addSpritesToPalette(IEntity... sprites);
-    IReturnMessage addSpritesToPalette(Collection<IEntity> sprites);
+    IReturnMessage addSpritesToPalette(Set<IEntity> sprites);
     IReturnMessage removeSpritesFromPalette(String... uniqueIDs);
-    IReturnMessage removeSpritesFromPalette(Collection<String> uniqueIDs);
+    IReturnMessage removeSpritesFromPalette(Set<String> uniqueIDs);
 
     IReturnMessage addSprite(IEntity sprite, double x, double y);
     IReturnMessage removeSprites(String... uniqueIDs);
-    IReturnMessage removeSprites(Collection<String> uniqueIDs);
+    IReturnMessage removeSprites(Set<String> uniqueIDs);
     IReturnMessage clearUniverse();
 }

@@ -1,7 +1,6 @@
 package com.core;
 
 import java.io.*;
-import java.util.Collection;
 import java.util.Set;
 
 public class Controller implements IEditorController {
@@ -17,7 +16,7 @@ public class Controller implements IEditorController {
     public IReturnMessage loadPalette(File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            palette = UtilityFunctions.deserialize(file); // TODO: catch ClassCastException?
+            palette = UtilityFunctions.deserialize(file, EntitySystem.class); // TODO: catch ClassCastException?
             returnMessage.appendInfo("Loaded " + file + " to palette. ");
         } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendErrors(e.getMessage());
@@ -43,7 +42,7 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public Set<IEntity> getSpritesInPalette(Collection<String> uniqueIDs) {
+    public Set<IEntity> getSpritesInPalette(Set<String> uniqueIDs) {
         return getPalette().getEntities(uniqueIDs);
     }
 
@@ -53,7 +52,7 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public IReturnMessage addSpritesToPalette(Collection<IEntity> sprites) {
+    public IReturnMessage addSpritesToPalette(Set<IEntity> sprites) {
         return getPalette().addEntities(sprites);
     }
 
@@ -63,7 +62,7 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public IReturnMessage removeSpritesFromPalette(Collection<String> uniqueIDs) {
+    public IReturnMessage removeSpritesFromPalette(Set<String> uniqueIDs) {
         return getPalette().removeEntities(uniqueIDs);
     }
 
@@ -78,7 +77,7 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public IReturnMessage removeSprites(Collection<String> uniqueIDs) {
+    public IReturnMessage removeSprites(Set<String> uniqueIDs) {
         return null;
     }
 
@@ -93,7 +92,7 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public Set<IEntity> getSprites(Collection<String> uniqueIDs) {
+    public Set<IEntity> getSprites(Set<String> uniqueIDs) {
         return getUniverse().getEntities(uniqueIDs);
     }
 
@@ -107,7 +106,7 @@ public class Controller implements IEditorController {
     public IReturnMessage loadUniverse(File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            universe = UtilityFunctions.deserialize(file);
+            universe = UtilityFunctions.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to universe. ");
         } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendErrors(e.getMessage());

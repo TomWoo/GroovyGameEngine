@@ -13,5 +13,5 @@ public interface IGamePlayerController {
     IEntitySystem getUniverse();
     IEntitySystem getPalette();
     Set<IEntity> getSprites(String... uniqueIDs);
-    Set<IEntity> getSprites(Collection<String> uniqueIDs);
+    Set<IEntity> getSprites(Set<String> uniqueIDs);
 }

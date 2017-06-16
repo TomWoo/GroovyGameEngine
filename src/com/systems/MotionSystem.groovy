@@ -9,7 +9,7 @@ import com.core.IReturnMessage
 /**
  * Created by Tom on 6/12/2017.
  */
-class Motion extends System {
+class MotionSystem extends System {
     def void init(Set<Class> componentClasses, Map<String, Serializable> data) {
         componentClasses.addAll(Position.class, Velocity.class)
     }

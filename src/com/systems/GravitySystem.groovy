@@ -8,7 +8,7 @@ import com.core.IReturnMessage
 /**
  * Created by Tom on 6/11/2017.
  */
-class Gravity extends System {
+class GravitySystem extends System {
     public static final G_X_KEY = "g_x"
     public static final G_Y_KEY = "g_y"
 
