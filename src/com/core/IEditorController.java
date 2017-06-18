@@ -1,13 +1,12 @@
 package com.core;
 
 import java.io.File;
-import java.util.Collection;
 import java.util.Set;
 
 /**
  * Created by Tom on 6/9/2017.
  */
-public interface IEditorController extends IGamePlayerController {
+public interface IEditorController extends IGameplayController {
     IReturnMessage loadPalette(File file);
     IReturnMessage savePalette(IEntitySystem palette, File file);
     Set<IEntity> getSpritesInPalette(String... uniqueIDs);

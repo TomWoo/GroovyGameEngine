@@ -27,7 +27,7 @@ public abstract class System implements ISystem {
     public abstract IReturnMessage execute(Set<IEntity> entities);
 
     @Override
-    public final IReturnMessage execute(IEntitySystem universe) {
+    public IReturnMessage execute(IEntitySystem universe) {
         Set<IEntity> relevantEntities;
         if(componentClasses.isEmpty()) {
             relevantEntities = universe.getEntities();

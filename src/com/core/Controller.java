@@ -6,10 +6,12 @@ import java.util.Set;
 public class Controller implements IEditorController {
     private IEntitySystem universe;
     private IEntitySystem palette;
+    private boolean isPlaying;
 
-    public Controller() {
+    public Controller(boolean isPlaying) {
         this.universe = new EntitySystem();
         this.palette = new EntitySystem();
+        this.isPlaying = isPlaying;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class Controller implements IEditorController {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
             UtilityFunctions.serialize(getPalette(), file);
-            returnMessage.appendInfo("Saved palette to " + file);
+            returnMessage.appendInfo("Saved palette to " + file + ". ");
         } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendErrors(e.getMessage());
         }
@@ -94,6 +96,21 @@ public class Controller implements IEditorController {
     @Override
     public Set<IEntity> getSprites(Set<String> uniqueIDs) {
         return getUniverse().getEntities(uniqueIDs);
+    }
+
+    @Override
+    public boolean togglePlayPause() {
+        isPlaying = !isPlaying;
+        return isPlaying;
+    }
+
+    @Override
+    public IReturnMessage loop() {
+        IReturnMessage returnMessage = new ReturnMessage();
+        if(isPlaying) {
+            // TODO
+        }
+        return returnMessage;
     }
 
     @Override
