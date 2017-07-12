@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/8/2017.
  * Object composed of components.
  */
-public class Entity implements IEntity {
-    private final transient String uniqueID;
+public class Entity implements IEntity { // TODO: override IListener default methods
+    private final String uniqueID = UtilityFunctions.generateUID();
     private String name;
     private final Set<String> groupIDs;
     private final Map<Class, IComponent> componentsMap;
@@ -21,9 +21,8 @@ public class Entity implements IEntity {
     }
 
     public Entity(String name, List<String> groupIDs) {
-        this.uniqueID = UtilityFunctions.generateUID();
         this.name = name;
-        this.groupIDs = new LinkedHashSet<>(groupIDs); // TODO: warn?
+        this.groupIDs = new LinkedHashSet<>(groupIDs);
         this.componentsMap = new LinkedHashMap<>();
     }
 

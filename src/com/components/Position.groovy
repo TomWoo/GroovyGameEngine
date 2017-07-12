@@ -1,40 +1,21 @@
 package com.components
 
+import groovy.beans.Bindable
+import groovy.beans.Vetoable
+
 /**
  * Created by Tom on 6/11/2017.
  */
 class Position extends Component {
-    public static final String X_KEY = "x"
-    public static final String Y_KEY = "y"
-    public static final String THETA_KEY = "theta"
+    @Bindable @Vetoable double x = 0.0
+    @Bindable @Vetoable double y = 0.0
+    @Bindable @Vetoable double theta = 0.0
 
-    def void init(Map<String, Serializable> data) {
-        data.put(X_KEY, 0.0)
-        data.put(Y_KEY, 0.0)
-        data.put(THETA_KEY, 0.0)
-    }
+    Position() {}
 
-    def double getX() {
-        return (Double) getValue(X_KEY)
-    }
-
-    def void setX(double x) {
-        setValue(X_KEY, x)
-    }
-
-    def double getY() {
-        return (Double) getValue(Y_KEY)
-    }
-
-    def void setY(double y) {
-        setValue(Y_KEY, y)
-    }
-
-    def double getTheta() {
-        return (Double) getValue(THETA_KEY)
-    }
-
-    def void setTheta(double theta) {
-        setValue(THETA_KEY, theta)
+    Position(double x, double y, double theta) {
+        this.x = x
+        this.y = y
+        this.theta = theta
     }
 }

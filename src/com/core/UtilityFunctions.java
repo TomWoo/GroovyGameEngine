@@ -10,16 +10,23 @@ public final class UtilityFunctions {
     private UtilityFunctions() {} // behave as static class
 
     public static void serialize(Serializable obj, File file) throws IOException, ClassNotFoundException {
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-        out.writeObject(obj);
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+        oos.writeObject(obj);
+        oos.close();
     }
 
     public static <T extends Serializable>T deserialize(File file, Class<T> c) throws IOException, ClassNotFoundException {
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
-        return (T) in.readObject();
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+        Object obj = ois.readObject();
+        ois.close();
+        return (T) obj;
     }
 
     public static String generateUID() {
         return UUID.randomUUID().toString();
+    }
+
+    public static String getPath(String filename) {
+        return (new UtilityFunctions()).getClass().getResource(filename).toString();
     }
 }

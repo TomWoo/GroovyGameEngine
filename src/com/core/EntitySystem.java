@@ -7,13 +7,12 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/8/2017.
  * System containing entities, which contain components.
  */
-public class EntitySystem implements IEntitySystem {
-    private final transient String uniqueID;
+public class EntitySystem implements IEntitySystem { // TODO: override IListener default methods
+    private final String uniqueID = UtilityFunctions.generateUID();
     private final Map<String, IEntity> entitiesMap;
 
     public EntitySystem() {
-        uniqueID = UtilityFunctions.generateUID();
-        entitiesMap = new LinkedHashMap<>(); // TODO: pushToFront() and pushToBack()
+        this.entitiesMap = new LinkedHashMap<>(); // TODO: pushToFront() and pushToBack()
     }
 
     public String getUID() {
@@ -90,7 +89,7 @@ public class EntitySystem implements IEntitySystem {
     }
 
     @Override
-    public void clear() {
+    public void clear() { // TODO: use removeEntities instead?
         entitiesMap.clear();
     }
 }

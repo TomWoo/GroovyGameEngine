@@ -3,7 +3,9 @@ package com.core;
 /**
  * Created by Tom on 6/18/2017.
  */
-class Event { // TODO: interface?
+class GameEvent implements Serializable { // TODO: interface?
+    final String uniqueID = UtilityFunctions.generateUID() // final enforced at runtime
+
     // Trigger
     String objName
     String methodName
@@ -12,14 +14,14 @@ class Event { // TODO: interface?
     // Response
     String response
 
-    public Event(String objName, String methodName, String conditions, String response) {
+    public GameEvent(String objName, String methodName, String conditions, String response) {
         this.objName = objName
         this.methodName = methodName
         this.conditions = conditions
         this.response = response
     }
 
-    public Event(String event) {
+    public GameEvent(String event) {
         String[] eventArr = event.split("->")
         assert eventArr.length==2
 
@@ -38,12 +40,16 @@ class Event { // TODO: interface?
         this.response = eventArr[1]
     }
 
-    def String getTrigger() {
+    String getUID() {
+        return uniqueID
+    }
+
+    String getTrigger() {
         return getObjName() + "." + getMethodName() + ";" + getConditions()
     }
 
     @Override
-    def String toString() {
+    String toString() {
         return getTrigger() + "->" + getResponse()
     }
 }

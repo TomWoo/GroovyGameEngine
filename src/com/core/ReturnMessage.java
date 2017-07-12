@@ -39,17 +39,29 @@ public class ReturnMessage implements IReturnMessage {
     }
 
     @Override
+    public void append(IReturnMessage returnMessage) {
+        append(returnMessage.getInfo(), returnMessage.getErrors());
+    }
+
+    @Override
+    public void append(String info, String errors) {
+        this.info = getInfo() + "\n" + info;
+        this.errors = getErrors() + "\n" + errors;
+
+    }
+
+    @Override
     public void appendInfo(String info) {
-        this.info = getInfo() + info;
+        append(info, "");
     }
 
     @Override
     public void appendErrors(String errors) {
-        this.errors = getErrors() + errors;
+        append("", errors);
     }
 
     @Override
     public String toString() {
-        return info + "\nErrors: " + errors + "\n";
+        return "Info:\n" + info + "\nErrors:\n" + errors + "\n";
     }
 }

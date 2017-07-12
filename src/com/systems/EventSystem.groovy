@@ -1,62 +1,63 @@
 package com.systems
 
-import com.core.Event
 import com.core.IEntity
 import com.core.IEntitySystem
+import com.core.IListenable
 import com.core.IReturnMessage
+import com.core.GameEvent
+import com.core.ReturnMessage
+import org.codehaus.groovy.control.CompilationFailedException
 
-import java.lang.reflect.Method
+import java.beans.PropertyChangeListener
 
 /**
  * Created by Tom on 6/14/2017.
  * Data map
  */
 class EventSystem extends System {
-    def void init(Set<Class> componentClasses, Map<String, Serializable> data) {}
+    final String EVENT_UID_KEY = "uniqueID"
+    final Map<String, GameEvent> events = new LinkedHashMap<>()
 
-    def IReturnMessage execute(IEntitySystem universe) {
+    @Override
+    IReturnMessage execute(IEntitySystem universe) {
         for(String key : getKeys()) {
-            // TODO
+            // TODO: garbage collect dangling events
         }
     }
 
-    def IReturnMessage execute(Set<IEntity> entities) {}
+    @Override
+    IReturnMessage execute(Set<IEntity> entities) {}
 
-    def register(Object obj, String methodName, String conditions, String response) {
-        MetaClass c = obj.getMetaClass()
-        c.invokeMethod = { String name, Object... args ->
-            if(name.equals(methodName)) { // TODO
-                println("$obj.$name($args) called when $conditions...")
+    IReturnMessage register(IListenable obj, String prop, String conditions,
+                            String response, String uniqueID) throws CompilationFailedException {
+        PropertyChangeListener listener = { e ->
+            // TODO: pass parameters
+            if (Eval.me(conditions)) {
+                Eval.me(response)
             }
-            def result = c.invokeMethod(name, args)
-            if(name.equals(methodName)) { // TODO
-                println("$response... DONE.")
-            }
-            return result
         }
-        println("$obj.$methodName() registered.")
+        listener.metaClass."$EVENT_UID_KEY" = uniqueID
+        obj.addPropertyChangeListener(prop, listener)
+        return new ReturnMessage(0, "Listening for changes to $obj.$prop.", "")
     }
 
-    def register(IEntitySystem universe, Event event) {
-        Object obj = universe.getEntities(event.getObjName()).getAt(0)
+    IReturnMessage register(IEntitySystem universe, GameEvent event) {
+        IListenable obj = universe.getEntities(event.getObjName()).getAt(0)
         if(obj==null) {
-            obj = universe // TODO: use colon for fallback obj type
+            obj = universe // TODO: use colon for fallback obj type?
         }
-
-        // Register event
-        register(obj, event.getMethodName(), event.getConditions(), event.getResponse())
-        setValue(event.toString(), true)
-        println("$event registered.")
+        IReturnMessage returnMessage = register(obj, event.getMethodName(), event.getConditions(), event.getResponse(), event.getUID())
+        events.put(event.getUID(), event)
+        return returnMessage
     }
 
-    def unregister(Object obj, String methodName, String conditions) {
-        MetaClass c = obj.metaClass
-        obj = (GroovyObject) obj
-        obj.getProperty("")
-    }
-
-    def unregister(IEntitySystem universe, String event) {
-        // TODO
-        println("$event unregistered.")
+    void unregister(IEntitySystem universe, String eventID) {
+        GameEvent event = events.get(eventID)
+        String uniqueID = event.getObjName()
+        Set<IListenable> entities = universe.getEntities(uniqueID) // TODO: don't assume entity
+        for(IListenable obj : entities) {
+            obj.removePropertyChangeListener(obj.getPropertyChangeListeners().find({ e -> e.metaClass."$EVENT_UID_KEY" })) // TODO: check
+            events.remove(eventID)
+        }
     }
 }

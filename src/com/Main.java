@@ -11,8 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("ui/main.fxml"));
-        primaryStage.setTitle("Lightweight Custom Game Engine");
-        primaryStage.setScene(new Scene(root, 640, 480));
+        primaryStage.setTitle("Custom Groovy Game Engine");
+        primaryStage.setScene(new Scene(root, 960, 480));
         primaryStage.show();
     }
 

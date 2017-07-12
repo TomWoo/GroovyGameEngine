@@ -1,22 +1,17 @@
 package com.components
 
-import com.core.IReturnMessage
+import groovy.beans.Bindable
+import groovy.beans.Vetoable
 
 /**
  * Created by Tom on 6/11/2017.
  */
 class Mass extends Component {
-    public static final String MASS_KEY = "mass"
+    @Bindable @Vetoable double mass = 1.0
 
-    def void init(Map<String, Serializable> data) {
-        data.put(MASS_KEY, 1.0)
-    }
+    Mass() {}
 
-    def double getMass() {
-        return (Double) getValue(MASS_KEY)
-    }
-
-    def setMass(double mass) {
-        setValue(MASS_KEY, mass)
+    Mass(double mass) {
+        this.mass = mass
     }
 }

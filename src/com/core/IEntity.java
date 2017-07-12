@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Created by Tom on 6/8/2017.
  */
-public interface IEntity extends Serializable {
+public interface IEntity extends Serializable, IListenable {
     String getUID();
     String getName();
     void setName(String name);

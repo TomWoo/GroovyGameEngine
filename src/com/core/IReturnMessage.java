@@ -8,6 +8,8 @@ public interface IReturnMessage {
     String getInfo();
     String getErrors();
     void setExitStatus(int exitStatus);
+    void append(IReturnMessage returnMessage);
+    void append(String info, String errors);
     void appendInfo(String info);
     void appendErrors(String errors);
 }

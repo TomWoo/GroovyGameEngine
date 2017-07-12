@@ -105,7 +105,7 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public IReturnMessage loop() {
+    public IReturnMessage update() {
         IReturnMessage returnMessage = new ReturnMessage();
         if(isPlaying) {
             // TODO
