@@ -2,7 +2,7 @@ package com.systems
 
 import com.core.IEntity
 import com.core.IEntitySystem
-import com.core.IListenable
+import com.core.IObservable
 import com.core.IReturnMessage
 import com.core.GameEvent
 import com.core.ReturnMessage
@@ -28,7 +28,7 @@ class EventSystem extends System {
     @Override
     IReturnMessage execute(Set<IEntity> entities) {}
 
-    IReturnMessage register(IListenable obj, String prop, String conditions,
+    IReturnMessage register(IObservable obj, String prop, String conditions,
                             String response, String uniqueID) throws CompilationFailedException {
         PropertyChangeListener listener = { e ->
             // TODO: pass parameters
@@ -42,7 +42,7 @@ class EventSystem extends System {
     }
 
     IReturnMessage register(IEntitySystem universe, GameEvent event) {
-        IListenable obj = universe.getEntities(event.getObjName()).getAt(0)
+        IObservable obj = universe.getEntities(event.getObjName()).getAt(0)
         if(obj==null) {
             obj = universe // TODO: use colon for fallback obj type?
         }
@@ -54,8 +54,8 @@ class EventSystem extends System {
     void unregister(IEntitySystem universe, String eventID) {
         GameEvent event = events.get(eventID)
         String uniqueID = event.getObjName()
-        Set<IListenable> entities = universe.getEntities(uniqueID) // TODO: don't assume entity
-        for(IListenable obj : entities) {
+        Set<IObservable> entities = universe.getEntities(uniqueID) // TODO: don't assume entity
+        for(IObservable obj : entities) {
             obj.removePropertyChangeListener(obj.getPropertyChangeListeners().find({ e -> e.metaClass."$EVENT_UID_KEY" })) // TODO: check
             events.remove(eventID)
         }

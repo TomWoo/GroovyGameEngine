@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Created by Tom on 6/9/2017.
  */
-public interface IEntitySystem extends Serializable, IListenable {
+public interface IEntitySystem extends Serializable, IObservable {
     String getUID();
     Set<IEntity> getEntities();
     Set<IEntity> getEntities(String... uniqueIDs);

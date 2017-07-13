@@ -1,6 +1,5 @@
 package com.components
 
-import com.core.IListenable
 import com.core.IReturnMessage;
 import com.core.ReturnMessage
 
@@ -10,7 +9,7 @@ import java.util.*;
  * Created by Tom on 6/10/2017.
  * Data contained within an entity.
  */
-abstract class Component implements IComponent, IListenable {
+abstract class Component implements IComponent {
     @Override
     final List<String> getKeys() {
         return new ArrayList<>(properties.keySet());

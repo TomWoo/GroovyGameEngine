@@ -9,11 +9,7 @@ import java.util.stream.Collectors;
  */
 public class EntitySystem implements IEntitySystem { // TODO: override IListener default methods
     private final String uniqueID = UtilityFunctions.generateUID();
-    private final Map<String, IEntity> entitiesMap;
-
-    public EntitySystem() {
-        this.entitiesMap = new LinkedHashMap<>(); // TODO: pushToFront() and pushToBack()
-    }
+    private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
 
     public String getUID() {
         return uniqueID;

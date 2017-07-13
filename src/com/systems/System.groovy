@@ -2,7 +2,6 @@ package com.systems;
 
 import com.core.IEntity;
 import com.core.IEntitySystem
-import com.core.IListenable;
 import com.core.IReturnMessage;
 import com.core.ReturnMessage;
 
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Tom on 6/11/2017.
  */
-public abstract class System implements ISystem, IListenable {
+abstract class System implements ISystem {
     Set<Class> componentClasses = []
 
     abstract IReturnMessage execute(Set<IEntity> entities);

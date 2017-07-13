@@ -6,13 +6,18 @@ import java.beans.VetoableChangeListener;
 /**
  * Created by Tom on 6/18/2017.
  */
-public interface IListenable { // Must override these methods!
+public interface IObservable { // Must override these methods!
     default PropertyChangeListener[] getPropertyChangeListeners() {
         return new PropertyChangeListener[0];
     }
     default void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {}
     default void removePropertyChangeListener(PropertyChangeListener listener) {}
     default void firePropertyChange(String name, Object oldValue, Object newValue) {}
+    default void removeAllListeners() {
+        for(PropertyChangeListener listener : getPropertyChangeListeners()) {
+            removePropertyChangeListener(listener);
+        }
+    }
 
     /*
     default VetoableChangeListener[] getVetoableChangeListeners() {
