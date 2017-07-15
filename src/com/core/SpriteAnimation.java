@@ -8,6 +8,7 @@ import javafx.util.Duration;
 
 /**
  * Created by Tom on 6/29/2017.
+ * Reference: https://netopyr.com/2012/03/09/creating-a-sprite-animation-with-javafx/
  */
 public class SpriteAnimation extends Transition {
     private final ImageView imageView;
@@ -38,6 +39,7 @@ public class SpriteAnimation extends Transition {
         setInterpolator(Interpolator.LINEAR);
     }
 
+    @Override
     protected void interpolate(double k) {
         final int index = Math.min((int) Math.floor(k * count), count - 1);
         if(index != lastIndex) {

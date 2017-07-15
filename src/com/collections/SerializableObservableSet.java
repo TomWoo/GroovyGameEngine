@@ -1,5 +1,6 @@
-package com.core;
+package com.collections;
 
+import com.core.IObservable;
 import groovy.lang.Delegate;
 import groovy.util.ObservableSet;
 

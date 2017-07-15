@@ -15,7 +15,7 @@ public interface IObservable { // Must override these methods!
     default void firePropertyChange(String name, Object oldValue, Object newValue) {}
     default void removeAllListeners() {
         for(PropertyChangeListener listener : getPropertyChangeListeners()) {
-            removePropertyChangeListener(listener);
+            removePropertyChangeListener(listener); // TODO: test
         }
     }
 

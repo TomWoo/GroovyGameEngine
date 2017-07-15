@@ -9,6 +9,7 @@ import java.util.UUID;
 public final class UtilityFunctions {
     private UtilityFunctions() {} // behave as static class
 
+    // TODO: test
     public static void serialize(Serializable obj, File file) throws IOException, ClassNotFoundException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
         oos.writeObject(obj);

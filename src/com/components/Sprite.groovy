@@ -1,5 +1,6 @@
 package com.components
 
+import com.collections.SerializableObservableMap
 import groovy.beans.Bindable
 import groovy.beans.Vetoable
 
@@ -7,13 +8,12 @@ import groovy.beans.Vetoable
  * Created by Tom on 6/29/2017.
  */
 class Sprite extends Component {
-    @Bindable @Vetoable String imageFilename = "default.png"
-    //transient ImageView image
+    @Bindable @Vetoable boolean isAnimated = false
+    SerializableObservableMap<String, String> spriteSheets = [default : "default.png"] // state : file path
 
     Sprite() {}
 
-    Sprite(String imageFilename) {
-        this.imageFilename = imageFilename
-        //this.image = new ImageView(UtilityFunctions.getPath(imageFilename)) // TODO: remove
+    Sprite(String spriteSheet) {
+        this.spriteSheet = [default : spriteSheet]
     }
 }
