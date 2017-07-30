@@ -29,8 +29,8 @@
           <Menu mnemonicParsing="false" text="Edit">
             <items>
               <!--<MenuItem mnemonicParsing="false" text="Component Editor"/>-->
-              <MenuItem mnemonicParsing="false" text="System Editor"/>
-              <MenuItem mnemonicParsing="false" text="Game Loop Manager"/>
+              <MenuItem mnemonicParsing="false" text="System Editor" />
+              <MenuItem mnemonicParsing="false" text="Game Loop Manager" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -60,7 +60,7 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView prefHeight="850.0" prefWidth="100.0" />
+            <ListView fx:id="palette" onMouseClicked="#initPalette" prefHeight="850.0" prefWidth="100.0" />
             <ToolBar prefHeight="0.0" prefWidth="100.0">
               <items>
                   <SplitMenuButton mnemonicParsing="false" text="Create New Entity">

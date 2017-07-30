@@ -1,4 +1,6 @@
-package com.core;
+package com.core
+
+import com.UtilityFunctions;
 
 /**
  * Created by Tom on 6/18/2017.

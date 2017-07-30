@@ -14,6 +14,6 @@ class Sprite extends Component {
     Sprite() {}
 
     Sprite(String spriteSheet) {
-        this.spriteSheet = [default : spriteSheet]
+        this.spriteSheets = [default : spriteSheet]
     }
 }

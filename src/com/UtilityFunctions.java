@@ -1,4 +1,4 @@
-package com.core;
+package com;
 
 import java.io.*;
 import java.util.UUID;
@@ -27,7 +27,7 @@ public final class UtilityFunctions {
         return UUID.randomUUID().toString();
     }
 
-    public static String getPath(String filename) {
-        return (new UtilityFunctions()).getClass().getResource(filename).toString();
+    public static String getFilePath(String filename) {
+        return (new UtilityFunctions()).getClass().getResource(filename).getFile();
     }
 }
