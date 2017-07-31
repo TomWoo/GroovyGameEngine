@@ -19,16 +19,19 @@ class EventSystem extends System {
     final Map<String, GameEvent> events = new LinkedHashMap<>()
 
     @Override
+    void init() {}
+
+    @Override
     IReturnMessage update(IEntitySystem universe, long dt) {
         for(String key : getKeys()) {
             // TODO: garbage collect 'lapsed listeners'
         }
-        return new ReturnMessage()
+        return new ReturnMessage() // TODO
     }
 
     @Override
     IReturnMessage update(Set<IEntity> entities, long dt) {
-        return new ReturnMessage()
+        return new ReturnMessage() // TODO
     }
 
     IReturnMessage register(IObservable obj, String prop, String conditions,
@@ -54,7 +57,7 @@ class EventSystem extends System {
         return returnMessage
     }
 
-    void unregister(IEntitySystem universe, String eventID) {
+    IReturnMessage unregister(IEntitySystem universe, String eventID) {
         GameEvent event = events.get(eventID)
         String uniqueID = event.getObjName()
         Set<IObservable> entities = universe.getEntities(uniqueID) // TODO: don't assume entity
@@ -62,5 +65,6 @@ class EventSystem extends System {
             obj.removePropertyChangeListener(obj.getPropertyChangeListeners().find({ e -> e.metaClass."$EVENT_UID_KEY" })) // TODO: check
             events.remove(eventID)
         }
+        return new ReturnMessage() // TODO
     }
 }

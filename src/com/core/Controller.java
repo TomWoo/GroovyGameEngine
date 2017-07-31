@@ -20,9 +20,9 @@ public class Controller implements IEditorController {
     public IReturnMessage loadPalette(File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            palette = UtilityFunctions.deserialize(file, EntitySystem.class); // TODO: catch ClassCastException?
+            palette = UtilityFunctions.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to palette. ");
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (Exception e) {
             returnMessage.appendErrors(e.getMessage());
         }
         return returnMessage;

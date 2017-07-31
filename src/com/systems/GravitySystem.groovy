@@ -4,41 +4,26 @@ import com.components.Mass
 import com.components.Velocity
 import com.core.IEntity
 import com.core.IReturnMessage
+import com.core.ReturnMessage
 
 /**
  * Created by Tom on 6/11/2017.
  */
 class GravitySystem extends System {
-    public static final G_X_KEY = "g_x"
-    public static final G_Y_KEY = "g_y"
+    double gx = 0.0
+    double gy = -4.0
 
-    void init(Set<Class> componentClasses, Map<String, Serializable> data) {
+    @Override
+    void init() {
         componentClasses.addAll(Mass.class, Velocity.class)
-        data.put(G_X_KEY, 0.0)
-        data.put(G_Y_KEY, -4.0)
     }
 
     IReturnMessage update(Set<IEntity> entities, long dt) {
         for(IEntity entity : entities) {
             Velocity v = entity.getComponent(Velocity.class)
-            v.setVx(v.getVx() + getGX()*dt)
-            v.setVy(v.getVy() + getGY()*dt)
+            v.setVx(v.getVx() + getGx()*dt)
+            v.setVy(v.getVy() + getGy()*dt)
         }
-    }
-
-    double getGX() {
-        return (Double) getValue(G_X_KEY)
-    }
-
-    void setGX(double g_x) {
-        setValue(G_X_KEY, g_x)
-    }
-
-    double getGY() {
-        return (Double) getValue(G_Y_KEY)
-    }
-
-    void setGY(double g_y) {
-        setValue(G_Y_KEY, g_y)
+        return new ReturnMessage() // TODO
     }
 }

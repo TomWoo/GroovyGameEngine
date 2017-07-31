@@ -10,7 +10,8 @@ import com.core.IReturnMessage
  * Created by Tom on 6/12/2017.
  */
 class MotionSystem extends System {
-    void init(Set<Class> componentClasses, Map<String, Serializable> data) {
+    @Override
+    void init() {
         componentClasses.addAll(Position.class, Velocity.class)
     }
 
