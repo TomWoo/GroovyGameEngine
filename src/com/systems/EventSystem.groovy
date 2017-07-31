@@ -19,14 +19,17 @@ class EventSystem extends System {
     final Map<String, GameEvent> events = new LinkedHashMap<>()
 
     @Override
-    IReturnMessage execute(IEntitySystem universe) {
+    IReturnMessage update(IEntitySystem universe, long dt) {
         for(String key : getKeys()) {
-            // TODO: garbage collect dangling events
+            // TODO: garbage collect 'lapsed listeners'
         }
+        return new ReturnMessage()
     }
 
     @Override
-    IReturnMessage execute(Set<IEntity> entities) {}
+    IReturnMessage update(Set<IEntity> entities, long dt) {
+        return new ReturnMessage()
+    }
 
     IReturnMessage register(IObservable obj, String prop, String conditions,
                             String response, String uniqueID) throws CompilationFailedException {

@@ -16,5 +16,5 @@ public interface IGameplayController {
     Set<IEntity> getSprites(Set<String> uniqueIDs);
 
     boolean togglePlayPause();
-    IReturnMessage update();
+    IReturnMessage update(long dt);
 }

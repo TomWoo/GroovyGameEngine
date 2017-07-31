@@ -1,6 +1,10 @@
 package com;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.io.*;
+import java.net.URL;
 import java.util.UUID;
 
 /**
@@ -27,7 +31,15 @@ public final class UtilityFunctions {
         return UUID.randomUUID().toString();
     }
 
-    public static String getFilePath(String filename) {
-        return (new UtilityFunctions()).getClass().getResource(filename).getFile();
+    public static URL getResourceURL(String filename) {
+        return (new UtilityFunctions()).getClass().getResource(filename);
+    }
+
+    public static String getResourcePath(String filename) {
+        return getResourceURL(filename).getPath();
+    }
+
+    public static File getResourceFile(String filename) {
+        return new File(getResourcePath(filename));
     }
 }

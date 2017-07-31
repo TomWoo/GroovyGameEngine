@@ -10,16 +10,16 @@ import com.core.IReturnMessage
  * Created by Tom on 6/12/2017.
  */
 class MotionSystem extends System {
-    def void init(Set<Class> componentClasses, Map<String, Serializable> data) {
+    void init(Set<Class> componentClasses, Map<String, Serializable> data) {
         componentClasses.addAll(Position.class, Velocity.class)
     }
 
-    def IReturnMessage execute(Set<IEntity> entities) {
+    IReturnMessage update(Set<IEntity> entities, long dt) {
         for(IEntity entity : entities) {
             Position pos = entity.getComponent(Position.class)
             Velocity v = entity.getComponent(Velocity.class)
-            pos.setX(pos.getX() + v.getVX())
-            pos.setY(pos.getY() + v.getVY())
+            pos.setX(pos.getX() + v.getVx()*dt)
+            pos.setY(pos.getY() + v.getVy()*dt)
         }
     }
 }

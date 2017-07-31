@@ -12,33 +12,33 @@ class GravitySystem extends System {
     public static final G_X_KEY = "g_x"
     public static final G_Y_KEY = "g_y"
 
-    def void init(Set<Class> componentClasses, Map<String, Serializable> data) {
+    void init(Set<Class> componentClasses, Map<String, Serializable> data) {
         componentClasses.addAll(Mass.class, Velocity.class)
         data.put(G_X_KEY, 0.0)
         data.put(G_Y_KEY, -4.0)
     }
 
-    def IReturnMessage execute(Set<IEntity> entities) {
+    IReturnMessage update(Set<IEntity> entities, long dt) {
         for(IEntity entity : entities) {
             Velocity v = entity.getComponent(Velocity.class)
-            v.setVX(v.getVX() + getGX())
-            v.setVY(v.getVY() + getGY())
+            v.setVx(v.getVx() + getGX()*dt)
+            v.setVy(v.getVy() + getGY()*dt)
         }
     }
 
-    def double getGX() {
+    double getGX() {
         return (Double) getValue(G_X_KEY)
     }
 
-    def void setGX(double g_x) {
+    void setGX(double g_x) {
         setValue(G_X_KEY, g_x)
     }
 
-    def double getGY() {
+    double getGY() {
         return (Double) getValue(G_Y_KEY)
     }
 
-    def void setGY(double g_y) {
+    void setGY(double g_y) {
         setValue(G_Y_KEY, g_y)
     }
 }

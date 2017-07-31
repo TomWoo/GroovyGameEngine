@@ -14,17 +14,17 @@ import java.util.stream.Collectors;
 abstract class System implements ISystem {
     Set<Class> componentClasses = []
 
-    abstract IReturnMessage execute(Set<IEntity> entities);
+    abstract IReturnMessage update(Set<IEntity> entities, long dt);
 
     @Override
-    IReturnMessage execute(IEntitySystem universe) {
+    IReturnMessage update(IEntitySystem universe, long dt) {
         Set<IEntity> relevantEntities;
         if(componentClasses.isEmpty()) {
             relevantEntities = universe.getEntities();
         } else {
             relevantEntities = universe.getEntities().stream().filter({e -> e.hasComponents(componentClasses)}).collect(Collectors.toSet());
         }
-        return execute(relevantEntities);
+        return update(relevantEntities, dt);
     }
 
     @Override

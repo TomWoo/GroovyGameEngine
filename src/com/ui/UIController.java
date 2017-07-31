@@ -1,9 +1,13 @@
 package com.ui;
 
+import com.core.Controller;
 import com.core.IReturnMessage;
 import com.core.ReturnMessage;
 import com.UtilityFunctions;
+import groovy.lang.GroovyShell;
 import groovy.util.Eval;
+import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -21,45 +25,73 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UIController {
+    @FXML ListView<String> palette;
+    @FXML ConsoleTextArea console;
+
+    private Controller controller = new Controller(false);
+    private GroovyShell groovyShell = new GroovyShell();
+
     @FXML
-    ListView<ListCell<String>> palette;
+    public void initialize() {
+        initPalette();
+        initConsole();
 
-    private class CustomListCell extends ListCell<String> {
-        public CustomListCell(String name, boolean empty) {
-            this.updateItem(name, empty);
-        }
-
-        @Override
-        public void updateItem(String name, boolean empty) {
-            super.updateItem(name, empty);
-            if(empty) {
-                setGraphic(null);
-                setText(null);
-            } else {
-                // TODO: filename
-                ImageView imageView = new ImageView(UtilityFunctions.getFilePath(name));
-                setGraphic(imageView);
-                setText(name);
+        // Game loop
+        AnimationTimer gameLoop = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                controller.update(now);
             }
-        }
+        };
+        gameLoop.start();
     }
 
-    public void initPalette() {
-        File[] files = (new File(UtilityFunctions.getFilePath("sprites"))).listFiles();
+    // Palette
+
+    private void initPalette() { // TODO: refactor
+        palette.setCellFactory(listCell -> new ListCell<String>() {
+            @Override
+            public void updateItem(String name, boolean empty) {
+                super.updateItem(name, empty);
+                if(empty) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    ImageView imageView;
+                    try {
+                        imageView = new ImageView(UtilityFunctions.getResourceURL("sprites/" + name).toString());
+                        imageView.setPreserveRatio(true);
+                        imageView.setFitHeight(16.0);
+                        setGraphic(imageView);
+                        setText(name);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        });
+
+        File[] files = (UtilityFunctions.getResourceFile("sprites")).listFiles();
         if(files != null) {
-            //palette.setCellFactory(listView -> new CustomListCell());
-            List<ListCell<String>> cells = Arrays.asList(files).stream().map(e -> new CustomListCell(e.getName(), false)).collect(Collectors.toList());
+            List<String> cells = Arrays.asList(files).stream().map(e -> {
+                String[] filePathArr = e.getAbsolutePath().split("\\\\");
+                return filePathArr[filePathArr.length-1];
+            }).collect(Collectors.toList());
             palette.setItems(FXCollections.observableArrayList(cells));
         }
     }
 
-    @FXML
-    ConsoleTextArea console;
+    // Console
+
+    private void initConsole() {
+        groovyShell.setVariable("universe", controller.getUniverse());
+        groovyShell.setVariable("palette", controller.getPalette());
+    }
 
     private IReturnMessage execute(String commands) {
         IReturnMessage message = new ReturnMessage();
         try {
-            message.appendInfo("Result: " + Eval.me(commands));
+            message.appendInfo("Result: " + groovyShell.evaluate(commands)); //Eval.me(commands));
         } catch (CompilationFailedException e) {
             message.appendErrors(e.getMessage());
         }
@@ -108,6 +140,4 @@ public class UIController {
         }
         //TODO message;
     }
-
-
 }

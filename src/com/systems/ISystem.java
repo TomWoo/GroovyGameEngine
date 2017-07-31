@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Tom on 6/11/2017.
  */
 public interface ISystem extends IObservable {
-    IReturnMessage execute(IEntitySystem universe);
+    IReturnMessage update(IEntitySystem universe, long dt);
     List<String> getKeys();
     Serializable getValue(String key);
     IReturnMessage setValue(String key, Serializable value);
