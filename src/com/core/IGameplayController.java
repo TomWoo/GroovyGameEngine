@@ -11,7 +11,6 @@ public interface IGameplayController {
     IReturnMessage loadUniverse(File file);
     IReturnMessage saveUniverse(IEntitySystem universe, File file);
     IEntitySystem getUniverse();
-    IEntitySystem getPalette();
     Set<IEntity> getSprites(String... uniqueIDs);
     Set<IEntity> getSprites(Set<String> uniqueIDs);
 

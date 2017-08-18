@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Collection;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,6 +17,14 @@ import java.util.Set;
 public class SerializableObservableSet<E> extends LinkedHashSet<E> implements IObservable {
     @Delegate
     private transient ObservableSet<E> delegate = new ObservableSet<>();
+
+    public SerializableObservableSet() {
+        super();
+    }
+
+    public SerializableObservableSet(Collection<? extends E> c) {
+        super(c);
+    }
 
     @Override
     public boolean add(E e) {

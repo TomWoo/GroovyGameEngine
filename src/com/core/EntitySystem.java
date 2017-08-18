@@ -2,7 +2,9 @@ package com.core;
 
 import com.UtilityFunctions;
 import com.collections.SerializableObservableMap;
+import groovy.lang.Delegate;
 
+import java.beans.PropertyChangeListener;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -12,6 +14,7 @@ import java.util.stream.Collectors;
  */
 public class EntitySystem implements IEntitySystem { // TODO: override IListener default methods
     private final String uniqueID = UtilityFunctions.generateUID();
+    @Delegate(includes = {"addPropertyChangeListener"}) @ObservableProperty
     private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
 
     public String getUID() {

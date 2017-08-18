@@ -1,13 +1,9 @@
 package com.ui;
 
-import com.core.Controller;
-import com.core.IReturnMessage;
-import com.core.ReturnMessage;
+import com.core.*;
 import com.UtilityFunctions;
 import groovy.lang.GroovyShell;
-import groovy.util.Eval;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -15,20 +11,22 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.commons.lang3.reflect.FieldUtils;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.testng.reporters.Files;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class UIController {
-    @FXML ListView<String> palette;
-    @FXML ConsoleTextArea console;
+    @FXML ListView<String> paletteListView;
+    @FXML ConsoleTextArea consoleTextArea;
 
-    private Controller controller = new Controller(false);
+    private IEditorController controller = new Controller(false);
     private GroovyShell groovyShell = new GroovyShell();
 
     @FXML
@@ -38,9 +36,12 @@ public class UIController {
 
         // Game loop
         AnimationTimer gameLoop = new AnimationTimer() {
+            private long ago = 0L;
+
             @Override
             public void handle(long now) {
-                controller.update(now);
+                controller.update(now - ago);
+                ago = now;
             }
         };
         gameLoop.start();
@@ -48,12 +49,19 @@ public class UIController {
 
     // Palette
 
-    private void initPalette() { // TODO: refactor
-        palette.setCellFactory(listCell -> new ListCell<String>() {
+    private void initPalette() { // TODO: refactor and derive from controller
+        IEntitySystem palette = controller.getPalette();
+        // TODO: palette.addPropertyChangeListener(palette.getObservablePropertyNames().get(0), e -> {});
+        String paletteEntitiesMapName = FieldUtils.getFieldsListWithAnnotation(palette.getClass(), ObservableProperty.class).get(0).getName();
+        palette.addPropertyChangeListener(paletteEntitiesMapName, e -> {
+            System.out.println("OLD: " + e.getOldValue());
+            System.out.println("OLD: " + e.getNewValue());
+        });
+        paletteListView.setCellFactory(listCell -> new ListCell<String>() {
             @Override
             public void updateItem(String name, boolean empty) {
                 super.updateItem(name, empty);
-                if(empty) {
+                if (empty) {
                     setGraphic(null);
                     setText(null);
                 } else {
@@ -77,7 +85,7 @@ public class UIController {
                 String[] filePathArr = e.getAbsolutePath().split("\\\\");
                 return filePathArr[filePathArr.length-1];
             }).collect(Collectors.toList());
-            palette.setItems(FXCollections.observableArrayList(cells));
+            paletteListView.setItems(FXCollections.observableArrayList(cells));
         }
     }
 
@@ -123,7 +131,7 @@ public class UIController {
     }
 
     public void saveScript() {
-        String commands = console.getText(); // TODO
+        String commands = consoleTextArea.getText(); // TODO
         IReturnMessage message = new ReturnMessage();
         FileChooser fileChooser = new FileChooser();
         Stage stage = new Stage();

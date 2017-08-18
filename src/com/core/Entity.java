@@ -1,8 +1,12 @@
 package com.core;
 
 import com.UtilityFunctions;
+import com.collections.SerializableObservableMap;
+import com.collections.SerializableObservableSet;
 import com.components.IComponent;
 import com.sun.istack.internal.NotNull;
+import groovy.beans.Bindable;
+import groovy.beans.Vetoable;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -14,8 +18,10 @@ import java.util.stream.Collectors;
 public class Entity implements IEntity { // TODO: override IListener default methods
     private final String uniqueID = UtilityFunctions.generateUID();
     private String name;
-    private final Set<String> groupIDs;
-    private final Map<Class, IComponent> componentsMap;
+    @ObservableProperty
+    private final SerializableObservableSet<String> groupIDs;
+    @ObservableProperty
+    private final SerializableObservableMap<Class, IComponent> componentsMap;
 
     public Entity(String name, String... groupIDs) {
         this(name, Arrays.asList(groupIDs));
@@ -23,8 +29,8 @@ public class Entity implements IEntity { // TODO: override IListener default met
 
     public Entity(String name, List<String> groupIDs) {
         this.name = name;
-        this.groupIDs = new LinkedHashSet<>(groupIDs);
-        this.componentsMap = new LinkedHashMap<>();
+        this.groupIDs = new SerializableObservableSet<>(groupIDs);
+        this.componentsMap = new SerializableObservableMap<>();
     }
 
     @Override
@@ -44,7 +50,7 @@ public class Entity implements IEntity { // TODO: override IListener default met
 
     @Override
     public Set<String> getGroupIDs() {
-        return groupIDs;
+        return new LinkedHashSet<>(groupIDs);
     }
 
     @Override

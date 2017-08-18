@@ -6,6 +6,7 @@ import groovy.util.ObservableMap;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

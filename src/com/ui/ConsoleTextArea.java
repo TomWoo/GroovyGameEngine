@@ -7,10 +7,10 @@ import javafx.scene.control.TextArea;
 /**
  * Created by Tom on 6/24/2017.
  */
-//@DefaultProperty(value = "console")
+//@DefaultProperty(value = "consoleTextArea")
 public class ConsoleTextArea extends TextArea {
     //@FXML
-    //private TextArea console = this;
+    //private TextArea consoleTextArea = this;
 
     // Reference: http://stackoverflow.com/questions/29699040/javafx-how-to-restrict-manipulation-of-textarea-to-last-row
     @Override

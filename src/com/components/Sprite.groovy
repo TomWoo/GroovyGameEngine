@@ -1,15 +1,14 @@
 package com.components
 
 import com.collections.SerializableObservableMap
-import groovy.beans.Bindable
-import groovy.beans.Vetoable
+import com.core.ObservableProperty
 
 /**
  * Created by Tom on 6/29/2017.
  */
 class Sprite extends Component {
-    @Bindable @Vetoable boolean isAnimated = false
-    SerializableObservableMap<String, String> spriteSheets = [default : "default.png"] // state : file path
+    @ObservableProperty boolean isAnimated = false
+    @ObservableProperty SerializableObservableMap<String, String> spriteSheets = [default : "default.png"] // state : file path
 
     Sprite() {}
 

@@ -1,13 +1,12 @@
 package com.components
 
-import groovy.beans.Bindable
-import groovy.beans.Vetoable
+import com.core.ObservableProperty
 
 /**
  * Created by Tom on 6/11/2017.
  */
 class Mass extends Component {
-    @Bindable @Vetoable double mass = 1.0
+    @ObservableProperty double mass = 1.0
 
     Mass() {}
 

@@ -60,7 +60,7 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="palette" prefHeight="850.0" prefWidth="100.0" />
+            <ListView fx:id="paletteListView" prefHeight="850.0" prefWidth="100.0" />
             <ToolBar prefHeight="0.0" prefWidth="100.0">
               <items>
                   <SplitMenuButton mnemonicParsing="false" text="Create New Entity">
@@ -85,7 +85,7 @@
                 <TreeTableColumn prefWidth="75.0" text="Value" />
               </columns>
             </TreeTableView>
-            <!--<ConsoleTextArea fx:id="console" prefHeight="200.0" prefWidth="200.0" />-->
+            <!--<ConsoleTextArea fx:id="consoleTextArea" prefHeight="200.0" prefWidth="200.0" />-->
             <TextArea prefHeight="300.0" prefWidth="200.0" />
             <ToolBar prefHeight="0.0" prefWidth="100.0">
               <items>

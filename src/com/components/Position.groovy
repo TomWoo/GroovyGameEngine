@@ -1,15 +1,14 @@
 package com.components
 
-import groovy.beans.Bindable
-import groovy.beans.Vetoable
+import com.core.ObservableProperty
 
 /**
  * Created by Tom on 6/11/2017.
  */
 class Position extends Component {
-    @Bindable @Vetoable double x = 0.0
-    @Bindable @Vetoable double y = 0.0
-    @Bindable @Vetoable double theta = 0.0
+    @ObservableProperty double x = 0.0
+    @ObservableProperty double y = 0.0
+    @ObservableProperty double theta = 0.0
 
     Position() {}
 
