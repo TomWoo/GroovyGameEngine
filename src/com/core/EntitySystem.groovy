@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/8/2017.
  * System containing entities, which contain components.
  */
-public class EntitySystem implements IEntitySystem { // TODO: override IListener default methods
+public class EntitySystem implements IEntitySystem {
     private final String uniqueID = UtilityFunctions.generateUID();
     @ObservableCollection
     private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
@@ -87,7 +87,7 @@ public class EntitySystem implements IEntitySystem { // TODO: override IListener
     }
 
     @Override
-    public void clear() { // TODO: use removeEntities instead?
+    public void clear() {
         entitiesMap.clear();
     }
 

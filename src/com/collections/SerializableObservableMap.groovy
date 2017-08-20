@@ -14,7 +14,6 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
 
     @Override
     public V remove(Object key) {
-        assert key instanceof K // TODO: return null?
         delegate.remove(key);
         return (V) super.remove(key);
     }

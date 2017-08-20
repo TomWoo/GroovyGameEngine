@@ -108,7 +108,7 @@ public class UIController {
     public void execute() {
         String commands = ""; // TODO
         IReturnMessage message = execute(commands);
-        //TODO message;
+        // TODO: message;
     }
 
     public void runScript() {
@@ -126,7 +126,7 @@ public class UIController {
         } else {
             message.appendErrors("No file selected.");
         }
-        //TODO message;
+        // TODO: message;
     }
 
     public void saveScript() {
@@ -145,6 +145,6 @@ public class UIController {
         } else {
             message.appendErrors("No file selected.");
         }
-        //TODO message;
+        // TODO: message;
     }
 }

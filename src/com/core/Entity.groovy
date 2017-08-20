@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/8/2017.
  * Object composed of components.
  */
-public class Entity implements IEntity { // TODO: override IListener default methods
+public class Entity implements IEntity {
     private final String uniqueID = UtilityFunctions.generateUID();
     private String name;
     @ObservableCollection
@@ -77,7 +77,7 @@ public class Entity implements IEntity { // TODO: override IListener default met
         return new LinkedHashSet<>(componentsMap.values());
     }
 
-    @Override @NotNull  // TODO: handle Exception?
+    @Override @NotNull  // TODO: handle?
     public <T extends IComponent>T getComponent(Class<T> c) {
         return (T) componentsMap.get(c);
     }

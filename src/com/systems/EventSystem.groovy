@@ -65,9 +65,9 @@ class EventSystem extends AbstractSystem {
     IReturnMessage unregister(IEntitySystem universe, String eventID) {
         GameEvent event = events.get(eventID)
         String uniqueID = event.getObjName()
-        Set<IObservable> entities = universe.getEntities(uniqueID) // TODO: don't assume entity
-        for(IObservable obj : entities) {
-            obj.removePropertyChangeListener(obj.getPropertyChangeListeners().find({ e -> e.metaClass."$EVENT_UID_KEY" })) // TODO: check
+        Set<IEntity> entities = universe.getEntities(uniqueID) // TODO: don't assume entity
+        for(IEntity obj : entities) { // TODO
+            //obj.removePropertyChangeListener(obj.getPropertyChangeListeners().find({ e -> e.metaClass."$EVENT_UID_KEY" }))
             events.remove(eventID)
         }
         return new ReturnMessage() // TODO
