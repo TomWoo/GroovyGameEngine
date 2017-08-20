@@ -1,4 +1,4 @@
-package com.core
+package com.events
 
 import com.UtilityFunctions;
 

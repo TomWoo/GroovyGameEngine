@@ -1,32 +1,22 @@
-package com.collections;
-
-import com.core.IObservable;
-import groovy.lang.Delegate;
-import groovy.util.ObservableMap;
-
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+package com.collections
 /**
  * Created by Tom on 7/4/2017.
  */
-public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements IObservable {
+public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection {
     @Delegate
     private transient ObservableMap delegate = new ObservableMap();
 
     @Override
     public V put(K key, V value) {
         delegate.put(key, value);
-        return super.put(key, value);
+        return (V) super.put(key, value);
     }
 
     @Override
     public V remove(Object key) {
+        assert key instanceof K // TODO: return null?
         delegate.remove(key);
-        return super.remove(key);
+        return (V) super.remove(key);
     }
 
     @Override

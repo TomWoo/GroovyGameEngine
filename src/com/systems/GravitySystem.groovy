@@ -9,7 +9,7 @@ import com.core.ReturnMessage
 /**
  * Created by Tom on 6/11/2017.
  */
-class GravitySystem extends System {
+class GravitySystem extends AbstractSystem {
     double gx = 0.0
     double gy = -4.0
 

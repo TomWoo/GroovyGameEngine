@@ -1,13 +1,13 @@
 package com.core;
 
 import com.UtilityFunctions;
+import com.collections.ObservableCollection;
 import com.collections.SerializableObservableMap;
 import com.collections.SerializableObservableSet;
 import com.components.IComponent;
 import com.sun.istack.internal.NotNull;
-import groovy.beans.Bindable;
-import groovy.beans.Vetoable;
 
+import java.beans.PropertyChangeListener;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -18,9 +18,9 @@ import java.util.stream.Collectors;
 public class Entity implements IEntity { // TODO: override IListener default methods
     private final String uniqueID = UtilityFunctions.generateUID();
     private String name;
-    @ObservableProperty
+    @ObservableCollection
     private final SerializableObservableSet<String> groupIDs;
-    @ObservableProperty
+    @ObservableCollection
     private final SerializableObservableMap<Class, IComponent> componentsMap;
 
     public Entity(String name, String... groupIDs) {
@@ -77,7 +77,7 @@ public class Entity implements IEntity { // TODO: override IListener default met
         return new LinkedHashSet<>(componentsMap.values());
     }
 
-    @Override @NotNull
+    @Override @NotNull  // TODO: handle Exception?
     public <T extends IComponent>T getComponent(Class<T> c) {
         return (T) componentsMap.get(c);
     }
@@ -89,7 +89,7 @@ public class Entity implements IEntity { // TODO: override IListener default met
 
     @Override
     public boolean hasComponents(Set<Class> classes) {
-        Set<Class> relevantNames = classes.stream().filter(e -> componentsMap.containsKey(e)).collect(Collectors.toSet()); // TODO: warning
+        Set<Class> relevantNames = classes.stream().filter({e -> componentsMap.containsKey(e)}).collect(Collectors.toSet());
         return relevantNames.equals(classes);
     }
 
@@ -108,7 +108,7 @@ public class Entity implements IEntity { // TODO: override IListener default met
                 returnMessage.setExitStatus(2);
             } else {
                 componentsMap.put(c, component);
-                returnMessage.appendInfo(c + " has been added to " + getName() + ". ");
+                returnMessage.appendInfo(c.getName() + " has been added to " + getName() + ". ");
             }
         }
         return returnMessage;
@@ -128,9 +128,25 @@ public class Entity implements IEntity { // TODO: override IListener default met
                 returnMessage.setExitStatus(2);
             } else {
                 componentsMap.remove(c);
-                returnMessage.appendInfo(c + " has been removed from " + getName() + ". ");
+                returnMessage.appendInfo(c.getName() + " has been removed from " + getName() + ". ");
             }
         }
         return returnMessage;
+    }
+
+    @Override
+    public void addComponentsChangeListener(PropertyChangeListener listener) {
+        componentsMap.addPropertyChangeListener(listener);
+    }
+
+    @Override
+    public void addGroupsChangeListener(PropertyChangeListener listener) {
+        groupIDs.addPropertyChangeListener(listener);
+    }
+
+    @Override
+    public void removeAllListeners() {
+        componentsMap.removeAllListeners();
+        groupIDs.removeAllListeners();
     }
 }

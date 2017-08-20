@@ -1,20 +1,8 @@
-package com.collections;
-
-import com.core.IObservable;
-import groovy.lang.Delegate;
-import groovy.util.ObservableSet;
-
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
+package com.collections
 /**
  * Created by Tom on 7/12/2017.
  */
-public class SerializableObservableSet<E> extends LinkedHashSet<E> implements IObservable {
+public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection {
     @Delegate
     private transient ObservableSet<E> delegate = new ObservableSet<>();
 

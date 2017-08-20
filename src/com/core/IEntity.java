@@ -2,13 +2,14 @@ package com.core;
 
 import com.components.IComponent;
 
+import java.beans.PropertyChangeListener;
 import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by Tom on 6/8/2017.
  */
-public interface IEntity extends Serializable, IObservable {
+public interface IEntity extends Serializable {
     String getUID();
     String getName();
     void setName(String name);
@@ -25,4 +26,8 @@ public interface IEntity extends Serializable, IObservable {
     IReturnMessage addComponents(Set<IComponent> components);
     IReturnMessage removeComponents(Class... classes);
     IReturnMessage removeComponents(Set<Class> classes);
+
+    void addComponentsChangeListener(PropertyChangeListener listener);
+    void addGroupsChangeListener(PropertyChangeListener listener);
+    void removeAllListeners();
 }

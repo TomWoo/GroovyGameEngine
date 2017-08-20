@@ -1,22 +1,27 @@
 package com.systems
 
+import com.collections.ObservableCollection
+import com.collections.SerializableObservableSet
 import com.core.IEntity
 import com.core.IEntitySystem
 import com.core.IObservable
 import com.core.IReturnMessage
-import com.core.GameEvent
+import com.events.GameEvent
 import com.core.ReturnMessage
+import com.events.SerializableTimer
 import org.codehaus.groovy.control.CompilationFailedException
 
 import java.beans.PropertyChangeListener
 
 /**
  * Created by Tom on 6/14/2017.
- * Data map
+ * Event bus
  */
-class EventSystem extends System {
+class EventSystem extends AbstractSystem {
     final String EVENT_UID_KEY = "uniqueID"
     final Map<String, GameEvent> events = new LinkedHashMap<>()
+    @ObservableCollection // TODO: implement timer functionality
+    final SerializableObservableSet<SerializableTimer> timersMap = new SerializableObservableSet<>();
 
     @Override
     void init() {}

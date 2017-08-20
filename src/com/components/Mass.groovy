@@ -1,12 +1,12 @@
 package com.components
 
-import com.core.ObservableProperty
+import com.core.BindableObservableProperty
 
 /**
  * Created by Tom on 6/11/2017.
  */
-class Mass extends Component {
-    @ObservableProperty double mass = 1.0
+class Mass extends AbstractComponent {
+    @BindableObservableProperty double mass = 1.0
 
     Mass() {}
 

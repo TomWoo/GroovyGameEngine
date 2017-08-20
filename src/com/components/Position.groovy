@@ -1,14 +1,14 @@
 package com.components
 
-import com.core.ObservableProperty
+import com.core.BindableObservableProperty
 
 /**
  * Created by Tom on 6/11/2017.
  */
-class Position extends Component {
-    @ObservableProperty double x = 0.0
-    @ObservableProperty double y = 0.0
-    @ObservableProperty double theta = 0.0
+class Position extends AbstractComponent {
+    @BindableObservableProperty double x = 0.0
+    @BindableObservableProperty double y = 0.0
+    @BindableObservableProperty double theta = 0.0
 
     Position() {}
 

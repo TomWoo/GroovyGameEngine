@@ -1,8 +1,8 @@
 package com.core;
 
 import com.UtilityFunctions;
-import com.collections.SerializableObservableMap;
-import groovy.lang.Delegate;
+import com.collections.ObservableCollection;
+import com.collections.SerializableObservableMap
 
 import java.beans.PropertyChangeListener;
 import java.util.*;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  */
 public class EntitySystem implements IEntitySystem { // TODO: override IListener default methods
     private final String uniqueID = UtilityFunctions.generateUID();
-    @Delegate(includes = {"addPropertyChangeListener"}) @ObservableProperty
+    @ObservableCollection
     private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
 
     public String getUID() {
@@ -33,16 +33,12 @@ public class EntitySystem implements IEntitySystem { // TODO: override IListener
 
     @Override
     public Set<IEntity> getEntities(Set<String> uniqueIDs) {
-        Set<IEntity> entities = new LinkedHashSet<>();
-        for(String uniqueID : uniqueIDs) { // TODO: stream
-            entities.add(entitiesMap.get(uniqueID));
-        }
-        return entities;
+        return uniqueIDs.stream().map({e -> entitiesMap.get(e)}).collect(Collectors.toSet());
     }
 
     @Override
     public Set<IEntity> getEntitiesByName(String name) {
-        return entitiesMap.values().stream().filter(e -> e.getName().equals(name)).collect(Collectors.toSet());
+        return entitiesMap.values().stream().filter({e -> e.getName().equals(name)}).collect(Collectors.toSet());
     }
 
     @Override
@@ -93,5 +89,15 @@ public class EntitySystem implements IEntitySystem { // TODO: override IListener
     @Override
     public void clear() { // TODO: use removeEntities instead?
         entitiesMap.clear();
+    }
+
+    @Override
+    public void addChangeListener(PropertyChangeListener listener) {
+        entitiesMap.addPropertyChangeListener(listener);
+    }
+
+    @Override
+    public void removeAllListeners() {
+        entitiesMap.removeAllListeners();
     }
 }

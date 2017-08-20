@@ -9,7 +9,7 @@ import java.util.*;
  * Created by Tom on 6/10/2017.
  * Data contained within an entity.
  */
-abstract class Component implements IComponent {
+abstract class AbstractComponent implements IComponent {
     @Override
     final List<String> getKeys() {
         return new ArrayList<>(properties.keySet());

@@ -1,6 +1,5 @@
 package com.systems
 
-import com.components.Mass
 import com.components.Position
 import com.components.Velocity
 import com.core.IEntity
@@ -9,7 +8,7 @@ import com.core.IReturnMessage
 /**
  * Created by Tom on 6/12/2017.
  */
-class MotionSystem extends System {
+class MotionSystem extends AbstractSystem {
     @Override
     void init() {
         componentClasses.addAll(Position.class, Velocity.class)

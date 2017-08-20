@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by Tom on 6/11/2017.
  */
-public interface ISystem extends IObservable {
+public interface ISystem {
     void init();
     IReturnMessage update(IEntitySystem universe, long dt);
     List<String> getKeys();

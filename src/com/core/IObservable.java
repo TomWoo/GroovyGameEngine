@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/18/2017.
  */
 public interface IObservable { // Must override these methods!
-    /*
     default PropertyChangeListener[] getPropertyChangeListeners() {
         throw new NotImplementedException(getClass().getName() + " does not implement getPropertyChangeListeners()");
     }
@@ -35,10 +34,13 @@ public interface IObservable { // Must override these methods!
             removePropertyChangeListener(listener); // TODO: test
         }
     }
-    */
-
+/*
+    PropertyChangeListener[] getPropertyChangeListeners();
     void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
-
+    void removePropertyChangeListener(PropertyChangeListener listener);
+    void firePropertyChange(String name, Object oldValue, Object newValue);
+    void removeAllListeners();
+*/
     /*
     default List<String> getObservablePropertyNames() {
         List<Field> fields = FieldUtils.getFieldsListWithAnnotation(getClass(), ObservableProperty.class);

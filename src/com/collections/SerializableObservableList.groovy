@@ -1,17 +1,11 @@
-package com.collections;
+package com.collections
 
-import com.core.IObservable;
-import groovy.lang.Delegate;
-import groovy.util.ObservableList;
-
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.*;
 
 /**
  * Created by Tom on 7/4/2017.
  */
-public class SerializableObservableList<T> extends ArrayList<T> implements IObservable {
+public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection {
     @Delegate
     private transient ObservableList delegate = new ObservableList();
 

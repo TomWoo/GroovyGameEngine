@@ -7,7 +7,7 @@ import groovy.beans.Vetoable
  * Created by Tom on 6/29/2017.
  */
 @Deprecated // now part of Sprite
-class Animated extends Component {
+class Animated extends AbstractComponent {
     @Bindable @Vetoable boolean isPlaying = false
     @Bindable @Vetoable double frameDuration = 10.0
     @Bindable @Vetoable String sequenceFilename = "default_animation.png"

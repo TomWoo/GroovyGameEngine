@@ -1,5 +1,6 @@
 package com.ui;
 
+import com.collections.ObservableCollection;
 import com.core.*;
 import com.UtilityFunctions;
 import groovy.lang.GroovyShell;
@@ -17,7 +18,6 @@ import org.testng.reporters.Files;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,11 +49,10 @@ public class UIController {
 
     // Palette
 
-    private void initPalette() { // TODO: refactor and derive from controller
+    private void initPalette() { // TODO: refactor and delegate to controller
         IEntitySystem palette = controller.getPalette();
-        // TODO: palette.addPropertyChangeListener(palette.getObservablePropertyNames().get(0), e -> {});
-        String paletteEntitiesMapName = FieldUtils.getFieldsListWithAnnotation(palette.getClass(), ObservableProperty.class).get(0).getName();
-        palette.addPropertyChangeListener(paletteEntitiesMapName, e -> {
+        //String paletteEntitiesMapName = FieldUtils.getFieldsListWithAnnotation(palette.getClass(), ObservableCollection.class).get(0).getName();
+        palette.addChangeListener(e -> {
             System.out.println("OLD: " + e.getOldValue());
             System.out.println("OLD: " + e.getNewValue());
         });

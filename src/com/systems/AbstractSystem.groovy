@@ -1,11 +1,8 @@
 package com.systems
 
-import com.collections.SerializableObservableSet
 import com.core.IEntity;
 import com.core.IEntitySystem
-import com.core.IObservable
 import com.core.IReturnMessage
-import com.core.ObservableProperty;
 import com.core.ReturnMessage
 
 import java.util.*;
@@ -14,8 +11,8 @@ import java.util.stream.Collectors;
 /**
  * Created by Tom on 6/11/2017.
  */
-abstract class System implements ISystem, IObservable {
-    @ObservableProperty SerializableObservableSet<Class> componentClasses = []
+abstract class AbstractSystem implements ISystem {
+    Set<Class> componentClasses = []
 
     abstract IReturnMessage update(Set<IEntity> entities, long dt);
 

@@ -1,12 +1,13 @@
 package com.core;
 
+import java.beans.PropertyChangeListener;
 import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by Tom on 6/9/2017.
  */
-public interface IEntitySystem extends Serializable, IObservable {
+public interface IEntitySystem extends Serializable {
     String getUID();
     Set<IEntity> getEntities();
     Set<IEntity> getEntities(String... uniqueIDs);
@@ -18,4 +19,7 @@ public interface IEntitySystem extends Serializable, IObservable {
     IReturnMessage removeEntities(String... uniqueIDs);
     IReturnMessage removeEntities(Set<String> uniqueIDs);
     void clear();
+
+    void addChangeListener(PropertyChangeListener listener);
+    void removeAllListeners();
 }
