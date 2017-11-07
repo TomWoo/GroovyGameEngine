@@ -1,12 +1,12 @@
 package com.events
 
-import com.UtilityFunctions;
+import com.Utilities;
 
 /**
  * Created by Tom on 6/18/2017.
  */
 class GameEvent implements Serializable { // TODO: interface?
-    final String uniqueID = UtilityFunctions.generateUID() // final enforced at runtime
+    final String uniqueID = Utilities.generateUID() // final enforced at runtime
 
     // Trigger
     String objName

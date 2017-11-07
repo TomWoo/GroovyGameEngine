@@ -1,8 +1,7 @@
 package com.ui;
 
-import com.collections.ObservableCollection;
+import com.Utilities;
 import com.core.*;
-import com.UtilityFunctions;
 import groovy.lang.GroovyShell;
 import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
@@ -12,7 +11,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.reflect.FieldUtils;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.testng.reporters.Files;
 
@@ -66,7 +64,7 @@ public class UIController {
                 } else {
                     ImageView imageView;
                     try {
-                        imageView = new ImageView(UtilityFunctions.getResourceURL("sprites/" + name).toString());
+                        imageView = new ImageView(Utilities.getResourceURL("sprites/" + name).toString());
                         imageView.setPreserveRatio(true);
                         imageView.setFitHeight(16.0);
                         setGraphic(imageView);
@@ -78,7 +76,7 @@ public class UIController {
             }
         });
 
-        File[] files = (UtilityFunctions.getResourceFile("sprites")).listFiles();
+        File[] files = (Utilities.getResourceFile("sprites")).listFiles();
         if(files != null) {
             List<String> cells = Arrays.asList(files).stream().map(e -> {
                 String[] filePathArr = e.getAbsolutePath().split("\\\\");

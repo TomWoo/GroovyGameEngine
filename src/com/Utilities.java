@@ -1,8 +1,5 @@
 package com;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 import java.io.*;
 import java.net.URL;
 import java.util.UUID;
@@ -10,8 +7,8 @@ import java.util.UUID;
 /**
  * Created by Tom on 6/9/2017.
  */
-public final class UtilityFunctions {
-    private UtilityFunctions() {} // behave as static class
+public final class Utilities {
+    private Utilities() {} // behave as static class
 
     // TODO: test
     public static void serialize(Serializable obj, File file) throws IOException, ClassNotFoundException {
@@ -32,7 +29,7 @@ public final class UtilityFunctions {
     }
 
     public static URL getResourceURL(String filename) {
-        return (new UtilityFunctions()).getClass().getResource(filename);
+        return (new Utilities()).getClass().getResource(filename);
     }
 
     public static String getResourcePath(String filename) {

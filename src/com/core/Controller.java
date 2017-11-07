@@ -1,6 +1,6 @@
 package com.core;
 
-import com.UtilityFunctions;
+import com.Utilities;
 
 import java.io.*;
 import java.util.Set;
@@ -20,7 +20,7 @@ public class Controller implements IEditorController {
     public IReturnMessage loadPalette(File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            palette = UtilityFunctions.deserialize(file, EntitySystem.class);
+            palette = Utilities.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to palette. ");
         } catch (Exception e) {
             returnMessage.appendErrors(e.getMessage());
@@ -32,7 +32,7 @@ public class Controller implements IEditorController {
     public IReturnMessage savePalette(IEntitySystem palette, File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            UtilityFunctions.serialize(getPalette(), file);
+            Utilities.serialize(getPalette(), file);
             returnMessage.appendInfo("Saved palette to " + file + ". ");
         } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendErrors(e.getMessage());
@@ -125,7 +125,7 @@ public class Controller implements IEditorController {
     public IReturnMessage loadUniverse(File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            universe = UtilityFunctions.deserialize(file, EntitySystem.class);
+            universe = Utilities.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to universe. ");
         } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendErrors(e.getMessage());
@@ -137,7 +137,7 @@ public class Controller implements IEditorController {
     public IReturnMessage saveUniverse(IEntitySystem universe, File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
-            UtilityFunctions.serialize(getUniverse(), file);
+            Utilities.serialize(getUniverse(), file);
             returnMessage.appendInfo("Saved universe to " + file);
         } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendErrors(e.getMessage());

@@ -1,6 +1,6 @@
 package com.core;
 
-import com.UtilityFunctions;
+import com.Utilities;
 import com.collections.ObservableCollection;
 import com.collections.SerializableObservableMap
 
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * System containing entities, which contain components.
  */
 public class EntitySystem implements IEntitySystem {
-    private final String uniqueID = UtilityFunctions.generateUID();
+    private final String uniqueID = Utilities.generateUID();
     @ObservableCollection
     private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
 
