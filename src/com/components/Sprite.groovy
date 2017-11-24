@@ -1,6 +1,8 @@
 package com.components
 
-//import com.collections.SerializableObservableMap
+import com.core.AssetManager
+
+import com.collections.SerializableObservableMap
 import com.core.BindableObservableProperty
 import javafx.scene.image.ImageView
 
@@ -9,7 +11,7 @@ import javafx.scene.image.ImageView
  */
 class Sprite extends AbstractComponent {
     @BindableObservableProperty boolean isAnimated = false
-    //@BindableObservableProperty SerializableObservableMap<String, String> imageFilenames = [default : "default.png"] // state : file path
+    @BindableObservableProperty SerializableObservableMap<String, String> imageFilenames = [default : "default.png"] // state : file path
     @BindableObservableProperty String imageFilename = "default.png"
     @BindableObservableProperty int stateIndex = 0
     @BindableObservableProperty int rows = 1
@@ -23,13 +25,13 @@ class Sprite extends AbstractComponent {
 
     Sprite(String spriteSheetFilename, int rows, int cols) {
         assert(rows>0 && cols>0)
-        //this.imageFilenames = [spriteSheet : spriteSheetFilename]
-        this.imageFilename = spriteSheetFilename
+        this.imageFilenames = [spriteSheet : spriteSheetFilename]
+        //this.imageFilename = spriteSheetFilename
         this.rows = rows
         this.cols = cols
     }
 
     ImageView getImageView() {
-
+        return AssetManager.getInstance().getImageView(imageFilename)
     }
 }

@@ -17,7 +17,7 @@ class AssetManager {
 
     private AssetManager() {}
 
-    ImageView getImageView(String name) {
+    static ImageView getImageView(String name) {
         if(imageCache.containsKey(name)) {
             return imageCache.get(name)
         } else {
@@ -31,7 +31,7 @@ class AssetManager {
         }
     }
 
-    AudioClip getAudioClip(String name) {
+    static AudioClip getAudioClip(String name) {
         if(audioCache.containsKey(name)) {
             return audioCache.get(name)
         } else {

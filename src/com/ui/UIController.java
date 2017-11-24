@@ -24,8 +24,11 @@ public class UIController {
     @FXML ListView<String> paletteListView;
     @FXML ConsoleTextArea consoleTextArea;
 
-    private IEditorController controller = new Controller(false);
-    private GroovyShell groovyShell = new GroovyShell();
+    private final IEditorController controller = new Controller(false);
+    private final GroovyShell groovyShell = new GroovyShell();
+
+    private final String IMAGE_ASSETS_PATH = "assets/images/";
+    private final String AUDIO_ASSETS_PATH = "assets/audio/";
 
     @FXML
     public void initialize() {
@@ -64,7 +67,11 @@ public class UIController {
                 } else {
                     ImageView imageView;
                     try {
-                        imageView = new ImageView(Utilities.getResourceURL("sprites/" + name).toString());
+                        if(name.contains("/")) { // TODO: figure out why we need this check for *nix
+                            String[] path = name.split("/");
+                            name = path[path.length-1];
+                        }
+                        imageView = new ImageView(Utilities.getResourceURL(IMAGE_ASSETS_PATH + name).toString());
                         imageView.setPreserveRatio(true);
                         imageView.setFitHeight(16.0);
                         setGraphic(imageView);
@@ -76,7 +83,7 @@ public class UIController {
             }
         });
 
-        File[] files = (Utilities.getResourceFile("sprites")).listFiles();
+        File[] files = (Utilities.getResourceFile(IMAGE_ASSETS_PATH)).listFiles();
         if(files != null) {
             List<String> cells = Arrays.asList(files).stream().map(e -> {
                 String[] filePathArr = e.getAbsolutePath().split("\\\\");
