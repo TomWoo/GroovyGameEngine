@@ -15,6 +15,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 //import javafx.scene.image.Image;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -38,14 +40,16 @@ public class UIController {
 
     private IEntity selectedEntity;
 
-    private final String IMAGE_ASSETS_PATH = "assets/images/";
-    private final String AUDIO_ASSETS_PATH = "assets/audio/";
-
     @FXML
     public void initialize() {
         initPalette();
         initConsole();
         gc = viewerCanvas.getGraphicsContext2D();
+        viewerCanvas.setOnMouseMoved(e -> {
+            if(selectedEntity!=null && selectedEntity.hasComponents(Position.class)) {
+                selectedEntity.getComponent(Position.class).setXY(e.getX(), e.getY());
+            }
+        });
 
         // Game loop
         AnimationTimer gameLoop = new AnimationTimer() {
@@ -56,12 +60,22 @@ public class UIController {
                 // game logic
                 controller.update(now - ago);
 
-                // graphical rendering
+                // graphical rendering of universe
+
                 for(IEntity entity : controller.getUniverse().getEntities().stream()
                         .filter(e -> e.hasComponents(Sprite.class, Position.class))
                         .collect(Collectors.toSet())) {
                     ImageView imageView = entity.getComponent(Sprite.class).getImageView();
                     Position position = entity.getComponent(Position.class);
+                    gc.drawImage(imageView.getImage(), position.getX(), position.getY());
+                }
+                // graphical rendering of palette
+                for(IEntity entity : controller.getPalette().getEntities().stream()
+                        .filter(e -> e.hasComponents(Sprite.class, Position.class))
+                        .collect(Collectors.toSet())) {
+                    ImageView imageView = entity.getComponent(Sprite.class).getImageView();
+                    Position position = entity.getComponent(Position.class);
+                    gc.setEffect(new Blend(BlendMode.OVERLAY));
                     gc.drawImage(imageView.getImage(), position.getX(), position.getY());
                 }
 
@@ -95,7 +109,7 @@ public class UIController {
                             String[] path = name.split("/");
                             name = path[path.length-1];
                         }
-                        imageView = new ImageView(Utilities.getResourceURL(IMAGE_ASSETS_PATH + name).toString());
+                        imageView = new ImageView(Utilities.getResourceFilename(AssetManager.IMAGE_ASSETS_PATH + name));
                         imageView.setPreserveRatio(true);
                         imageView.setFitHeight(16.0); // TODO: refactor
                         setGraphic(imageView);
@@ -111,10 +125,11 @@ public class UIController {
 //            System.out.println(e.getX() + "\n" + e.getSceneX() + "\n" + e.getScreenX());
             String filename = paletteListView.getSelectionModel().getSelectedItem(); // TODO: avoid workaround
             selectedEntity = createEntityFromSelection(Utilities.getBaseFilename(filename));
+            hoverSelectedSprites(e.getX(), e.getY());
         });
 
         // TODO: make cells of IEntity
-        File[] files = (Utilities.getResourceFile(IMAGE_ASSETS_PATH)).listFiles();
+        File[] files = (Utilities.getResourceFile(AssetManager.IMAGE_ASSETS_PATH)).listFiles();
         if(files != null) {
             List<String> cells = Arrays.asList(files).stream().map(e -> {
                 String[] filePathArr = e.getAbsolutePath().split("\\\\");
@@ -132,18 +147,17 @@ public class UIController {
     }
 
     private void log(IReturnMessage message) {
-        consoleTextArea.println();
+        if(!controller.isPlaying()) {
 //        consoleTextArea.println(message.getErrors());
 //        consoleTextArea.println(message.getInfo());
-        consoleTextArea.println(message.toString());
-        consoleTextArea.println();
+            consoleTextArea.println(message.toString());
+        }
     }
 
     private void logError(String error) {
-        consoleTextArea.println();
-        // TODO: use color
-        consoleTextArea.println("ERROR: " + error);
-        consoleTextArea.println();
+        if(!controller.isPlaying()) {
+            consoleTextArea.println("ERROR: " + error); // TODO: use color
+        }
     }
 
     private void execute(String commands) {
@@ -151,7 +165,7 @@ public class UIController {
         try {
             message.appendInfo("Result: " + groovyShell.evaluate(commands)); //Eval.me(commands));
         } catch (CompilationFailedException e) {
-            message.appendErrors(e.getMessage());
+            message.appendError(e.getMessage());
         }
         log(message);
     }
@@ -171,10 +185,10 @@ public class UIController {
                 message.appendInfo("Read from " + file.getName() + ".");
                 execute(Files.readFile(file));
             } catch (IOException e) {
-                message.appendErrors(e.getMessage());
+                message.appendError(e.getMessage());
             }
         } else {
-            message.appendErrors("No file selected.");
+            message.appendError("No file selected.");
         }
         log(message);
     }
@@ -190,10 +204,10 @@ public class UIController {
                 Files.writeFile(commands, file);
                 message.appendInfo("Written to " + file.getName() + ".");
             } catch (IOException e) {
-                message.appendErrors(e.getMessage());
+                message.appendError(e.getMessage());
             }
         } else {
-            message.appendErrors("No file selected.");
+            message.appendError("No file selected.");
         }
         log(message);
     }
@@ -219,14 +233,15 @@ public class UIController {
         return entity;
     }
 
-    public void hoverSelectedSprite(double x, double y) {
+    // TODO: handle multiple selections
+    public void hoverSelectedSprites(double x, double y) {
         if(selectedEntity!=null) {
             selectedEntity.addComponents(new Position(x, y, 0));
             controller.addSpritesToPalette(selectedEntity);
         }
     }
 
-    public void placeSelectedSprite(double x, double y) {
+    public void placeSelectedSprites(double x, double y) {
         if(selectedEntity!=null) {
             log(controller.addSprite(selectedEntity, x, y));
         }

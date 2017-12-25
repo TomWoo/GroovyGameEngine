@@ -1,53 +1,43 @@
 package com.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Tom on 6/9/2017.
  */
 public class ReturnMessage implements IReturnMessage {
-    private int exitStatus;
-    private String info;
-    private String errors;
+    private int length = 0;
+    private List<String> infoLog = new ArrayList<>();
+    private List<String> errorLog = new ArrayList<>();
 
-    public ReturnMessage(int exitStatus, String info, String errors) {
-        this.exitStatus = exitStatus;
-        this.info = info;
-        this.errors = errors;
-    }
+    public ReturnMessage() {}
 
-    public ReturnMessage() {
-        this(0, "", "");
+    public ReturnMessage(String info, String error) {
+        this.infoLog.add(info);
+        this.errorLog.add(error);
     }
 
     @Override
-    public int getExitStatus() {
-        return exitStatus;
+    public List<String> getInfo() {
+        return new ArrayList<>(infoLog);
     }
 
     @Override
-    public String getInfo() {
-        return info;
+    public List<String> getErrors() {
+        return new ArrayList<>(errorLog);
     }
 
-    @Override
-    public String getErrors() {
-        return errors;
-    }
+//    @Override
+//    public void append(IReturnMessage returnMessage) {
+//        append(returnMessage.getInfo(), returnMessage.getErrors());
+//    }
 
     @Override
-    public void setExitStatus(int exitStatus) {
-        this.exitStatus = exitStatus;
-    }
-
-    @Override
-    public void append(IReturnMessage returnMessage) {
-        append(returnMessage.getInfo(), returnMessage.getErrors());
-    }
-
-    @Override
-    public void append(String info, String errors) {
-        this.info = getInfo() + "\n" + info;
-        this.errors = getErrors() + "\n" + errors;
-
+    public void append(String info, String error) {
+        infoLog.add(info);
+        errorLog.add(error);
+        length++;
     }
 
     @Override
@@ -56,12 +46,21 @@ public class ReturnMessage implements IReturnMessage {
     }
 
     @Override
-    public void appendErrors(String errors) {
-        append("", errors);
+    public void appendError(String error) {
+        append("", error);
+    }
+
+    @Override
+    public void clear() {
+        infoLog.clear();
+        errorLog.clear();
+        length = 0;
     }
 
     @Override
     public String toString() {
-        return "Info:\n" + info + "\nErrors:\n" + errors + "\n";
+        String info = length>0 ? ("Info:\n" + String.join("\n", infoLog) + "\n") : "";
+        String errors = length>0 ? ("Errors:\n" + String.join("\n", errorLog) + "\n") : "";
+        return "Eval:\n" + info + errors;
     }
 }

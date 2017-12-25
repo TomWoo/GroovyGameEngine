@@ -3,6 +3,7 @@ package com.core;
 import com.Utilities;
 import com.collections.ObservableCollection;
 import com.collections.SerializableObservableMap
+import com.collections.SerializableObservableSet;
 
 import java.beans.PropertyChangeListener;
 import java.util.*;
@@ -38,7 +39,9 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public Set<IEntity> getEntitiesByName(String name) {
-        return entitiesMap.values().stream().filter({e -> e.getName().equals(name)}).collect(Collectors.toSet());
+        return entitiesMap.values().stream()
+                .filter({e -> e.getName().equals(name)})
+                .collect(Collectors.toSet());
     }
 
     @Override
@@ -48,17 +51,16 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public IReturnMessage addEntities(IEntity... entities) {
-        return addEntities(new LinkedHashSet<>(Arrays.asList(entities)));
+        return addEntities(new LinkedHashSet<IEntity>(Arrays.asList(entities)));
     }
 
     @Override
     public IReturnMessage addEntities(Set<IEntity> entities) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IEntity entity : entities) {
-            entity = Utilities.clone(entity, Entity.class);
+            //entity = Utilities.clone(entity, Entity.class);
             if (entitiesMap.containsKey(entity.getUID())) {
-                returnMessage.appendErrors(entity.getName() + " is already inside " + getUID() + ". ");
-                returnMessage.setExitStatus(1);
+                returnMessage.appendError(entity.getName() + " is already inside " + getUID() + ". ");
             } else {
                 entitiesMap.put(entity.getUID(), entity);
                 returnMessage.appendInfo(entity.getName() + " is now inside " + getUID() + ". ");
@@ -77,8 +79,7 @@ public class EntitySystem implements IEntitySystem {
         IReturnMessage returnMessage = new ReturnMessage();
         for(String uniqueID : uniqueIDs) {
             if (!entitiesMap.containsKey(uniqueID)) {
-                returnMessage.appendErrors(uniqueID + " is not inside " + getUID() + ". ");
-                returnMessage.setExitStatus(1);
+                returnMessage.appendError(uniqueID + " is not inside " + getUID() + ". ");
             } else {
                 entitiesMap.remove(uniqueID);
                 returnMessage.appendInfo(uniqueID + " is no longer inside " + getUID() + ". ");

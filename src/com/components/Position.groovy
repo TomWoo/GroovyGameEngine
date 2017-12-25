@@ -17,4 +17,9 @@ class Position extends AbstractComponent {
         this.y = y
         this.theta = theta
     }
+
+    void setXY(double x, double y) {
+        this.x = x
+        this.y = y
+    }
 }

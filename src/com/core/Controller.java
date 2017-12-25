@@ -18,13 +18,18 @@ public class Controller implements IEditorController {
     }
 
     @Override
+    public boolean isPlaying() {
+        return isPlaying;
+    }
+
+    @Override
     public IReturnMessage loadPalette(File file) {
         IReturnMessage returnMessage = new ReturnMessage();
         try {
             palette = Utilities.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to palette. ");
         } catch (Exception e) {
-            returnMessage.appendErrors(e.getMessage());
+            returnMessage.appendError(e.getMessage());
         }
         return returnMessage;
     }
@@ -36,7 +41,7 @@ public class Controller implements IEditorController {
             Utilities.serialize(getPalette(), file);
             returnMessage.appendInfo("Saved palette to " + file + ". ");
         } catch (IOException | ClassNotFoundException e) {
-            returnMessage.appendErrors(e.getMessage());
+            returnMessage.appendError(e.getMessage());
         }
         return returnMessage;
     }
@@ -123,7 +128,7 @@ public class Controller implements IEditorController {
     @Override
     public IReturnMessage clearUniverse() {
         getUniverse().clear();
-        return new ReturnMessage(0, getUniverse().getUID() + " cleared. ", "");
+        return new ReturnMessage(getUniverse().getUID() + " cleared. ", "");
     }
 
     @Override
@@ -133,7 +138,7 @@ public class Controller implements IEditorController {
             universe = Utilities.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to universe. ");
         } catch (IOException | ClassNotFoundException e) {
-            returnMessage.appendErrors(e.getMessage());
+            returnMessage.appendError(e.getMessage());
         }
         return returnMessage;
     }
@@ -145,7 +150,7 @@ public class Controller implements IEditorController {
             Utilities.serialize(getUniverse(), file);
             returnMessage.appendInfo("Saved universe to " + file);
         } catch (IOException | ClassNotFoundException e) {
-            returnMessage.appendErrors(e.getMessage());
+            returnMessage.appendError(e.getMessage());
         }
         return returnMessage;
     }

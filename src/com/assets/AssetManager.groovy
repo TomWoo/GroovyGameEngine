@@ -10,14 +10,18 @@ import javafx.scene.media.AudioClip
  * Created by Tom on 11/6/2017.
  */
 @CompileStatic
-class AssetManager {
+final class AssetManager {
     public static final String IMAGE_ASSETS_PATH = "assets/images/";
     public static final String AUDIO_ASSETS_PATH = "assets/audio/";
 
-    private static Map<String, ImageView> imageCache = ["default.png" : new ImageView(IMAGE_ASSETS_PATH + "default.png")]
-    private static Map<String, AudioClip> audioCache = ["default.wav" : new AudioClip(AUDIO_ASSETS_PATH + "default.wav")] // TODO: check
+    private static final Map<String, ImageView> imageCache = ["default.png" : new ImageView(getImageFilename("default.png"))]
+    private static final Map<String, AudioClip> audioCache = ["default.wav" : new AudioClip(Utilities.getResourceFilename(AUDIO_ASSETS_PATH + "default.wav"))] // TODO: refactor
 
     private AssetManager() {}
+
+    private static String getImageFilename(String name) {
+        return Utilities.getResourceFilename(IMAGE_ASSETS_PATH + name);
+    }
 
     static ImageView getImageView(String name) {
         if(imageCache.containsKey(name)) {
@@ -29,7 +33,7 @@ class AssetManager {
             return new ImageView(image)
         } else {
             try {
-                ImageView imageView = new ImageView(Utilities.getResourcePath(name))
+                ImageView imageView = new ImageView(getImageFilename(name))
                 imageCache.put(name, imageView)
                 return imageView
             } catch (Exception ex) {

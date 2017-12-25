@@ -10,7 +10,7 @@ import java.util.UUID;
 public final class Utilities {
     private Utilities() {} // behave as static class
 
-    // TODO: test
+    // TODO: fix
     public static void serialize(Serializable obj, File file) throws IOException, ClassNotFoundException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
         oos.writeObject(obj);
@@ -50,7 +50,11 @@ public final class Utilities {
         return new File(getResourcePath(filename));
     }
 
-    @Deprecated // discouraged, only for workarounds
+    public static String getResourceFilename(String filename) {
+        return getResourceURL(filename).toString();
+    }
+
+    @Deprecated // only for temporary workarounds
     public static String getBaseFilename(String filename) {
         String[] arr = filename.split("/"); // *nix
         if(arr.length == 1) {

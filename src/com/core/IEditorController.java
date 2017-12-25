@@ -7,6 +7,7 @@ import java.util.Set;
  * Created by Tom on 6/9/2017.
  */
 public interface IEditorController extends IGameplayController {
+    boolean isPlaying();
     IEntitySystem getPalette();
     IReturnMessage loadPalette(File file);
     IReturnMessage savePalette(IEntitySystem palette, File file);

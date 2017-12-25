@@ -25,6 +25,11 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     }
 
     @Override
+    public Collection<V> values() {
+        return delegate.values();
+    }
+
+    @Override
     public void clear() {
         delegate.clear();
         super.clear();

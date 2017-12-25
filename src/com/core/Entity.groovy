@@ -70,8 +70,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
             if (this.groupIDs.add(groupID)) {
                 returnMessage.appendInfo(getName() + " is now part of " + groupID + ". ");
             } else {
-                returnMessage.appendErrors(getName() + " is already part of " + groupID + ". ");
-                returnMessage.setExitStatus(1);
+                returnMessage.appendError(getName() + " is already part of " + groupID + ". ");
             }
         }
         return returnMessage;
@@ -109,8 +108,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
         for(IComponent component : components) {
             Class c = component.getClass();
             if(componentsMap.containsKey(c)) {
-                returnMessage.appendErrors(getName() + " already has " + c + ". ");
-                returnMessage.setExitStatus(2);
+                returnMessage.appendError(getName() + " already has " + c + ". ");
             } else {
                 componentsMap.put(c, component);
                 returnMessage.appendInfo(c.getName() + " has been added to " + getName() + ". ");
@@ -129,8 +127,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
         IReturnMessage returnMessage = new ReturnMessage();
         for(Class c : classes) {
             if(!componentsMap.containsKey(c)) {
-                returnMessage.appendErrors(getName() + " does not have " + c + ". ");
-                returnMessage.setExitStatus(2);
+                returnMessage.appendError(getName() + " does not have " + c + ". ");
             } else {
                 componentsMap.remove(c);
                 returnMessage.appendInfo(c.getName() + " has been removed from " + getName() + ". ");
