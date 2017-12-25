@@ -55,6 +55,7 @@ public class EntitySystem implements IEntitySystem {
     public IReturnMessage addEntities(Set<IEntity> entities) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IEntity entity : entities) {
+            entity = Utilities.clone(entity, Entity.class);
             if (entitiesMap.containsKey(entity.getUID())) {
                 returnMessage.appendErrors(entity.getName() + " is already inside " + getUID() + ". ");
                 returnMessage.setExitStatus(1);

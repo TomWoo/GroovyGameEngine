@@ -24,6 +24,16 @@ public final class Utilities {
         return (T) obj; // TODO: handle?
     }
 
+    public static <T extends Serializable>T clone(Serializable obj, Class<T> c) {
+        File f = new File(""); // TODO: verify
+        try {
+            serialize(obj, f);
+            return deserialize(f, c);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
     public static String generateUID() {
         return UUID.randomUUID().toString();
     }
@@ -38,5 +48,14 @@ public final class Utilities {
 
     public static File getResourceFile(String filename) {
         return new File(getResourcePath(filename));
+    }
+
+    @Deprecated // discouraged, only for workarounds
+    public static String getBaseFilename(String filename) {
+        String[] arr = filename.split("/"); // *nix
+        if(arr.length == 1) {
+            arr = filename.split("\\\\"); // Windows
+        }
+        return arr[arr.length-1];
     }
 }

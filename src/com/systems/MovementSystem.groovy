@@ -8,7 +8,7 @@ import com.core.IReturnMessage
 /**
  * Created by Tom on 6/12/2017.
  */
-class MotionSystem extends AbstractSystem {
+class MovementSystem extends AbstractSystem {
     @Override
     void init() {
         componentClasses.addAll(Position.class, Velocity.class)

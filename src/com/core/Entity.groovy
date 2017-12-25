@@ -1,11 +1,12 @@
 package com.core;
 
 import com.Utilities;
-import com.collections.ObservableCollection;
+//import com.collections.ObservableCollection;
 import com.collections.SerializableObservableMap;
 import com.collections.SerializableObservableSet;
 import com.components.IComponent;
-import com.sun.istack.internal.NotNull;
+//import com.sun.istack.internal.NotNull
+import groovy.transform.CompileStatic;
 
 import java.beans.PropertyChangeListener;
 import java.util.*;
@@ -13,24 +14,28 @@ import java.util.stream.Collectors;
 
 /**
  * Created by Tom on 6/8/2017.
- * Object composed of components.
+ * Node composed of components.
  */
-public class Entity implements IEntity {
+@CompileStatic
+public class Entity implements IEntity { // TODO: add Node-based operations
     private final String uniqueID = Utilities.generateUID();
     private String name;
-    @ObservableCollection
-    private final SerializableObservableSet<String> groupIDs;
-    @ObservableCollection
-    private final SerializableObservableMap<Class, IComponent> componentsMap;
+    //@ObservableCollection
+    private SerializableObservableSet<String> groupIDs = new SerializableObservableSet<>();
+    //@ObservableCollection
+    private SerializableObservableMap<Class, IComponent> componentsMap = new SerializableObservableMap<>();
 
-    public Entity(String name, String... groupIDs) {
-        this(name, Arrays.asList(groupIDs));
+    public Entity(String name) {
+        this.name = name;
     }
 
     public Entity(String name, List<String> groupIDs) {
-        this.name = name;
+        this(name);
         this.groupIDs = new SerializableObservableSet<>(groupIDs);
-        this.componentsMap = new SerializableObservableMap<>();
+    }
+
+    public Entity(String name, String... groupIDs) {
+        this(name, Arrays.asList(groupIDs));
     }
 
     @Override
@@ -77,7 +82,7 @@ public class Entity implements IEntity {
         return new LinkedHashSet<>(componentsMap.values());
     }
 
-    @Override @NotNull  // TODO: handle?
+    @Override
     public <T extends IComponent>T getComponent(Class<T> c) {
         return (T) componentsMap.get(c);
     }

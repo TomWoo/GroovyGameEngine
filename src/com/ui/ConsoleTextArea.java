@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
  * Created by Tom on 6/24/2017.
  */
 //@DefaultProperty(value = "consoleTextArea")
-public class ConsoleTextArea extends TextArea {
+public class ConsoleTextArea extends TextArea { // TODO: rich-text, use lists
     //@FXML
     //private TextArea consoleTextArea = this;
 

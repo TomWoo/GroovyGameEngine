@@ -48,7 +48,7 @@
          <children>
             <ScrollPane fx:id="viewer" prefHeight="850.0" prefWidth="100.0">
                <content>
-                  <Canvas height="${viewer.prefHeight}" width="${viewer.prefWidth}" />
+                  <Canvas fx:id="viewerCanvas" height="${viewer.prefHeight}" width="${viewer.prefWidth}" />
                </content>
             </ScrollPane>
             <ToolBar prefHeight="0.0" prefWidth="400.0">

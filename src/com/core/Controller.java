@@ -1,6 +1,7 @@
 package com.core;
 
 import com.Utilities;
+import com.components.Position;
 
 import java.io.*;
 import java.util.Set;
@@ -72,17 +73,21 @@ public class Controller implements IEditorController {
 
     @Override
     public IReturnMessage addSprite(IEntity sprite, double x, double y) {
-        return getUniverse().addEntities();
+
+        if(!sprite.hasComponents(Position.class)) {
+            sprite.addComponents(new Position(x, y, 0));
+        }
+        return getUniverse().addEntities(sprite);
     }
 
     @Override
     public IReturnMessage removeSprites(String... uniqueIDs) {
-        return null;
+        return getUniverse().removeEntities(uniqueIDs);
     }
 
     @Override
     public IReturnMessage removeSprites(Set<String> uniqueIDs) {
-        return null;
+        return getUniverse().removeEntities(uniqueIDs);
     }
 
     @Override

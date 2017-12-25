@@ -1,6 +1,6 @@
 package com.components
 
-import com.core.AssetManager
+import com.assets.AssetManager
 
 import com.collections.SerializableObservableMap
 import com.core.BindableObservableProperty
@@ -11,9 +11,10 @@ import javafx.scene.image.ImageView
  */
 class Sprite extends AbstractComponent {
     @BindableObservableProperty boolean isAnimated = false
+    // image(s) and/or texture atlas(es)
     @BindableObservableProperty SerializableObservableMap<String, String> imageFilenames = [default : "default.png"] // state : file path
-    @BindableObservableProperty String imageFilename = "default.png"
-    @BindableObservableProperty int stateIndex = 0
+    @BindableObservableProperty String state = "default"
+    @BindableObservableProperty int frameIndex = 0
     @BindableObservableProperty int rows = 1
     @BindableObservableProperty int cols = 1
 
@@ -32,6 +33,6 @@ class Sprite extends AbstractComponent {
     }
 
     ImageView getImageView() {
-        return AssetManager.getInstance().getImageView(imageFilename)
+        return AssetManager.getInstance().getImageView(imageFilenames[state]) // TODO: cache animation properties
     }
 }
