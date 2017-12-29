@@ -2,9 +2,8 @@ package com.core;
 
 import com.Utilities;
 import com.collections.ObservableCollection
-import com.collections.ReadOnlySet;
 import com.collections.SerializableObservableMap
-import com.collections.SerializableObservableSet;
+import groovy.transform.TypeChecked;
 
 import java.beans.PropertyChangeListener;
 import java.util.*;
@@ -14,6 +13,7 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/8/2017.
  * System containing entities, which contain components.
  */
+@TypeChecked
 public class EntitySystem implements IEntitySystem {
     private final String uniqueID = Utilities.generateUID();
     @ObservableCollection
@@ -24,24 +24,24 @@ public class EntitySystem implements IEntitySystem {
     }
 
     @Override
-    public ReadOnlySet<IEntity> getEntities() {
-        return new SerializableObservableSet<IEntity>(entitiesMap.values());
+    public Set<IEntity> getEntities() {
+        return new LinkedHashSet<IEntity>(entitiesMap.values());
     }
 
     @Override
-    public ReadOnlySet<IEntity> getEntities(String... uniqueIDs) {
-        return getEntities(new LinkedHashSet<String>(Arrays.asList(uniqueIDs)));
+    public Set<IEntity> getEntities(String... uniqueIDs) {
+        return getEntities(Arrays.asList(uniqueIDs).toSet());
     }
 
     @Override
-    public ReadOnlySet<IEntity> getEntities(Set<String> uniqueIDs) {
-        return new SerializableObservableSet<IEntity>(uniqueIDs.stream().map({e -> entitiesMap.get(e)}).collect(Collectors.toList()));
+    public Set<IEntity> getEntities(Set<String> uniqueIDs) {
+        return new LinkedHashSet<IEntity>(uniqueIDs.stream().map({e -> entitiesMap.get(e)}).collect(Collectors.toList()));
     }
 
     @Override
-    public ReadOnlySet<IEntity> getEntitiesByName(String name) {
+    public Set<IEntity> getEntitiesByName(String name) {
         return entitiesMap.values().stream()
-                .filter({e -> e.getName().equals(name)})
+                .filter({IEntity e -> e.getName().equals(name)})
                 .collect(Collectors.toSet());
     }
 
@@ -52,7 +52,7 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public IReturnMessage addEntities(IEntity... entities) {
-        return addEntities(new LinkedHashSet<IEntity>(entities==null? [] : Arrays.asList(entities)));
+        return addEntities(entities==null? new LinkedHashSet<IEntity>() : Arrays.asList(entities).toSet());
     }
 
     @Override

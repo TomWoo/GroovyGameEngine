@@ -48,12 +48,12 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public ReadOnlySet<IEntity> getSpritesInPalette(String... uniqueIDs) {
+    public Set<IEntity> getSpritesInPalette(String... uniqueIDs) {
         return getPalette().getEntities(uniqueIDs);
     }
 
     @Override
-    public ReadOnlySet<IEntity> getSpritesInPalette(Set<String> uniqueIDs) {
+    public Set<IEntity> getSpritesInPalette(Set<String> uniqueIDs) {
         return getPalette().getEntities(uniqueIDs);
     }
 
@@ -104,12 +104,12 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public ReadOnlySet<IEntity> getSprites(String... uniqueIDs) {
+    public Set<IEntity> getSprites(String... uniqueIDs) {
         return getUniverse().getEntities(uniqueIDs);
     }
 
     @Override
-    public ReadOnlySet<IEntity> getSprites(Set<String> uniqueIDs) {
+    public Set<IEntity> getSprites(Set<String> uniqueIDs) {
         return getUniverse().getEntities(uniqueIDs);
     }
 

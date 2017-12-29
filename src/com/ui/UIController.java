@@ -46,7 +46,7 @@ public class UIController {
         //gc.setGlobalAlpha(alpha);
         for(IEntity entity : entitySystem.getEntities().stream()
                 .filter(e -> e.hasComponents(Sprite.class, Position.class))
-                .collect(Collectors.toSet())) {
+                .collect(Collectors.toList())) {
             ImageView imageView = entity.getComponent(Sprite.class).getImageView();
             Position position = entity.getComponent(Position.class);
             //gc.drawImage(imageView.getImage(), position.getX(), position.getY());
@@ -55,6 +55,7 @@ public class UIController {
             newImageView.setX(position.getX());
             newImageView.setY(position.getY());
             root.getChildren().add(newImageView);
+//            newImageView.toFront();
         }
     }
 

@@ -1,11 +1,23 @@
 package com.collections
 
+import groovy.transform.TypeChecked
+
 /**
  * Created by Tom on 7/4/2017.
  */
+@TypeChecked
 public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection, ReadOnlyMap<K, V> {
     @Delegate
     private transient ObservableMap delegate = new ObservableMap();
+
+    public SerializableObservableMap() {
+        super();
+    }
+
+    public SerializableObservableMap(Map<? extends K, ? extends V> map) {
+        super(map);
+        delegate = new ObservableMap(map);
+    }
 
     @Override
     public V put(K key, V value) {

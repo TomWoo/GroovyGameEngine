@@ -1,11 +1,11 @@
 package com.collections
 
-import groovy.transform.CompileStatic
+import groovy.transform.TypeChecked
 
 /**
  * Created by Tom on 7/12/2017.
  */
-@CompileStatic
+@TypeChecked
 public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection, ReadOnlySet<E> {
     @Delegate
     private transient ObservableSet<E> delegate = new ObservableSet<>();

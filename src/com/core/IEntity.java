@@ -19,7 +19,7 @@ public interface IEntity extends Serializable {
     IReturnMessage addGroupIDs(Set<String> groupIDs);
 
     Set<IComponent> getComponents();
-    public <T extends IComponent>T getComponent(Class<T> c);
+    <T extends IComponent>T getComponent(Class<T> c);
     boolean hasComponents(Class... classes);
     boolean hasComponents(Set<Class> classes);
     IReturnMessage addComponents(IComponent... components);

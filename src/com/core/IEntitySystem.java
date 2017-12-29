@@ -11,10 +11,10 @@ import java.util.Set;
  */
 public interface IEntitySystem extends Serializable {
     String getUID();
-    ReadOnlySet<IEntity> getEntities();
-    ReadOnlySet<IEntity> getEntities(String... uniqueIDs);
-    ReadOnlySet<IEntity> getEntities(Set<String> uniqueIDs);
-    ReadOnlySet<IEntity> getEntitiesByName(String name);
+    Set<IEntity> getEntities();
+    Set<IEntity> getEntities(String... uniqueIDs);
+    Set<IEntity> getEntities(Set<String> uniqueIDs);
+    Set<IEntity> getEntitiesByName(String name);
     boolean containsEntity(String uniqueID);
     IReturnMessage addEntities(IEntity... entities);
     IReturnMessage addEntities(Set<IEntity> entities);

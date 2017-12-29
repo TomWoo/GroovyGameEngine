@@ -1,7 +1,5 @@
 package com.core;
 
-import com.collections.ReadOnlySet;
-
 import java.io.File;
 import java.util.Set;
 
@@ -13,8 +11,8 @@ public interface IEditorController extends IGameplayController {
     IEntitySystem getPalette();
     IReturnMessage loadPalette(File file);
     IReturnMessage savePalette(IEntitySystem palette, File file);
-    ReadOnlySet<IEntity> getSpritesInPalette(String... uniqueIDs);
-    ReadOnlySet<IEntity> getSpritesInPalette(Set<String> uniqueIDs);
+    Set<IEntity> getSpritesInPalette(String... uniqueIDs);
+    Set<IEntity> getSpritesInPalette(Set<String> uniqueIDs);
     IReturnMessage addSpritesToPalette(IEntity... sprites);
     IReturnMessage addSpritesToPalette(Set<IEntity> sprites);
     IReturnMessage removeSpritesFromPalette(String... uniqueIDs);

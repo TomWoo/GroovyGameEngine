@@ -1,12 +1,11 @@
 package com.core;
 
 import com.Utilities;
-//import com.collections.ObservableCollection;
 import com.collections.SerializableObservableMap;
 import com.collections.SerializableObservableSet;
 import com.components.IComponent;
 //import com.sun.istack.internal.NotNull
-import groovy.transform.CompileStatic;
+import groovy.transform.TypeChecked;
 
 import java.beans.PropertyChangeListener;
 import java.util.*;
@@ -16,7 +15,7 @@ import java.util.stream.Collectors;
  * Created by Tom on 6/8/2017.
  * Node composed of components.
  */
-@CompileStatic
+@TypeChecked
 public class Entity implements IEntity { // TODO: add Node-based operations
     private transient String uniqueID = Utilities.generateUID();
     private String name;

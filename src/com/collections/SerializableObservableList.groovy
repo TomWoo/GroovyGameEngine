@@ -1,13 +1,25 @@
 package com.collections
 
+import groovy.transform.TypeChecked
+
 import java.util.*;
 
 /**
  * Created by Tom on 7/4/2017.
  */
+@TypeChecked
 public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection, ReadOnlyList<T> {
     @Delegate
     private transient ObservableList delegate = new ObservableList();
+
+    public SerializableObservableList() {
+        super();
+    }
+
+    public SerializableObservableList(Collection<? extends T> c) {
+        super(c);
+        delegate = new ObservableList(c.toList());
+    }
 
     @Override
     public boolean add(T e) {

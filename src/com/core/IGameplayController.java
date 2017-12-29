@@ -13,8 +13,8 @@ public interface IGameplayController {
     IReturnMessage loadUniverse(File file);
     IReturnMessage saveUniverse(IEntitySystem universe, File file);
     IEntitySystem getUniverse();
-    ReadOnlySet<IEntity> getSprites(String... uniqueIDs);
-    ReadOnlySet<IEntity> getSprites(Set<String> uniqueIDs);
+    Set<IEntity> getSprites(String... uniqueIDs);
+    Set<IEntity> getSprites(Set<String> uniqueIDs);
 
     boolean togglePlayPause();
     IReturnMessage update(long dt);

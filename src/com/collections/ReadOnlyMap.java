@@ -3,8 +3,8 @@ package com.collections;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Stream;
 
+@Deprecated
 public interface ReadOnlyMap<K, V> {
     V get(K key);
     Set<K> keySet();
