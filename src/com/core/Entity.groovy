@@ -30,7 +30,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
 
     public Entity(String name, List<String> groupIDs) {
         this(name);
-        this.groupIDs = new SerializableObservableSet<String>(groupIDs);
+        this.groupIDs = new SerializableObservableSet<>(groupIDs);
     }
 
     public Entity(String name, String... groupIDs) {
@@ -59,7 +59,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
 
     @Override
     public IReturnMessage addGroupIDs(String... groupIDs) {
-        return addGroupIDs(new LinkedHashSet<>(Arrays.asList(groupIDs)));
+        return addGroupIDs(new LinkedHashSet<>(groupIDs==null? [] : Arrays.asList(groupIDs)));
     }
 
     @Override
@@ -87,18 +87,18 @@ public class Entity implements IEntity { // TODO: add Node-based operations
 
     @Override
     public boolean hasComponents(Class... names) {
-        return hasComponents(new LinkedHashSet<>(Arrays.asList(names)));
+        return hasComponents(new LinkedHashSet<>(names==null? [] : Arrays.asList(names)));
     }
 
     @Override
-    public boolean hasComponents(Set<Class> classes) {
-        Set<Class> relevantNames = classes.stream().filter({e -> componentsMap.containsKey(e)}).collect(Collectors.toSet());
-        return relevantNames.equals(classes);
+    public boolean hasComponents(Set<Class> classes) { // TODO: use keySet().contains()
+        Set<Class> componentClasses = classes.stream().filter({e -> componentsMap.containsKey(e)}).collect(Collectors.toSet());
+        return componentClasses.equals(classes);
     }
 
     @Override
     public IReturnMessage addComponents(IComponent... components) {
-        return addComponents(new LinkedHashSet<>(Arrays.asList(components)));
+        return addComponents(new LinkedHashSet<>(components==null? [] : Arrays.asList(components)));
     }
 
     @Override
@@ -118,7 +118,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
 
     @Override
     public IReturnMessage removeComponents(Class... classes) {
-        return removeComponents(new LinkedHashSet<>(Arrays.asList(classes)));
+        return removeComponents(new LinkedHashSet<>(classes==null? [] : Arrays.asList(classes)));
     }
 
     @Override

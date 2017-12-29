@@ -272,7 +272,7 @@ public class UIController {
             IEntity entity = Utilities.deepClone(selectedEntity);
             log(controller.addSprite(entity, x, y));
             //selectedEntity.getComponent(Sprite.class).getImageView().toFront();
-            //controller.getUniverse().toTop(entity.getUID());
+            //controller.getUniverse().sendEntityToTop(entity.getName());
             return true;
         }
         return false;

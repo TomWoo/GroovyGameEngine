@@ -18,7 +18,7 @@ import java.beans.PropertyChangeListener
  * Event bus
  */
 class EventSystem extends AbstractSystem {
-    final String EVENT_UID_KEY = "uniqueID"
+    final String EVENT_UID_KEY = "name"
     final Map<String, GameEvent> events = new LinkedHashMap<>()
     @ObservableCollection // TODO: implement timer functionality
     final SerializableObservableSet<SerializableTimer> timersMap = new SerializableObservableSet<>();

@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by Tom on 6/9/2017.
  */
 public interface IEntitySystem extends Serializable {
-    String getUID();
+    String getName();
     Set<IEntity> getEntities();
     Set<IEntity> getEntities(String... uniqueIDs);
     Set<IEntity> getEntities(Set<String> uniqueIDs);
@@ -21,8 +21,8 @@ public interface IEntitySystem extends Serializable {
     IReturnMessage removeEntities(String... uniqueIDs);
     IReturnMessage removeEntities(Set<String> uniqueIDs);
     void clear();
-    void toTop(String uniqueID);
-    void toBottom(String uniqueID);
+    void sendEntityToTop(String uniqueID);
+    void sendEntityToBottom(String uniqueID);
 
     void addChangeListener(PropertyChangeListener listener);
     void removeAllListeners();

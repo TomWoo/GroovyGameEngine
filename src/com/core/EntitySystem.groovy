@@ -15,22 +15,26 @@ import java.util.stream.Collectors;
  */
 @TypeChecked
 public class EntitySystem implements IEntitySystem {
-    private final String uniqueID = Utilities.generateUID();
+    private final String name //= Utilities.generateUID();
     @ObservableCollection
     private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
 
-    public String getUID() {
-        return uniqueID;
+    public EntitySystem(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
     public Set<IEntity> getEntities() {
-        return new LinkedHashSet<IEntity>(entitiesMap.values());
+        return new LinkedHashSet<>(entitiesMap.values());
     }
 
     @Override
     public Set<IEntity> getEntities(String... uniqueIDs) {
-        return getEntities(Arrays.asList(uniqueIDs).toSet());
+        return getEntities(new LinkedHashSet<>(Arrays.asList(uniqueIDs)));
     }
 
     @Override
@@ -52,7 +56,7 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public IReturnMessage addEntities(IEntity... entities) {
-        return addEntities(entities==null? new LinkedHashSet<IEntity>() : Arrays.asList(entities).toSet());
+        return addEntities(new LinkedHashSet<>(entities==null? [] : Arrays.asList(entities)));
     }
 
     @Override
@@ -60,10 +64,10 @@ public class EntitySystem implements IEntitySystem {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IEntity entity : entities) {
             if (entitiesMap.containsKey(entity.getUID())) {
-                returnMessage.appendError(entity.getName() + " is already inside " + getUID() + ". ");
+                returnMessage.appendError(entity.getName() + " is already inside " + getName() + ". ");
             } else {
                 entitiesMap.put(entity.getUID(), entity);
-                returnMessage.appendInfo(entity.getName() + " is now inside " + getUID() + ". ");
+                returnMessage.appendInfo(entity.getName() + " is now inside " + getName() + ". ");
             }
         }
         return returnMessage;
@@ -71,7 +75,7 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public IReturnMessage removeEntities(String... uniqueIDs) {
-        return removeEntities(new LinkedHashSet<>(Arrays.asList(uniqueIDs)));
+        return removeEntities(new LinkedHashSet<>(uniqueIDs==null? [] : Arrays.asList(uniqueIDs)));
     }
 
     @Override
@@ -79,10 +83,10 @@ public class EntitySystem implements IEntitySystem {
         IReturnMessage returnMessage = new ReturnMessage();
         for(String uniqueID : uniqueIDs) {
             if (!entitiesMap.containsKey(uniqueID)) {
-                returnMessage.appendError(uniqueID + " is not inside " + getUID() + ". ");
+                returnMessage.appendError(uniqueID + " is not inside " + getName() + ". ");
             } else {
                 entitiesMap.remove(uniqueID);
-                returnMessage.appendInfo(uniqueID + " is no longer inside " + getUID() + ". ");
+                returnMessage.appendInfo(uniqueID + " is no longer inside " + getName() + ". ");
             }
         }
         return returnMessage;
@@ -94,12 +98,12 @@ public class EntitySystem implements IEntitySystem {
     }
 
     @Override
-    public void toTop(String uniqueID) {
+    public void sendEntityToTop(String uniqueID) {
         entitiesMap.toBack(uniqueID);
     }
 
     @Override
-    public void toBottom(String uniqueID) {
+    public void sendEntityToBottom(String uniqueID) {
         entitiesMap.toFront(uniqueID);
     }
 

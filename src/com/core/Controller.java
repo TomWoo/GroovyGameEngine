@@ -1,7 +1,6 @@
 package com.core;
 
 import com.Utilities;
-import com.collections.ReadOnlySet;
 import com.components.Position;
 
 import java.io.*;
@@ -13,8 +12,8 @@ public class Controller implements IEditorController {
     private boolean isPlaying;
 
     public Controller(boolean isPlaying) {
-        this.universe = new EntitySystem();
-        this.palette = new EntitySystem();
+        this.universe = new EntitySystem("universe");
+        this.palette = new EntitySystem("palette");
         this.isPlaying = isPlaying;
     }
 
@@ -131,7 +130,7 @@ public class Controller implements IEditorController {
     @Override
     public IReturnMessage clearUniverse() {
         getUniverse().clear();
-        return new ReturnMessage(getUniverse().getUID() + " cleared. ", "");
+        return new ReturnMessage(getUniverse().getName() + " cleared. ", "");
     }
 
     @Override
