@@ -1,6 +1,7 @@
 package com.core;
 
 import com.Utilities;
+import com.collections.ReadOnlySet;
 import com.components.Position;
 
 import java.io.*;
@@ -47,12 +48,12 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public Set<IEntity> getSpritesInPalette(String... uniqueIDs) {
+    public ReadOnlySet<IEntity> getSpritesInPalette(String... uniqueIDs) {
         return getPalette().getEntities(uniqueIDs);
     }
 
     @Override
-    public Set<IEntity> getSpritesInPalette(Set<String> uniqueIDs) {
+    public ReadOnlySet<IEntity> getSpritesInPalette(Set<String> uniqueIDs) {
         return getPalette().getEntities(uniqueIDs);
     }
 
@@ -78,7 +79,9 @@ public class Controller implements IEditorController {
 
     @Override
     public IReturnMessage addSprite(IEntity sprite, double x, double y) {
-
+        if(sprite==null) {
+            return new ReturnMessage("", "Cannot add null sprite");
+        }
         if(!sprite.hasComponents(Position.class)) {
             sprite.addComponents(new Position(x, y, 0));
         }
@@ -101,12 +104,12 @@ public class Controller implements IEditorController {
     }
 
     @Override
-    public Set<IEntity> getSprites(String... uniqueIDs) {
+    public ReadOnlySet<IEntity> getSprites(String... uniqueIDs) {
         return getUniverse().getEntities(uniqueIDs);
     }
 
     @Override
-    public Set<IEntity> getSprites(Set<String> uniqueIDs) {
+    public ReadOnlySet<IEntity> getSprites(Set<String> uniqueIDs) {
         return getUniverse().getEntities(uniqueIDs);
     }
 

@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView
 class Sprite extends AbstractComponent {
     @BindableObservableProperty boolean isAnimated = false
     // image(s) and/or texture atlas(es)
-    @BindableObservableProperty SerializableObservableMap<String, String> imageFilenames = [:] // state : file path
+    @BindableObservableProperty SerializableObservableMap<String, String> imageFilenames = ["default" : "default.png"] // state : file path
     @BindableObservableProperty String state = "default"
     @BindableObservableProperty int frameIndex = 0
     @BindableObservableProperty int rows = 1
@@ -39,4 +39,9 @@ class Sprite extends AbstractComponent {
     ImageView getImageView() {
         return AssetManager.getImageView(imageFilenames[state]) // TODO: cache animation properties
     }
+
+//    @Override
+//    Sprite clone() {
+//        return new Sprite(imageFilenames[state], state, rows, cols)
+//    }
 }

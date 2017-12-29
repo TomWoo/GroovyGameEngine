@@ -1,7 +1,8 @@
 package com.core;
 
 import com.Utilities;
-import com.collections.ObservableCollection;
+import com.collections.ObservableCollection
+import com.collections.ReadOnlySet;
 import com.collections.SerializableObservableMap
 import com.collections.SerializableObservableSet;
 
@@ -23,22 +24,22 @@ public class EntitySystem implements IEntitySystem {
     }
 
     @Override
-    public Set<IEntity> getEntities() {
-        return new LinkedHashSet<>(entitiesMap.values());
+    public ReadOnlySet<IEntity> getEntities() {
+        return new SerializableObservableSet<IEntity>(entitiesMap.values());
     }
 
     @Override
-    public Set<IEntity> getEntities(String... uniqueIDs) {
-        return getEntities(new LinkedHashSet<>(Arrays.asList(uniqueIDs)));
+    public ReadOnlySet<IEntity> getEntities(String... uniqueIDs) {
+        return getEntities(new LinkedHashSet<String>(Arrays.asList(uniqueIDs)));
     }
 
     @Override
-    public Set<IEntity> getEntities(Set<String> uniqueIDs) {
-        return uniqueIDs.stream().map({e -> entitiesMap.get(e)}).collect(Collectors.toSet());
+    public ReadOnlySet<IEntity> getEntities(Set<String> uniqueIDs) {
+        return new SerializableObservableSet<IEntity>(uniqueIDs.stream().map({e -> entitiesMap.get(e)}).collect(Collectors.toList()));
     }
 
     @Override
-    public Set<IEntity> getEntitiesByName(String name) {
+    public ReadOnlySet<IEntity> getEntitiesByName(String name) {
         return entitiesMap.values().stream()
                 .filter({e -> e.getName().equals(name)})
                 .collect(Collectors.toSet());
@@ -51,14 +52,13 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public IReturnMessage addEntities(IEntity... entities) {
-        return addEntities(new LinkedHashSet<IEntity>(Arrays.asList(entities)));
+        return addEntities(new LinkedHashSet<IEntity>(entities==null? [] : Arrays.asList(entities)));
     }
 
     @Override
     public IReturnMessage addEntities(Set<IEntity> entities) {
         IReturnMessage returnMessage = new ReturnMessage();
         for(IEntity entity : entities) {
-            //entity = Utilities.clone(entity, Entity.class);
             if (entitiesMap.containsKey(entity.getUID())) {
                 returnMessage.appendError(entity.getName() + " is already inside " + getUID() + ". ");
             } else {
@@ -91,6 +91,16 @@ public class EntitySystem implements IEntitySystem {
     @Override
     public void clear() {
         entitiesMap.clear();
+    }
+
+    @Override
+    public void toTop(String uniqueID) {
+        entitiesMap.toBack(uniqueID);
+    }
+
+    @Override
+    public void toBottom(String uniqueID) {
+        entitiesMap.toFront(uniqueID);
     }
 
     @Override

@@ -10,14 +10,14 @@ import groovy.lang.GroovyShell;
 import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-//import javafx.scene.image.Image;
-import javafx.scene.effect.Blend;
-import javafx.scene.effect.BlendMode;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.codehaus.groovy.control.CompilationFailedException;
@@ -32,24 +32,37 @@ import java.util.stream.Collectors;
 public class UIController {
     @FXML ListView<String> paletteListView;
     @FXML ConsoleTextArea consoleTextArea;
-    @FXML Canvas viewerCanvas;
-    private GraphicsContext gc;
+    @FXML ScrollPane viewPane;
+    private Group root = new Group();
+    //@FXML Canvas canvas;
+    //private GraphicsContext gc;
 
     private final IEditorController controller = new Controller(false);
     private final GroovyShell groovyShell = new GroovyShell();
 
     private IEntity selectedEntity;
 
+    private void renderGraphics(IEntitySystem entitySystem, double alpha) {
+        //gc.setGlobalAlpha(alpha);
+        for(IEntity entity : entitySystem.getEntities().stream()
+                .filter(e -> e.hasComponents(Sprite.class, Position.class))
+                .collect(Collectors.toSet())) {
+            ImageView imageView = entity.getComponent(Sprite.class).getImageView();
+            Position position = entity.getComponent(Position.class);
+            //gc.drawImage(imageView.getImage(), position.getX(), position.getY());
+            ImageView newImageView = new ImageView(imageView.getImage());
+            newImageView.setOpacity(alpha);
+            newImageView.setX(position.getX());
+            newImageView.setY(position.getY());
+            root.getChildren().add(newImageView);
+        }
+    }
+
     @FXML
     public void initialize() {
         initPalette();
         initConsole();
-        gc = viewerCanvas.getGraphicsContext2D();
-        viewerCanvas.setOnMouseMoved(e -> {
-            if(selectedEntity!=null && selectedEntity.hasComponents(Position.class)) {
-                selectedEntity.getComponent(Position.class).setXY(e.getX(), e.getY());
-            }
-        });
+        initCanvas();
 
         // Game loop
         AnimationTimer gameLoop = new AnimationTimer() {
@@ -60,24 +73,11 @@ public class UIController {
                 // game logic
                 controller.update(now - ago);
 
-                // graphical rendering of universe
-
-                for(IEntity entity : controller.getUniverse().getEntities().stream()
-                        .filter(e -> e.hasComponents(Sprite.class, Position.class))
-                        .collect(Collectors.toSet())) {
-                    ImageView imageView = entity.getComponent(Sprite.class).getImageView();
-                    Position position = entity.getComponent(Position.class);
-                    gc.drawImage(imageView.getImage(), position.getX(), position.getY());
-                }
-                // graphical rendering of palette
-                for(IEntity entity : controller.getPalette().getEntities().stream()
-                        .filter(e -> e.hasComponents(Sprite.class, Position.class))
-                        .collect(Collectors.toSet())) {
-                    ImageView imageView = entity.getComponent(Sprite.class).getImageView();
-                    Position position = entity.getComponent(Position.class);
-                    gc.setEffect(new Blend(BlendMode.OVERLAY));
-                    gc.drawImage(imageView.getImage(), position.getX(), position.getY());
-                }
+                // graphical rendering
+                //gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+                root.getChildren().clear();
+                renderGraphics(controller.getUniverse(), 1.0);
+                renderGraphics(controller.getPalette() , 0.5);
 
                 ago = now;
             }
@@ -88,12 +88,8 @@ public class UIController {
     // Palette
 
     private void initPalette() { // TODO: refactor and delegate to controller
-        IEntitySystem palette = controller.getPalette();
+        //IEntitySystem palette = controller.getPalette();
         //String paletteEntitiesMapName = FieldUtils.getFieldsListWithAnnotation(palette.getClass(), ObservableCollection.class).get(0).getName();
-        palette.addChangeListener(e -> {
-            System.out.println("OLD: " + e.getOldValue());
-            System.out.println("NEW: " + e.getNewValue());
-        });
 
         paletteListView.setCellFactory(listCell -> new ListCell<String>() {
             @Override
@@ -121,11 +117,10 @@ public class UIController {
             }
         });
         paletteListView.setOnMouseClicked(e -> {
-//            System.out.println(paletteListView.getSelectionModel().getSelectedItem());
-//            System.out.println(e.getX() + "\n" + e.getSceneX() + "\n" + e.getScreenX());
             String filename = paletteListView.getSelectionModel().getSelectedItem(); // TODO: avoid workaround
             selectedEntity = createEntityFromSelection(Utilities.getBaseFilename(filename));
-            hoverSelectedSprites(e.getX(), e.getY());
+            controller.getPalette().clear();
+            hoverSelectedSprites(selectedEntity, e.getX(), e.getY());
         });
 
         // TODO: make cells of IEntity
@@ -147,7 +142,7 @@ public class UIController {
     }
 
     private void log(IReturnMessage message) {
-        if(!controller.isPlaying()) {
+        if(!controller.isPlaying()) { // TODO: find a better solution to prevent incessant printing
 //        consoleTextArea.println(message.getErrors());
 //        consoleTextArea.println(message.getInfo());
             consoleTextArea.println(message.toString());
@@ -194,7 +189,7 @@ public class UIController {
     }
 
     public void saveScript() {
-        String commands = consoleTextArea.getText(); // TODO: parse
+        String commands = consoleTextArea.getText(); // TODO: parse, error-check
         IReturnMessage message = new ReturnMessage();
         FileChooser fileChooser = new FileChooser();
         Stage stage = new Stage();
@@ -214,6 +209,34 @@ public class UIController {
 
     // Canvas
 
+    private void initCanvas() {
+        //gc = canvas.getGraphicsContext2D();
+        viewPane.setContent(root);
+        //canvas.setOnMouseMoved(e -> {
+        viewPane.setOnMouseMoved(e -> {
+            if(selectedEntity!=null) {
+                if(!selectedEntity.hasComponents(Position.class)) {
+                    selectedEntity.addComponents(new Position(e.getX(), e.getY(), 0));
+                }
+                selectedEntity.getComponent(Position.class).setXY(e.getX(), e.getY());
+            }
+        });
+        //canvas.setOnMouseClicked(e -> {
+        viewPane.setOnMouseClicked(e -> {
+            if(e.getButton()== MouseButton.PRIMARY) {
+                boolean result = placeSelectedSprites(selectedEntity, e.getX(), e.getY());
+                if(!result) {
+                    // TODO: select sprite on canvas
+                }
+            } else { // de-select
+                //consoleTextArea.println(String.valueOf(selectedEntity==null));
+                selectedEntity = null;
+                controller.getPalette().clear();
+            }
+        });
+    }
+
+    @Deprecated // TODO: replace with IEntity cells
     private IEntity createEntityFromSelection(String selectedAssetName) {
         if(selectedAssetName.equals("")) {
             logError("No sprite is selected.");
@@ -234,16 +257,32 @@ public class UIController {
     }
 
     // TODO: handle multiple selections
-    public void hoverSelectedSprites(double x, double y) {
+    private boolean hoverSelectedSprites(IEntity selectedEntity, double x, double y) {
         if(selectedEntity!=null) {
             selectedEntity.addComponents(new Position(x, y, 0));
-            controller.addSpritesToPalette(selectedEntity);
+            log(controller.addSpritesToPalette(selectedEntity));
+            return true;
         }
+        return false;
     }
 
-    public void placeSelectedSprites(double x, double y) {
+    private boolean placeSelectedSprites(IEntity selectedEntity, double x, double y) {
         if(selectedEntity!=null) {
-            log(controller.addSprite(selectedEntity, x, y));
+            IEntity entity = Utilities.deepClone(selectedEntity);
+            log(controller.addSprite(entity, x, y));
+            //selectedEntity.getComponent(Sprite.class).getImageView().toFront();
+            //controller.getUniverse().toTop(entity.getUID());
+            return true;
         }
+        return false;
+    }
+
+    // Entity editor
+
+    private boolean selectSpriteOnCanvas(IEntity entity) {
+        if(entity!=null) {
+            // TODO
+        }
+        return false;
     }
 }

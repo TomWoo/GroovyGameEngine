@@ -1,8 +1,9 @@
 package com.collections
+
 /**
  * Created by Tom on 7/4/2017.
  */
-public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection {
+public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection, ReadOnlyMap<K, V> {
     @Delegate
     private transient ObservableMap delegate = new ObservableMap();
 
@@ -25,14 +26,38 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     }
 
     @Override
+    public Set<K> keySet() {
+        return super.keySet();
+    }
+
+    @Override
     public Collection<V> values() {
-        return delegate.values();
+        return super.values();
     }
 
     @Override
     public void clear() {
         delegate.clear();
         super.clear();
+    }
+
+    boolean toBack(K key) {
+        if(super.containsKey(key)) {
+            super.put(key, super.remove(key))
+            return true
+        }
+        return false
+    }
+
+    boolean toFront(K key) {
+        if(super.containsKey(key)) {
+            Collection<K> otherkeys = keySet().stream().findAll { e -> !e.equals(key) }
+            for (K otherKey : otherkeys) {
+                super.put(otherKey, super.remove(otherKey))
+            }
+            return true
+        }
+        return false
     }
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {
@@ -43,7 +68,6 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
         ois.defaultReadObject();
         ois.close();
-
         delegate = new ObservableMap(this); // TODO: check
     }
 }

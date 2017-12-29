@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by Tom on 7/4/2017.
  */
-public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection {
+public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection, ReadOnlyList<T> {
     @Delegate
     private transient ObservableList delegate = new ObservableList();
 
@@ -54,7 +54,7 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
     @Override
     public T set(int index, T element) {
         delegate.set(index, element);
-        return super.set(index, element);
+        return (T) super.set(index, element);
     }
 
     @Override
@@ -65,8 +65,8 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
 
     @Override
     public T remove(int index) {
-        delegate.remove(index);
-        return super.remove(index);
+        delegate.removeAt(index); // TODO: verify
+        return (T) super.removeAt(index);
     }
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {

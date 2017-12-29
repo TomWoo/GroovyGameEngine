@@ -6,7 +6,7 @@ import groovy.transform.CompileStatic
  * Created by Tom on 7/12/2017.
  */
 @CompileStatic
-public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection {
+public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection, ReadOnlySet<E> {
     @Delegate
     private transient ObservableSet<E> delegate = new ObservableSet<>();
 
@@ -16,6 +16,7 @@ public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Se
 
     public SerializableObservableSet(Collection<? extends E> c) {
         super(c);
+        delegate = new ObservableSet<E>(c.toSet());
     }
 
     @Override
@@ -32,6 +33,9 @@ public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Se
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
+        if(delegate==null) { // TODO: avoid workaround
+            delegate = new ObservableSet<>();
+        }
         delegate.addAll(c);
         return super.addAll(c);
     }
@@ -58,6 +62,6 @@ public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Se
         ois.defaultReadObject();
         ois.close();
 
-        delegate = new ObservableSet<>(this); // TODO: check
+        delegate = new ObservableSet<>(this);
     }
 }

@@ -12,24 +12,19 @@ class Sound extends AbstractComponent {
     @BindableObservableProperty boolean isAnimated = false
     @BindableObservableProperty SerializableObservableMap<String, String> audioFilenames = [default : "default.wav"] // state : file path
     @BindableObservableProperty String state = "default"
-    //@BindableObservableProperty int stateIndex = 0
-    @BindableObservableProperty int time = 0 // in seconds
+    @BindableObservableProperty double time = 0 // in ms
 
     Sound() {}
 
     Sound(String audioFilename) {
-        this(audioFilename, 1, 1)
+        this(audioFilename, "default")
     }
 
-    Sound(String spriteSheetFilename, int rows, int cols) {
-        assert(rows>0 && cols>0)
-        this.imageFilenames = [spriteSheet : spriteSheetFilename]
-        //this.imageFilename = spriteSheetFilename
-        this.rows = rows
-        this.cols = cols
+    Sound(String audioFilename, String state) {
+        this.audioFilenames[state] = audioFilename
     }
 
     AudioClip getAudioClip() {
-        return AssetManager.getInstance().getAudioClip(audioFilenames[state])
+        return AssetManager.getAudioClip(audioFilenames[state])
     }
 }

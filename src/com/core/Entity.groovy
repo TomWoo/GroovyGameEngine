@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 @CompileStatic
 public class Entity implements IEntity { // TODO: add Node-based operations
-    private final String uniqueID = Utilities.generateUID();
+    private transient String uniqueID = Utilities.generateUID();
     private String name;
     //@ObservableCollection
     private SerializableObservableSet<String> groupIDs = new SerializableObservableSet<>();
@@ -31,7 +31,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
 
     public Entity(String name, List<String> groupIDs) {
         this(name);
-        this.groupIDs = new SerializableObservableSet<>(groupIDs);
+        this.groupIDs = new SerializableObservableSet<String>(groupIDs);
     }
 
     public Entity(String name, String... groupIDs) {
@@ -55,7 +55,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
 
     @Override
     public Set<String> getGroupIDs() {
-        return new LinkedHashSet<>(groupIDs);
+        return new LinkedHashSet<String>(groupIDs);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Entity implements IEntity { // TODO: add Node-based operations
         for(IComponent component : components) {
             Class c = component.getClass();
             if(componentsMap.containsKey(c)) {
-                returnMessage.appendError(getName() + " already has " + c + ". ");
+                returnMessage.appendError(getName() + " already has " + c.getName() + ". ");
             } else {
                 componentsMap.put(c, component);
                 returnMessage.appendInfo(c.getName() + " has been added to " + getName() + ". ");
@@ -150,5 +150,10 @@ public class Entity implements IEntity { // TODO: add Node-based operations
     public void removeAllListeners() {
         componentsMap.removeAllListeners();
         groupIDs.removeAllListeners();
+    }
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        ois.defaultReadObject();
+        this.uniqueID = Utilities.generateUID();
     }
 }

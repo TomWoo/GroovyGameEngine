@@ -1,8 +1,15 @@
 package com;
 
+import com.components.IComponent;
+import com.core.Entity;
+import com.core.IEntity;
+
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tom on 6/9/2017.
@@ -24,12 +31,41 @@ public final class Utilities {
         return (T) obj; // TODO: handle?
     }
 
-    public static <T extends Serializable>T clone(Serializable obj, Class<T> c) {
-        File f = new File(""); // TODO: verify
+    @Deprecated
+    public static <T extends Serializable>T copy(Serializable obj, Class<T> c) {
+        File f = new File(""); // TODO: fix
         try {
             serialize(obj, f);
             return deserialize(f, c);
         } catch (Exception ex) {
+            return null;
+        }
+    }
+
+    @Deprecated // simply use deepClone(entity) instead
+    public static IEntity cloneEntity(IEntity entity) {
+        IEntity newEntity = new Entity(entity.getName(), new ArrayList<>(entity.getGroupIDs()));
+        try {
+            Set<IComponent> components = entity.getComponents().stream().map(e -> (IComponent) deepClone(e)).collect(Collectors.toSet());
+            newEntity.addComponents(components);
+        } catch (Exception e) {
+            // TODO: warn
+        }
+        return newEntity;
+    }
+
+    // Reference: https://alvinalexander.com/java/java-deep-clone-example-source-code
+    public static <T extends Serializable>T deepClone(T object) {
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(object);
+            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            return (T) ois.readObject();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
             return null;
         }
     }

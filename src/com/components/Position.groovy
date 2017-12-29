@@ -22,4 +22,9 @@ class Position extends AbstractComponent {
         this.x = x
         this.y = y
     }
+
+//    @Override
+//    Position clone() {
+//        return new Position(x, y, theta)
+//    }
 }

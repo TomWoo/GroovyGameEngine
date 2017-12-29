@@ -13,4 +13,9 @@ class Mass extends AbstractComponent {
     Mass(double mass) {
         this.mass = mass
     }
+
+//    @Override
+//    Mass clone() {
+//        return new Mass(mass)
+//    }
 }
