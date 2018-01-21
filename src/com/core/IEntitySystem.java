@@ -1,9 +1,12 @@
 package com.core;
 
 import com.collections.ReadOnlySet;
+import com.collections.SerializableObservableList;
+import com.components.IComponent;
 
 import java.beans.PropertyChangeListener;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,9 +15,12 @@ import java.util.Set;
 public interface IEntitySystem extends Serializable {
     String getName();
     Set<IEntity> getEntities();
+    SerializableObservableList<IEntity> getEntitiesAsList();
     Set<IEntity> getEntities(String... uniqueIDs);
     Set<IEntity> getEntities(Set<String> uniqueIDs);
     Set<IEntity> getEntitiesByName(String name);
+    Set<IEntity> getEntitiesWithComponents(Class<? extends IComponent>... classes);
+    Set<IEntity> getEntitiesWithComponents(Set<Class<? extends IComponent>> classes);
     boolean containsEntity(String uniqueID);
     IReturnMessage addEntities(IEntity... entities);
     IReturnMessage addEntities(Set<IEntity> entities);

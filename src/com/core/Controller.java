@@ -2,19 +2,24 @@ package com.core;
 
 import com.Utilities;
 import com.components.Position;
+import com.components.Sprite;
+import com.systems.ISystem;
+import com.systems.MovementSystem;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class Controller implements IEditorController {
-    private IEntitySystem universe;
-    private IEntitySystem palette;
+    private IEntitySystem universe = new EntitySystem("universe");
+    private IEntitySystem palette = new EntitySystem("palette");
     private boolean isPlaying;
+    private List<ISystem> systems = new ArrayList<>();
 
     public Controller(boolean isPlaying) {
-        this.universe = new EntitySystem("universe");
-        this.palette = new EntitySystem("palette");
         this.isPlaying = isPlaying;
+        this.systems.add(new MovementSystem());
     }
 
     @Override
@@ -63,6 +68,7 @@ public class Controller implements IEditorController {
 
     @Override
     public IReturnMessage addSpritesToPalette(Set<IEntity> sprites) {
+        sprites.stream().filter(entity -> !entity.hasComponents(Sprite.class)).forEach(entity -> entity.addComponents(new Sprite()));
         return getPalette().addEntities(sprites);
     }
 
@@ -122,7 +128,7 @@ public class Controller implements IEditorController {
     public IReturnMessage update(long dt) {
         IReturnMessage returnMessage = new ReturnMessage();
         if(isPlaying) {
-            // TODO: implement
+            systems.forEach(e -> e.update(universe, dt));
         }
         return returnMessage;
     }

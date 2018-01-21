@@ -6,7 +6,7 @@ import groovy.transform.TypeChecked
  * Created by Tom on 7/12/2017.
  */
 @TypeChecked
-public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection, ReadOnlySet<E> {
+public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection {
     @Delegate
     private transient ObservableSet<E> delegate = new ObservableSet<>();
 

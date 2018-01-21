@@ -22,7 +22,8 @@ abstract class AbstractSystem implements ISystem {
         if(componentClasses.isEmpty()) {
             relevantEntities = universe.getEntities();
         } else {
-            relevantEntities = universe.getEntities().stream().filter({e -> e.hasComponents(componentClasses)}).collect(Collectors.toSet());
+            //relevantEntities = universe.getEntities().stream().filter({e -> e.hasComponents(componentClasses)}).collect(Collectors.toSet());
+            relevantEntities = universe.getEntitiesWithComponents(componentClasses);
         }
         return update(relevantEntities, dt);
     }

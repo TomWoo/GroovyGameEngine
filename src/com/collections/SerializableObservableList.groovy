@@ -8,7 +8,7 @@ import java.util.*;
  * Created by Tom on 7/4/2017.
  */
 @TypeChecked
-public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection, ReadOnlyList<T> {
+public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection {
     @Delegate
     private transient ObservableList delegate = new ObservableList();
 
@@ -79,6 +79,10 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
     public T remove(int index) {
         delegate.removeAt(index); // TODO: verify
         return (T) super.removeAt(index);
+    }
+
+    public List<T> toList() {
+        return this;
     }
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {

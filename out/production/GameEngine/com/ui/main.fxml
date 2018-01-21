@@ -19,6 +19,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.canvas.Canvas?>
+<?import com.ui.ZoomableScrollPane?>
 <?import com.ui.ConsoleTextArea?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.UIController">
@@ -51,14 +53,17 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane fx:id="viewPane" prefHeight="850.0" prefWidth="100.0">
-               <content>
+            <!--<ZoomableScrollPane fx:id="viewPane" prefHeight="850.0" prefWidth="100.0">-->
+               <!--<content>-->
                   <!--<Canvas fx:id="canvas" height="${viewPane.height}" width="${viewPane.width}" />-->
-               </content>
-            </ScrollPane>
+               <!--</content>-->
+            <!--</ZoomableScrollPane>-->
+             <ScrollPane fx:id="viewPane" prefHeight="850.0" prefWidth="100.0">
+
+             </ScrollPane>
             <ToolBar prefHeight="0.0" prefWidth="400.0">
               <items>
-                  <ToggleButton mnemonicParsing="false" text="Play" />
+                  <ToggleButton fx:id="playButton" mnemonicParsing="false" text="Play" />
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="20.0" />
                   <Label text="Speed" />
                   <Slider max="5.0" min="-5.0" value="1.0" />
@@ -70,7 +75,7 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="paletteListView" prefHeight="850.0" prefWidth="100.0" />
+            <ListView fx:id="assetPaletteListView" prefHeight="850.0" prefWidth="100.0" />
             <ToolBar prefHeight="0.0" prefWidth="100.0">
               <items>
                   <SplitMenuButton mnemonicParsing="false" text="Create New Entity">
@@ -87,12 +92,11 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <TreeTableView prefHeight="400.0" prefWidth="200.0">
+            <TreeTableView fx:id="universeECSTable" prefHeight="400.0" prefWidth="200.0">
               <columns>
-                <TreeTableColumn prefWidth="75.0" text="Name" />
-                <TreeTableColumn prefWidth="75.0" text="UID" />
-                <TreeTableColumn prefWidth="75.0" text="Key" />
-                <TreeTableColumn prefWidth="75.0" text="Value" />
+                <TreeTableColumn fx:id="entityNameColumn" prefWidth="75.0" text="Name" />
+                <TreeTableColumn fx:id="entityUIDColumn" prefWidth="75.0" text="UID" />
+                <TreeTableColumn fx:id="entityGroupIDsColumn" prefWidth="149.0" text="Group IDs" />
               </columns>
             </TreeTableView>
             <ConsoleTextArea fx:id="consoleTextArea" prefHeight="300.0" prefWidth="200.0" />

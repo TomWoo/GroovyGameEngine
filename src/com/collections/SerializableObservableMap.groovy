@@ -6,7 +6,7 @@ import groovy.transform.TypeChecked
  * Created by Tom on 7/4/2017.
  */
 @TypeChecked
-public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection, ReadOnlyMap<K, V> {
+public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection {
     @Delegate
     private transient ObservableMap delegate = new ObservableMap();
 

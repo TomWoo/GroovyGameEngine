@@ -2,8 +2,11 @@ package com.core;
 
 import com.Utilities;
 import com.collections.ObservableCollection
+import com.collections.SerializableObservableList
 import com.collections.SerializableObservableMap
-import groovy.transform.TypeChecked;
+import com.components.IComponent
+import groovy.transform.TypeChecked
+import org.jetbrains.annotations.NotNull;
 
 import java.beans.PropertyChangeListener;
 import java.util.*;
@@ -33,7 +36,12 @@ public class EntitySystem implements IEntitySystem {
     }
 
     @Override
-    public Set<IEntity> getEntities(String... uniqueIDs) {
+    final SerializableObservableList<IEntity> getEntitiesAsList() {
+        return new SerializableObservableList<IEntity>(entitiesMap.values());
+    }
+
+    @Override
+    public Set<IEntity> getEntities(@NotNull String... uniqueIDs) {
         return getEntities(new LinkedHashSet<>(Arrays.asList(uniqueIDs)));
     }
 
@@ -44,9 +52,21 @@ public class EntitySystem implements IEntitySystem {
 
     @Override
     public Set<IEntity> getEntitiesByName(String name) {
-        return entitiesMap.values().stream()
+        return new LinkedHashSet<IEntity>(getEntities().stream()
                 .filter({IEntity e -> e.getName().equals(name)})
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList()));
+    }
+
+    @Override @SafeVarargs
+    final Set<IEntity> getEntitiesWithComponents(Class<? extends IComponent>... classes) {
+        return getEntitiesWithComponents(new LinkedHashSet<>(classes==null? [] : Arrays.asList(classes)));
+    }
+
+    @Override
+    public Set<IEntity> getEntitiesWithComponents(Set<Class<? extends IComponent>> classes) {
+        return new LinkedHashSet<IEntity>(getEntities().stream()
+                .filter({IEntity e -> e!=null && e.hasComponents(classes)})
+                .collect(Collectors.toList()));
     }
 
     @Override
