@@ -17,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Box;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.codehaus.groovy.control.CompilationFailedException;
@@ -198,7 +197,7 @@ public class UIController {
             row.setOnMouseClicked(event -> {
                 if(event.getClickCount()==2 && (!row.isEmpty())) {
                     IEntity entity = row.getItem();
-                    new EntityComponentEditor(entity);
+                    new ComponentEditor(entity);
                 }
             });
             return row;

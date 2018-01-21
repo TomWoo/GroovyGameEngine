@@ -1,62 +1,56 @@
 package com.ui;
 
-import com.collections.SerializableObservableMap;
-import com.components.AbstractComponent;
 import com.components.IComponent;
 import com.core.IEntity;
-import com.core.IObservable;
-import groovy.util.MapEntry;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableStringValue;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class EntityComponentEditor extends Stage {
-    public EntityComponentEditor(IEntity entity) {
+public class ComponentEditor extends Stage {
+    public ComponentEditor(IEntity entity) {
         List<IComponent> components = new ArrayList<>(entity.getComponents());
         Group root = new Group();
+        ScrollPane scrollPane = new ScrollPane();
+        root.getChildren().add(scrollPane);
+        GridPane gridPane = new GridPane();
+        scrollPane.setContent(new VBox(gridPane));
+        //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.setPrefHeight(600);
         setScene(new Scene(root));
 //        BorderPane borderPane = new BorderPane();
 //        borderPane.setCenter(generateTable(components));
 //        root.getChildren().add(borderPane);
+        int i = 0;
         for(IComponent component : components) {
-            root.getChildren().add(generateTable(component));
+            gridPane.addRow(i, generateTable(component));
+            i++;
         }
-        setTitle("Entity-Component Editor");
+        setTitle("Component Editor");
         show();
     }
 
     private TreeTableView<Map.Entry<String, Serializable>> generateTable(IComponent component) {
         TreeTableView<Map.Entry<String, Serializable>> table = new TreeTableView<>();
-
-//        TreeTableColumn nameColumn = new TreeTableColumn("Component");
-//        nameColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getClass().getName()));
-//        nameColumn.setPrefWidth(200);
-//        table.getColumns().add(nameColumn);
-
         TreeItem<Map.Entry<String, Serializable>> rootTreeItem = new TreeItem<>();
         table.setRoot(rootTreeItem);
         table.setShowRoot(false);
-        //rootTreeItem.getChildren().addAll(components.stream().map(e -> new TreeItem<>(e)).collect(Collectors.toList()));
-//        for(IComponent component : components) {
-//            rootTreeItem.getChildren().add(new TreeItem<>(component));
-//        }
 
-        TreeTableColumn<Map.Entry<String, Serializable>, String> keyColumn = new TreeTableColumn("Property");
-        keyColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().toString()));
+        TreeTableColumn<Map.Entry<String, Serializable>, String> keyColumn = new TreeTableColumn(
+                component.getClass().getSimpleName() + " Property");
+        keyColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getKey()));
         keyColumn.setPrefWidth(200);
         table.getColumns().add(keyColumn);
 
@@ -65,14 +59,17 @@ public class EntityComponentEditor extends Stage {
         valueColumn.setPrefWidth(400);
         table.getColumns().add(valueColumn);
 
-//        tablesetItems.setItems(FXCollections.observableArrayList(components));//.stream()
-//                .map(e -> e.getClass().getName())
-//                .collect(Collectors.toList())));
+        TreeTableColumn<Map.Entry<String, Serializable>, String> dataTypeColumn = new TreeTableColumn("Type");
+        dataTypeColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().getClass().getSimpleName()));
+        dataTypeColumn.setPrefWidth(200);
+        table.getColumns().add(dataTypeColumn);
+
         for(String key : component.getKeys()) {
             Map.Entry<String, Serializable> entry = new AbstractMap.SimpleEntry<>(key, component.getValue(key));
             rootTreeItem.getChildren().add(new TreeItem<>(entry));
         }
-        table.setPrefSize(800, 600); // TODO: extract
+        //table.setPrefSize(800, 600);
+        table.setPrefHeight(200);
 
         return table;
     }

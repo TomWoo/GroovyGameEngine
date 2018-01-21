@@ -1,10 +1,9 @@
 package com.components
 
-import com.core.IReturnMessage;
+import com.core.IReturnMessage
 import com.core.ReturnMessage
-import org.codehaus.groovy.runtime.InvokerHelper
 
-import java.util.*;
+import java.util.stream.Collectors
 
 /**
  * Created by Tom on 6/10/2017.
@@ -13,7 +12,9 @@ import java.util.*;
 abstract class AbstractComponent implements IComponent {
     @Override
     final List<String> getKeys() {
-        return new ArrayList<>(this.getProperties().keySet());
+        return this.getPropertiesMap().keySet().toList();
+        //return this.getClass().getDeclaredFields().toList().stream().map({e -> e.getName()}).collect(Collectors.toList());
+        //return this.getMetaClass().getProperties().stream().map({e -> e.getName()}).collect(Collectors.toList());
     }
 
     @Override
@@ -26,7 +27,7 @@ abstract class AbstractComponent implements IComponent {
         IReturnMessage returnMessage = new ReturnMessage("Setting value of " + getClass() + " component: " + key + ". ", "");
         Object value = this.getProperties().get(key);
         if(newValue.getClass().equals(value.getClass())) {
-            setProperty(key, newValue);
+            this.setProperty(key, newValue);
             returnMessage.appendInfo("Successfully set to " + newValue + ". ");
         } else {
             returnMessage.appendError("Expecting " + value.getClass());
@@ -34,9 +35,12 @@ abstract class AbstractComponent implements IComponent {
         return returnMessage;
     }
 
-    @Override
+    @Override // Reference: https://stackoverflow.com/questions/28696988/how-do-i-get-declared-properties-in-grails-domain-objects
     final Map<String, Serializable> getPropertiesMap() {
-        return new LinkedHashMap<String, Serializable>(this.getProperties()) // TODO: test
+        //return new LinkedHashMap<String, Serializable>(this.getProperties())
+        return this.getClass().getDeclaredFields().findAll {!it.synthetic}.collectEntries {
+            [(it.name) : this."$it.name"]
+        }
     }
 
 //    @Override
