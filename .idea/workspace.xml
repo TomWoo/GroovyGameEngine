@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/EntityComponentEditor.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/ui/EntityComponentEditor.java" afterPath="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableList.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableSet.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableSet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/AbstractComponent.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/AbstractComponent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Animation.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Animation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Mass.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Mass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Position.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Position.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sound.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sound.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Velocity.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Velocity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/UIController.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/ui/UIController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine.iml" afterPath="$PROJECT_DIR$/GameEngine.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/components/AbstractComponent.groovy" afterPath="$PROJECT_DIR$/src/com/components/AbstractComponent.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ui/UIController.java" afterPath="$PROJECT_DIR$/src/com/ui/UIController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Utilities.java" afterPath="$PROJECT_DIR$/src/com/Utilities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" afterPath="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,25 +74,9 @@
       <file leaf-file-name="EntitySystem.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/core/EntitySystem.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="0">
               <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding>
-                <marker date="1516552435086" expanded="true" signature="395:490" ph="/**...*/" />
-                <marker date="1516552435086" expanded="true" signature="1607:1792" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="2132:2328" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="2706:3210" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="2807:3174" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="2867:2885" ph="{" />
-                <marker date="1516552435086" expanded="true" signature="2867:2986" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="2972:2986" ph="}" />
-                <marker date="1516552435086" expanded="true" signature="2992:3164" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="3475:3949" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="3578:3913" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="3632:3650" ph="{" />
-                <marker date="1516552435086" expanded="true" signature="3632:3739" ph="{...}" />
-                <marker date="1516552435086" expanded="true" signature="3725:3739" ph="}" />
-                <marker date="1516552435086" expanded="true" signature="3745:3903" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,8 +84,8 @@
       <file leaf-file-name="AbstractComponent.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#24#54#0" expanded="true" />
               </folding>
@@ -126,8 +96,8 @@
       <file leaf-file-name="ComponentEditor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ui/ComponentEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+            <state relative-caret-position="180">
+              <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,14 +105,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/components/IComponent.java">
+      <file leaf-file-name="Utilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="184">
+              <caret line="110" column="40" lean-forward="false" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,12 +118,10 @@
       <file leaf-file-name="UIController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ui/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="207" column="0" lean-forward="true" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+            <state relative-caret-position="2715">
+              <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3964#5065#0" expanded="true" />
-                <element signature="e#5064#5065#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,7 +133,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
+            <state relative-caret-position="945">
               <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
@@ -243,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/com/components/Mass.groovy" />
         <option value="$PROJECT_DIR$/src/com/components/Sprite.groovy" />
         <option value="$PROJECT_DIR$/src/com/components/Sound.groovy" />
-        <option value="$PROJECT_DIR$/src/com/Utilities.java" />
         <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableCollection.groovy" />
         <option value="$PROJECT_DIR$/src/com/collections/ReadOnlyCollection.java" />
         <option value="$PROJECT_DIR$/src/com/core/IEntity.java" />
@@ -267,6 +232,7 @@
         <option value="$PROJECT_DIR$/src/com/ui/UIController.java" />
         <option value="$PROJECT_DIR$/src/com/ui/EntityComponentEditor.java" />
         <option value="$PROJECT_DIR$/src/com/components/AbstractComponent.groovy" />
+        <option value="$PROJECT_DIR$/src/com/Utilities.java" />
         <option value="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" />
       </list>
     </option>
@@ -299,7 +265,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -381,6 +346,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,22 +374,22 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\assets" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.collections" />
       <recent name="com.core" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com\sprites" />
+      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com\ui" />
+      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.components" />
       <recent name="com.core" />
       <recent name="com.ui" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com\sprites" />
-      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com\ui" />
-      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -715,11 +681,12 @@
       <workItem from="1514608516643" duration="17860000" />
       <workItem from="1514917326597" duration="22421000" />
       <workItem from="1516478858197" duration="14705000" />
+      <workItem from="1517195305309" duration="9748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200583000" />
+    <option name="totallyTimeSpent" value="212354000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -753,8 +720,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20530303" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2915952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20833333" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43053174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -764,31 +730,18 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4562607" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43053174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998326" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32590052" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20530303" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2915952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -860,23 +813,17 @@
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/ui/ComponentEditor.java</url>
-          <line>41</line>
+          <line>75</line>
           <properties />
-          <option name="timeStamp" value="153" />
+          <option name="timeStamp" value="159" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="154" />
+      <option name="time" value="160" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -885,64 +832,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JAVA/com">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com</OriginalElement>
-          <nodes>
-            <node x="" y="">com.Utilities</node>
-            <node x="" y="">com.core.IEditorController</node>
-            <node x="" y="">com.ui.UIController</node>
-            <node x="" y="">com.components</node>
-            <node x="" y="">com.core.ReturnMessage</node>
-            <node x="" y="">com.core.IReturnMessage</node>
-            <node x="" y="">com.modules</node>
-            <node x="" y="">com.collections</node>
-            <node x="" y="">com.core.SpriteAnimation</node>
-            <node x="" y="">com.sun</node>
-            <node x="" y="">com.ui.ConsoleTextArea</node>
-            <node x="" y="">com.core.BindableObservableProperty</node>
-            <node x="" y="">com.core.IEntitySystem</node>
-            <node x="" y="">com.core.IObservable</node>
-            <node x="" y="">com.systems</node>
-            <node x="" y="">com.oracle</node>
-            <node x="" y="">com.ui.ComponentEditor</node>
-            <node x="" y="">com.core.IGameplayController</node>
-            <node x="" y="">com.core.Entity</node>
-            <node x="" y="">com.assets</node>
-            <node x="" y="">com.beust</node>
-            <node x="" y="">com.Main</node>
-            <node x="" y="">com.core.Controller</node>
-            <node x="" y="">com.core.EntitySystem</node>
-            <node x="" y="">com.thoughtworks</node>
-            <node x="" y="">com.core.IEntity</node>
-            <node x="" y="">com.events</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.8" x="575.0" y="544.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/collections/ObservableCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Collection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../groovy-2.4.13/lib/groovy-2.4.13.jar!/groovy/util/ObservableMap.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1029,25 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <marker date="1514520034765" expanded="false" signature="2449:2460" ph=" { " />
-            <marker date="1514520034765" expanded="false" signature="2496:2502" ph=" }" />
-            <marker date="1514520034765" expanded="false" signature="2557:2568" ph=" { " />
-            <marker date="1514520034765" expanded="false" signature="2626:2632" ph=" }" />
-            <marker date="1514520034765" expanded="false" signature="2691:2702" ph=" { " />
-            <marker date="1514520034765" expanded="false" signature="2744:2750" ph=" }" />
-            <marker date="1514520034765" expanded="false" signature="2807:2818" ph=" { " />
-            <marker date="1514520034765" expanded="false" signature="2861:2867" ph=" }" />
-            <marker date="1514520034765" expanded="false" signature="2930:2941" ph=" { " />
-            <marker date="1514520034765" expanded="false" signature="2984:2990" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/HashMap.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="893">
@@ -1116,6 +986,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,25 +1044,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/core/EntitySystem.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="0">
           <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <marker date="1516552435086" expanded="true" signature="395:490" ph="/**...*/" />
-            <marker date="1516552435086" expanded="true" signature="1607:1792" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="2132:2328" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="2706:3210" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="2807:3174" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="2867:2885" ph="{" />
-            <marker date="1516552435086" expanded="true" signature="2867:2986" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="2972:2986" ph="}" />
-            <marker date="1516552435086" expanded="true" signature="2992:3164" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="3475:3949" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="3578:3913" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="3632:3650" ph="{" />
-            <marker date="1516552435086" expanded="true" signature="3632:3739" ph="{...}" />
-            <marker date="1516552435086" expanded="true" signature="3725:3739" ph="}" />
-            <marker date="1516552435086" expanded="true" signature="3745:3903" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1199,9 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1170#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1219,24 +1071,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/components/IComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/input/GestureEvent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="117" column="25" lean-forward="false" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
-          <folding>
-            <element signature="e#4190#4191#0" expanded="true" />
-            <element signature="e#4229#4230#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1251,10 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="61" column="27" lean-forward="true" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
-          <folding>
-            <element signature="e#6117#6118#0" expanded="true" />
-            <element signature="e#6151#6152#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,29 +1100,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/components/Mass.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/layout/GridPane.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="387" column="11" lean-forward="false" selection-start-line="387" selection-start-column="11" selection-end-line="387" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1307,7 +1122,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
+        <state relative-caret-position="945">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
@@ -1315,20 +1130,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ui/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="207" column="0" lean-forward="true" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+        <state relative-caret-position="2715">
+          <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3964#5065#0" expanded="true" />
-            <element signature="e#5064#5065#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/components/Mass.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/beans/property/SimpleObjectProperty.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/ClassLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="112" column="20" lean-forward="false" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Class.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="223" column="26" lean-forward="false" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/components/IComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="110" column="40" lean-forward="false" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ui/ComponentEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,12 +1,15 @@
 package com;
 
+import com.collections.SerializableObservableList;
 import com.components.IComponent;
 import com.core.Entity;
 import com.core.IEntity;
 
+import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -97,5 +100,19 @@ public final class Utilities {
             arr = filename.split("\\\\"); // Windows
         }
         return arr[arr.length-1];
+    }
+
+    public static Serializable parseAsType(String s, Class c) {
+        if(c.equals(Integer.class)) {
+            return Integer.parseInt(s);
+        } else if(c.equals(Double.class)) {
+            return Double.parseDouble(s);
+        } else if(c.equals(Boolean.class)) {
+            return Boolean.parseBoolean(s);
+        } else if(c.equals(String.class)) {
+            return s;
+        } else {
+            return null;
+        }
     }
 }

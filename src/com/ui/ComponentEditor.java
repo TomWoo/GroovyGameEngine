@@ -2,6 +2,8 @@ package com.ui;
 
 import com.components.IComponent;
 import com.core.IEntity;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,15 +11,20 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.io.Serializable;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static com.Utilities.parseAsType;
 
 public class ComponentEditor extends Stage {
     public ComponentEditor(IEntity entity) {
@@ -47,6 +54,7 @@ public class ComponentEditor extends Stage {
         TreeItem<Map.Entry<String, Serializable>> rootTreeItem = new TreeItem<>();
         table.setRoot(rootTreeItem);
         table.setShowRoot(false);
+        table.setEditable(true);
 
         TreeTableColumn<Map.Entry<String, Serializable>, String> keyColumn = new TreeTableColumn(
                 component.getClass().getSimpleName() + " Property");
@@ -58,6 +66,17 @@ public class ComponentEditor extends Stage {
         valueColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().toString()));
         valueColumn.setPrefWidth(400);
         table.getColumns().add(valueColumn);
+        //valueColumn.setEditable(true);
+        valueColumn.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn());
+        valueColumn.setOnEditCommit(e -> {
+            String text = e.getNewValue();
+            Serializable value = parseAsType(text, e.getRowValue().getValue().getValue().getClass());
+            if(value!=null) {
+                String key = e.getRowValue().getValue().getKey();
+                component.setValue(key, value);
+            }
+            table.refresh(); // TODO: fix bug
+        });
 
         TreeTableColumn<Map.Entry<String, Serializable>, String> dataTypeColumn = new TreeTableColumn("Type");
         dataTypeColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().getClass().getSimpleName()));
@@ -68,9 +87,9 @@ public class ComponentEditor extends Stage {
             Map.Entry<String, Serializable> entry = new AbstractMap.SimpleEntry<>(key, component.getValue(key));
             rootTreeItem.getChildren().add(new TreeItem<>(entry));
         }
+
         //table.setPrefSize(800, 600);
         table.setPrefHeight(200);
-
         return table;
     }
 }
