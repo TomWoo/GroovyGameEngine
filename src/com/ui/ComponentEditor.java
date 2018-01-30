@@ -2,20 +2,17 @@ package com.ui;
 
 import com.components.IComponent;
 import com.core.IEntity;
+import groovy.ui.view.BasicStatusBar;
 import groovy.util.MapEntry;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.cell.TextFieldTreeTableCell;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -34,16 +31,24 @@ public class ComponentEditor extends Stage {
         ScrollPane scrollPane = new ScrollPane();
         root.getChildren().add(scrollPane);
         GridPane gridPane = new GridPane();
-        scrollPane.setContent(new VBox(gridPane));
+        scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scrollPane.setPrefHeight(600);
+        scrollPane.setPrefHeight(400);
         setScene(new Scene(root));
 //        BorderPane borderPane = new BorderPane();
 //        borderPane.setCenter(generateTable(components));
 //        root.getChildren().add(borderPane);
-        int i = 0;
+        HBox statusBar = new HBox();
+        //statusBar.setStyle("-fx-background: #444444;"); // TODO: check
+        //statusBar.setPrefHeight(40);
+        //MenuBar statusBar = new MenuBar();
+        Label label = new Label("Status: ok");
+        label.setPrefHeight(32);
+        statusBar.getChildren().add(label);
+        gridPane.addRow(0, label);
+        int i = 1;
         for(IComponent component : components) {
-            gridPane.addRow(i, generateTable(component));
+            gridPane.addRow(i, generateTable(component, label));
             i++;
         }
         setTitle("Component Editor");
@@ -51,7 +56,7 @@ public class ComponentEditor extends Stage {
     }
 
     // TODO: split into init() sections
-    private TreeTableView<Map.Entry<String, Serializable>> generateTable(IComponent component) {
+    private TreeTableView<Map.Entry<String, Serializable>> generateTable(IComponent component, Label label) {
         TreeTableView<Map.Entry<String, Serializable>> table = new TreeTableView<>();
         TreeItem<Map.Entry<String, Serializable>> rootTreeItem = new TreeItem<>();
         table.setRoot(rootTreeItem);
@@ -75,10 +80,15 @@ public class ComponentEditor extends Stage {
             Serializable value = parseAsType(text, e.getRowValue().getValue().getValue().getClass());
             if(value!=null) {
                 String key = e.getRowValue().getValue().getKey();
-                component.setValue(key, value); // TODO: display messages
-                e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, component.getValue(key)));
+                try {
+                    component.setValue(key, value);
+                } catch (Exception ex) {
+                    //System.out.println(ex.toString());
+                    label.setText(ex.toString());
+                }
+                e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, component.getValue(key))); // need to refresh entry
             }
-            table.refresh(); // TODO: remove?
+            //table.refresh();
         });
 
         TreeTableColumn<Map.Entry<String, Serializable>, String> dataTypeColumn = new TreeTableColumn("Type");
