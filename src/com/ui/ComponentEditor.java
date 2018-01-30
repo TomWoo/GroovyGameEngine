@@ -2,6 +2,7 @@ package com.ui;
 
 import com.components.IComponent;
 import com.core.IEntity;
+import groovy.util.MapEntry;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -74,6 +75,7 @@ public class ComponentEditor extends Stage {
             if(value!=null) {
                 String key = e.getRowValue().getValue().getKey();
                 component.setValue(key, value);
+                e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, value));
             }
             table.refresh(); // TODO: fix bug
         });

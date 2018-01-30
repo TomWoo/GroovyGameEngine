@@ -25,7 +25,7 @@ abstract class AbstractComponent implements IComponent {
     @Override
     final IReturnMessage setValue(String key, Serializable newValue) {
         IReturnMessage returnMessage = new ReturnMessage("Setting value of " + getClass() + " component: " + key + ". ", "");
-        Object value = this.getProperties().get(key);
+        Object value = this.getProperty(key); //this.getProperties().get(key);
         if(newValue.getClass().equals(value.getClass())) {
             this.setProperty(key, newValue);
             returnMessage.appendInfo("Successfully set to " + newValue + ". ");

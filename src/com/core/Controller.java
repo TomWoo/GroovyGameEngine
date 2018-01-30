@@ -68,7 +68,9 @@ public class Controller implements IEditorController {
 
     @Override
     public IReturnMessage addSpritesToPalette(Set<IEntity> sprites) {
-        sprites.stream().filter(entity -> !entity.hasComponents(Sprite.class)).forEach(entity -> entity.addComponents(new Sprite()));
+        sprites.stream()
+                .filter(entity -> !entity.hasComponents(Sprite.class))
+                .forEach(entity -> entity.addComponents(new Sprite()));
         return getPalette().addEntities(sprites);
     }
 

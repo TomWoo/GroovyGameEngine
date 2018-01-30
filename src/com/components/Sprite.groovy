@@ -4,6 +4,7 @@ import com.assets.AssetManager
 
 import com.collections.SerializableObservableMap
 import com.core.BindableObservableProperty
+import groovy.beans.Vetoable
 import javafx.scene.image.ImageView
 
 /**

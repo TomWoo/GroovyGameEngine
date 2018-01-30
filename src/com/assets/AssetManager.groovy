@@ -37,7 +37,7 @@ final class AssetManager {
                 imageCache.put(name, imageView)
                 return imageView
             } catch (Exception ex) {
-                return null //imageCache.get("default.png")
+                return imageCache.get("default.png")
             }
         }
     }
@@ -51,7 +51,7 @@ final class AssetManager {
                 audioCache.put(name, audioClip)
                 return audioClip
             } catch (Exception ex) {
-                return null //audioCache.get("default.png")
+                audioCache.get("default.wav")
             }
         }
     }
