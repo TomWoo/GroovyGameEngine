@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Tom on 6/18/2017.
  */
-public interface IObservable { // Must override these methods!
+public interface IObservable { // Sub-classes must override these methods!
     default PropertyChangeListener[] getPropertyChangeListeners() {
         throw new NotImplementedException(getClass().getName() + " does not implement getPropertyChangeListeners()");
     }

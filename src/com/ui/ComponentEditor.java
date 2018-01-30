@@ -50,6 +50,7 @@ public class ComponentEditor extends Stage {
         show();
     }
 
+    // TODO: split into init() sections
     private TreeTableView<Map.Entry<String, Serializable>> generateTable(IComponent component) {
         TreeTableView<Map.Entry<String, Serializable>> table = new TreeTableView<>();
         TreeItem<Map.Entry<String, Serializable>> rootTreeItem = new TreeItem<>();
@@ -74,10 +75,10 @@ public class ComponentEditor extends Stage {
             Serializable value = parseAsType(text, e.getRowValue().getValue().getValue().getClass());
             if(value!=null) {
                 String key = e.getRowValue().getValue().getKey();
-                component.setValue(key, value);
-                e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, value));
+                component.setValue(key, value); // TODO: display messages
+                e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, component.getValue(key)));
             }
-            table.refresh(); // TODO: fix bug
+            table.refresh(); // TODO: remove?
         });
 
         TreeTableColumn<Map.Entry<String, Serializable>, String> dataTypeColumn = new TreeTableColumn("Type");

@@ -3,8 +3,6 @@ package com.components
 import com.core.IReturnMessage
 import com.core.ReturnMessage
 
-import java.util.stream.Collectors
-
 /**
  * Created by Tom on 6/10/2017.
  * Data contained within an entity.
@@ -25,12 +23,12 @@ abstract class AbstractComponent implements IComponent {
     @Override
     final IReturnMessage setValue(String key, Serializable newValue) {
         IReturnMessage returnMessage = new ReturnMessage("Setting value of " + getClass() + " component: " + key + ". ", "");
-        Object value = this.getProperty(key); //this.getProperties().get(key);
+        Serializable value = getValue(key); //this.getProperties().get(key);
         if(newValue.getClass().equals(value.getClass())) {
             this.setProperty(key, newValue);
-            returnMessage.appendInfo("Successfully set to " + newValue + ". ");
+            returnMessage.appendInfo("Successfully set " + key + " to " + newValue + ". ");
         } else {
-            returnMessage.appendError("Expecting " + value.getClass());
+            returnMessage.appendError("Expecting value of type " + value.getClass());
         }
         return returnMessage;
     }

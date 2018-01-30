@@ -4,7 +4,6 @@ import com.assets.AssetManager
 
 import com.collections.SerializableObservableMap
 import com.core.BindableObservableProperty
-import groovy.beans.Vetoable
 import javafx.scene.image.ImageView
 
 /**
@@ -19,7 +18,9 @@ class Sprite extends AbstractComponent {
     @BindableObservableProperty int rows = 1
     @BindableObservableProperty int cols = 1
 
-    Sprite() {}
+    Sprite() {
+        this.bindPropertyChangeListeners()
+    }
 
     Sprite(String imageFilename) {
         this(imageFilename, "default")
@@ -30,6 +31,7 @@ class Sprite extends AbstractComponent {
     }
 
     Sprite(String spriteSheetFilename, String state, int rows, int cols) {
+        this()
         assert(rows>0 && cols>0)
         this.imageFilenames[state] = spriteSheetFilename
         //this.imageFilename = spriteSheetFilename
@@ -39,6 +41,24 @@ class Sprite extends AbstractComponent {
 
     ImageView getImageView() {
         return AssetManager.getImageView(imageFilenames[state]) // TODO: cache animation properties
+    }
+
+    void bindPropertyChangeListeners() {
+        this.addPropertyChangeListener("state", {
+            if(!imageFilenames.containsKey(it.getNewValue())) {
+                state = it.getOldValue()
+            }
+        })
+        this.addPropertyChangeListener("frameIndex", {
+            if(it.getNewValue()<0) {
+                frameIndex = (int) it.getOldValue()
+            }
+        })
+    }
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        ois.defaultReadObject();
+        bindPropertyChangeListeners();
     }
 
 //    @Override
