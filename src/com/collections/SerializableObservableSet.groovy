@@ -58,6 +58,12 @@ public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Se
         super.clear();
     }
 
+    static SerializableObservableSet construct(String s) {
+        //return new SerializableObservableSet(s.toSet())
+        def set = s.substring(1,s.length()-1).split(', ').collect()
+        return new SerializableObservableSet(set)
+    }
+
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
         ois.defaultReadObject();
         ois.close();

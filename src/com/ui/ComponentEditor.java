@@ -1,5 +1,6 @@
 package com.ui;
 
+import com.Utilities;
 import com.components.IComponent;
 import com.core.IEntity;
 import groovy.ui.view.BasicStatusBar;
@@ -22,8 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.Utilities.parseAsType;
-
 public class ComponentEditor extends Stage {
     public ComponentEditor(IEntity entity) {
         List<IComponent> components = new ArrayList<>(entity.getComponents());
@@ -42,7 +41,7 @@ public class ComponentEditor extends Stage {
         //statusBar.setStyle("-fx-background: #444444;"); // TODO: check
         //statusBar.setPrefHeight(40);
         //MenuBar statusBar = new MenuBar();
-        Label label = new Label("Status: ok");
+        Label label = new Label("Double-click on any value to edit its contents. Press enter to commit.");
         label.setPrefHeight(32);
         statusBar.getChildren().add(label);
         gridPane.addRow(0, label);
@@ -71,23 +70,26 @@ public class ComponentEditor extends Stage {
 
         TreeTableColumn<Map.Entry<String, Serializable>, String> valueColumn = new TreeTableColumn("Value");
         valueColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().toString()));
-        valueColumn.setPrefWidth(400);
+        valueColumn.setPrefWidth(360);
         table.getColumns().add(valueColumn);
         //valueColumn.setEditable(true);
         valueColumn.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn());
         valueColumn.setOnEditCommit(e -> {
             String text = e.getNewValue();
-            Serializable value = parseAsType(text, e.getRowValue().getValue().getValue().getClass());
+            String key = e.getRowValue().getValue().getKey();
+            Serializable value = Utilities.parseAsType(text, e.getRowValue().getValue().getValue().getClass());
             if(value!=null) {
-                String key = e.getRowValue().getValue().getKey();
                 try {
                     component.setValue(key, value);
+                    label.setText("Status: " + key + " = " + value);
                 } catch (Exception ex) {
                     //System.out.println(ex.toString());
                     label.setText(ex.toString());
                 }
-                e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, component.getValue(key))); // need to refresh entry
+            } else {
+                label.setText("Error: entry incompatible with type");
             }
+            e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, component.getValue(key))); // need to refresh entry
             //table.refresh();
         });
 

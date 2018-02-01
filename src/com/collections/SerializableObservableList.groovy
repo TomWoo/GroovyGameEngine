@@ -84,6 +84,12 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
     public List<T> toList() {
         return this;
     }
+
+    static SerializableObservableList construct(String s) {
+        //return new SerializableObservableList(s.toList())
+        def set = s.substring(1,s.length()-1).split(', ').collect()
+        return new SerializableObservableList(set)
+    }
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {
         oos.writeObject(new ArrayList<T>(delegate));

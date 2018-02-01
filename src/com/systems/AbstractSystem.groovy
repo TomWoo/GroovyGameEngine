@@ -40,13 +40,13 @@ abstract class AbstractSystem implements ISystem {
 
     @Override
     final IReturnMessage setValue(String key, Serializable newValue) {
-        IReturnMessage returnMessage = new ReturnMessage(0, "Setting value of " + getClass() + " system: " + key + ". ", "");
+        IReturnMessage returnMessage = new ReturnMessage("Setting value of " + getClass() + " system: " + key + ". ", "");
         Object value = properties.get(key);
         if(newValue.getClass().equals(value.getClass())) {
             properties.put(key, newValue);
             returnMessage.appendInfo("Successfully set to " + newValue + ". ");
         } else {
-            returnMessage.appendErrors("Expecting " + value.getClass());
+            returnMessage.appendError("Expecting " + value.getClass());
         }
         return returnMessage;
     }

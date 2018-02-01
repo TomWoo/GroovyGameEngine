@@ -33,7 +33,7 @@ public class Controller implements IEditorController {
         try {
             palette = Utilities.deserialize(file, EntitySystem.class);
             returnMessage.appendInfo("Loaded " + file + " to palette. ");
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException e) {
             returnMessage.appendError(e.getMessage());
         }
         return returnMessage;

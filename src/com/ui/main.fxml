@@ -37,13 +37,14 @@
           <Menu mnemonicParsing="false" text="Edit">
             <items>
               <!--<MenuItem mnemonicParsing="false" text="Component Editor"/>-->
-              <MenuItem mnemonicParsing="false" text="System Editor" />
-              <MenuItem mnemonicParsing="false" text="Game Loop Manager" />
+              <MenuItem mnemonicParsing="false" text="Event Editor" />
+              <MenuItem mnemonicParsing="false" text="System Manager" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="Manual" />
+              <MenuItem mnemonicParsing="false" text="User Guide" />
+              <MenuItem mnemonicParsing="false" text="Developer API" />
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>

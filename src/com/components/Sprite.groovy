@@ -73,32 +73,4 @@ class Sprite extends AbstractComponent {
             }
         })
     }
-
-//    void bindPropertyChangeListeners() {
-//        this.addPropertyChangeListener("state", {
-//            if(!imageFilenames.containsKey(it.getNewValue())) {
-//                state = it.getOldValue()
-//                throw new PropertyVetoException("state does not exist in imageFilenames", it)
-//            }
-//        })
-//        this.addPropertyChangeListener("frameIndex", {
-//            if(it.getNewValue()<0) {
-//                frameIndex = (int) it.getOldValue()
-//                throw new PropertyVetoException("frameIndex >= 0 required", it)
-//            }
-//        })
-//        this.addPropertyChangeListener("rows", {
-//            throw new PropertyVetoException("rows > 0 required", it)
-//        })
-//    }
-
-//    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-//        ois.defaultReadObject();
-//        bindPropertyChangeListeners();
-//    }
-
-//    @Override
-//    Sprite clone() {
-//        return new Sprite(imageFilenames[state], state, rows, cols)
-//    }
 }

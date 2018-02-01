@@ -59,8 +59,8 @@ public class ReturnMessage implements IReturnMessage {
 
     @Override
     public String toString() {
-        String info = length>0 ? ("Info:\n" + String.join("\n", infoLog) + "\n") : "";
-        String errors = length>0 ? ("Errors:\n" + String.join("\n", errorLog) + "\n") : "";
+        String info = length>0 ? ("Info list:\n" + String.join("\n", infoLog) + "\n") : "";
+        String errors = length>0 ? ("Error list:\n" + String.join("\n", errorLog) + "\n") : "";
         return "EVAL\n" + info + errors;
     }
 }

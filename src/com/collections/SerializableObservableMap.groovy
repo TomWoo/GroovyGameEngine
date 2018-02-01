@@ -71,6 +71,16 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
         }
         return false
     }
+
+    // Reference: http://mrhaki.blogspot.com/2016/06/groovy-goodness-turn-map-or-list-as.html
+    static SerializableObservableMap construct(String s) { // TODO: parse JSON?
+        def map = s.substring(1,s.length()-1).split(', ').collectEntries {
+            def pair = it.split('=')
+            [(pair.first()) : pair.last()]
+        }
+        return new SerializableObservableMap(map)
+    }
+
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {
         oos.writeObject(new LinkedHashMap<K, V>(delegate));

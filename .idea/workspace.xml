@@ -2,11 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite$_bindPropertyChangeListeners_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite$_bindPropertyChangeListeners_closure2.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/Utilities.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/Utilities.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Mass.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Mass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Position.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Position.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sound.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sound.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Velocity.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/components/Velocity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/Controller.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/core/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/ReturnMessage.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/core/ReturnMessage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/AbstractSystem.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/systems/AbstractSystem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/ComponentEditor.class" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/ui/ComponentEditor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/main.fxml" afterPath="$PROJECT_DIR$/out/production/GameEngine/com/ui/main.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Utilities.java" afterPath="$PROJECT_DIR$/src/com/Utilities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy" afterPath="$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy" afterPath="$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy" afterPath="$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/components/Mass.groovy" afterPath="$PROJECT_DIR$/src/com/components/Mass.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/components/Sprite.groovy" afterPath="$PROJECT_DIR$/src/com/components/Sprite.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/core/BindableObservableProperty.java" afterPath="$PROJECT_DIR$/src/com/core/BindableObservableProperty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/core/Controller.java" afterPath="$PROJECT_DIR$/src/com/core/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/core/ReturnMessage.java" afterPath="$PROJECT_DIR$/src/com/core/ReturnMessage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy" afterPath="$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" afterPath="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ui/main.fxml" afterPath="$PROJECT_DIR$/src/com/ui/main.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,26 +93,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ComponentEditor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/ui/ComponentEditor.java">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/core/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="45" column="51" lean-forward="false" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+            <state relative-caret-position="138">
+              <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ui/main.fxml">
+      <file leaf-file-name="AbstractComponent.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="75" column="22" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="22" />
+            <state relative-caret-position="94">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="e#24#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComponentEditor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ui/ComponentEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="79" column="111" lean-forward="false" selection-start-line="79" selection-start-column="111" selection-end-line="79" selection-end-column="111" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Utilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="122" column="55" lean-forward="true" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerializableObservableSet.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="63" column="49" lean-forward="true" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="SerializableObservableList.groovy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerializableObservableMap.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="76" column="18" lean-forward="true" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprite.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/components/Sprite.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="e#24#54#0" expanded="true" />
+                <marker date="1517452282090" expanded="true" signature="55:212" ph="..." />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -108,17 +194,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>remove</find>
-      <find>play</find>
-      <find>entityl</find>
-      <find>setro</find>
-      <find>setrow</find>
-      <find>setcell</find>
-      <find>tree</find>
       <find>listview</find>
       <find>initpa</find>
       <find>asset</find>
-      <find>init</find>
       <find>clicks</find>
       <find>root</find>
       <find>root.</find>
@@ -138,6 +216,14 @@
       <find>file</find>
       <find>30</find>
       <find>height</find>
+      <find>errors</find>
+      <find>getErrors</find>
+      <find>type i</find>
+      <find>consol</find>
+      <find>system</find>
+      <find>init</find>
+      <find>system edi</find>
+      <find>catch</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -160,9 +246,7 @@
         <option value="$PROJECT_DIR$/src/com/core/EntitySystem.java" />
         <option value="$PROJECT_DIR$/src/com/core/IReturnMessage.java" />
         <option value="$USER_HOME$/.IntelliJIdea2017.2/system/compile-server/gameengine_ade7ad55/groovyStubs/GameEngine/java-production/com/collections/SerializableObservableMap.java" />
-        <option value="$PROJECT_DIR$/src/com/core/ReturnMessage.java" />
         <option value="$PROJECT_DIR$/src/com/components/Position.groovy" />
-        <option value="$PROJECT_DIR$/src/com/components/Mass.groovy" />
         <option value="$PROJECT_DIR$/src/com/components/Sound.groovy" />
         <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableCollection.groovy" />
         <option value="$PROJECT_DIR$/src/com/collections/ReadOnlyCollection.java" />
@@ -173,26 +257,29 @@
         <option value="$PROJECT_DIR$/src/com/collections/ReadOnlySet.java" />
         <option value="$PROJECT_DIR$/src/com/core/Entity.groovy" />
         <option value="$PROJECT_DIR$/src/com/core/IEditorController.java" />
-        <option value="$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy" />
-        <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy" />
-        <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy" />
         <option value="$PROJECT_DIR$/src/com/core/IEntitySystem.java" />
-        <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy" />
         <option value="$PROJECT_DIR$/src/com/core/EntitySystem.groovy" />
         <option value="$PROJECT_DIR$/src/com/components/IComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/ui/main.fxml" />
         <option value="$PROJECT_DIR$/src/com/ui/ZoomableScrollPane.java" />
         <option value="$PROJECT_DIR$/src/com/ui/UIController.java" />
         <option value="$PROJECT_DIR$/src/com/ui/EntityComponentEditor.java" />
-        <option value="$PROJECT_DIR$/src/com/Utilities.java" />
-        <option value="$PROJECT_DIR$/src/com/core/BindableObservableProperty.java" />
         <option value="$PROJECT_DIR$/src/com/assets/AssetManager.groovy" />
         <option value="$PROJECT_DIR$/src/com/core/Controller.groovy" />
         <option value="$PROJECT_DIR$/src/com/core/IObservable.java" />
         <option value="$PROJECT_DIR$/src/com/components/AbstractComponent.groovy" />
-        <option value="$PROJECT_DIR$/src/com/core/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/core/ReturnMessage.java" />
+        <option value="$PROJECT_DIR$/src/com/ui/main.fxml" />
+        <option value="$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy" />
         <option value="$PROJECT_DIR$/src/com/components/Sprite.groovy" />
+        <option value="$PROJECT_DIR$/src/com/components/Mass.groovy" />
+        <option value="$PROJECT_DIR$/src/com/core/BindableObservableProperty.java" />
+        <option value="$PROJECT_DIR$/src/com/core/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/Utilities.groovy" />
         <option value="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" />
+        <option value="$PROJECT_DIR$/src/com/Utilities.java" />
+        <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy" />
+        <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy" />
+        <option value="$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy" />
       </list>
     </option>
   </component>
@@ -248,58 +335,7 @@
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="audio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="collections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="events" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="systems" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
@@ -336,13 +372,12 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="main.&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/main.fxml&#10;ieditor&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/IEditorController.java&#10;addenti&#9;null&#9;null&#10;abs&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/components/AbstractComponent.groovy&#10;adden&#9;null&#9;null&#10;adde&#9;null&#9;null&#10;assetma&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/assets/AssetManager.groovy&#10;zooma&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/ZoomableScrollPane.java&#10;updatesc&#9;FILE&#9;jar:///home/user/Dropbox/dev/groovy-2.4.13/lib/ivy-2.4.0.jar!/org/apache/ivy/osgi/updatesite/xml/UpdateSite.class&#10;addcom&#9;null&#9;null&#10;log&#9;PSI&#9;JAVA://com.ui.UIController#log&#10;update&#9;PSI&#9;JAVA://com.core.IGameplayController#update&#10;addentit&#9;null&#9;null&#10;entity&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/Entity.groovy&#10;sound&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/components/Sound.groovy&#10;contro&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/Controller.java&#10;ass&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/AssetManager.groovy&#10;main&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/main.fxml&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;getresource&#9;PSI&#9;JAVA://com.Utilities#getResourcePath&#10;ut&#9;FILE&#9;file://C:/Users/Tom/OneDrive/dev/Java/JavaFX/GameEngine/src/com/UtilityFunctions.java&#10;IReturnMessage&#9;PSI&#9;JAVA://com.core.IReturnMessage&#10;pair&#9;PSI&#9;JAVA://org.apache.commons.lang3.tuple.ImmutablePair&#10;getfieldswith&#9;PSI&#9;JAVA://org.apache.commons.lang3.reflect.FieldUtils#getFieldsListWithAnnotation&#10;loadpalette&#9;PSI&#9;JAVA://com.core.IEditorController#loadPalette" />
+    <property name="SearchEverywhereHistoryKey" value="ui&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/UIController.java&#10;moveme&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/systems/MovementSystem.groovy&#10;contro&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/Controller.java&#10;uic&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/UIController.java&#10;getErrors&#9;PSI&#9;JAVA://com.core.IReturnMessage#getErrors&#10;return&#9;PSI&#9;JAVA://com.core.ReturnMessage&#10;getinfo&#9;PSI&#9;JAVA://com.core.IReturnMessage#getInfo&#10;geterr&#9;PSI&#9;JAVA://com.core.IReturnMessage#getErrors&#10;main.&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/main.fxml&#10;ieditor&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/IEditorController.java&#10;addenti&#9;null&#9;null&#10;abs&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/components/AbstractComponent.groovy&#10;adden&#9;null&#9;null&#10;adde&#9;null&#9;null&#10;assetma&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/assets/AssetManager.groovy&#10;zooma&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/ZoomableScrollPane.java&#10;updatesc&#9;FILE&#9;jar:///home/user/Dropbox/dev/groovy-2.4.13/lib/ivy-2.4.0.jar!/org/apache/ivy/osgi/updatesite/xml/UpdateSite.class&#10;addcom&#9;null&#9;null&#10;log&#9;PSI&#9;JAVA://com.ui.UIController#log&#10;update&#9;PSI&#9;JAVA://com.core.IGameplayController#update&#10;addentit&#9;null&#9;null&#10;entity&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/Entity.groovy&#10;sound&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/components/Sound.groovy&#10;ass&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/AssetManager.groovy&#10;main&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/main.fxml&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;getresource&#9;PSI&#9;JAVA://com.Utilities#getResourcePath&#10;ut&#9;FILE&#9;file://C:/Users/Tom/OneDrive/dev/Java/JavaFX/GameEngine/src/com/UtilityFunctions.java&#10;IReturnMessage&#9;PSI&#9;JAVA://com.core.IReturnMessage&#10;pair&#9;PSI&#9;JAVA://org.apache.commons.lang3.tuple.ImmutablePair&#10;getfieldswith&#9;PSI&#9;JAVA://org.apache.commons.lang3.reflect.FieldUtils#getFieldsListWithAnnotation&#10;loadpalette&#9;PSI&#9;JAVA://com.core.IEditorController#loadPalette" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.collections" />
-      <recent name="com.core" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\assets" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\src\com\sprites" />
@@ -354,8 +389,9 @@
       <recent name="com.core" />
       <recent name="com.ui" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tom\OneDrive\dev\Java\JavaFX\GameEngine\assets" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.collections" />
+      <recent name="com.core" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -650,12 +686,12 @@
       <workItem from="1517195305309" duration="20787000" />
       <workItem from="1517296488736" duration="50000" />
       <workItem from="1517296603629" duration="379000" />
-      <workItem from="1517297043355" duration="9832000" />
+      <workItem from="1517297043355" duration="22838000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233654000" />
+    <option name="totallyTimeSpent" value="246660000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -782,17 +818,11 @@
           <properties />
           <option name="timeStamp" value="173" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="202" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="207" />
+      <option name="time" value="209" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -801,57 +831,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/collections/ReadOnlyList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/systems/ISystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableCollection.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/core/IEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/HashMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="183" column="34" lean-forward="true" selection-start-line="183" selection-start-column="34" selection-end-line="183" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/LinkedHashMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="234" column="30" lean-forward="true" selection-start-line="234" selection-start-column="30" selection-end-line="234" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/core/IGameplayController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.IntelliJIdea2017.2/system/compile-server/gameengine_ade7ad55/groovyStubs/GameEngine/java-production/com/core/EntitySystem.java" />
     <entry file="file://$PROJECT_DIR$/src/com/systems/EventSystem.groovy">
       <provider selected="true" editor-type-id="text-editor">
@@ -869,38 +848,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.IntelliJIdea2017.2/system/compile-server/gameengine_ade7ad55/groovyStubs/GameEngine/java-production/com/collections/SerializableObservableList.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/List.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -922,25 +870,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../groovy-2.4.13/lib/ivy-2.4.0.jar!/org/apache/ivy/osgi/updatesite/xml/UpdateSite.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/systems/MovementSystem.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -986,21 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Class.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="223" column="26" lean-forward="false" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/core/BindableObservableProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="103" lean-forward="true" selection-start-line="7" selection-start-column="103" selection-end-line="7" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/assets/AssetManager.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1013,14 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="80" lean-forward="false" selection-start-line="23" selection-start-column="80" selection-end-line="23" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/components/Mass.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1041,26 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/core/EntitySystem.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Override.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1073,26 +967,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ui/UIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="311" column="48" lean-forward="true" selection-start-line="311" selection-start-column="48" selection-end-line="311" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/components/IComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/core/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1102,16 +980,6 @@
         <state relative-caret-position="15">
           <caret line="7" column="61" lean-forward="true" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-          <folding>
-            <element signature="e#24#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1139,17 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/components/Sprite.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#54#0" expanded="true" />
-            <marker date="1517304758052" expanded="true" signature="55:212" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/control/MenuBar.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1172,10 +1029,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ui/main.fxml">
+    <entry file="file://$PROJECT_DIR$/src/com/ui/ConsoleTextArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/core/IReturnMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="75" column="22" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="22" />
+          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ui/main.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -1183,10 +1075,171 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/core/ReturnMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/systems/MovementSystem.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/core/EntitySystem.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/core/BindableObservableProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ui/UIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="132" column="27" lean-forward="false" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Class.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="171" column="20" lean-forward="true" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../groovy-2.4.13/lib/groovy-2.4.13.jar!/groovy/lang/GroovyObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/components/AbstractComponent.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Boolean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="36" column="26" lean-forward="false" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#1069#1070#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ui/ComponentEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="45" column="51" lean-forward="false" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        <state relative-caret-position="114">
+          <caret line="79" column="111" lean-forward="false" selection-start-line="79" selection-start-column="111" selection-end-line="79" selection-end-column="111" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/components/Mass.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="e#24#66#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/components/Sprite.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#54#0" expanded="true" />
+            <marker date="1517452282090" expanded="true" signature="55:212" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="122" column="55" lean-forward="true" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../groovy-2.4.13/lib/groovy-2.4.13.jar!/org/codehaus/groovy/runtime/StringGroovyMethods.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="1597" column="0" lean-forward="true" selection-start-line="1597" selection-start-column="0" selection-end-line="1597" selection-end-column="0" />
+          <folding>
+            <element signature="e#54197#54198#0" expanded="true" />
+            <element signature="e#54245#54246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/core/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="76" column="18" lean-forward="true" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="63" column="49" lean-forward="true" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding />
         </state>
       </provider>

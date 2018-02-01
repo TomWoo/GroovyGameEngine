@@ -1,12 +1,12 @@
 package com;
 
 import com.collections.SerializableObservableList;
+import com.collections.SerializableObservableMap;
+import com.collections.SerializableObservableSet;
 import com.components.IComponent;
 import com.core.Entity;
 import com.core.IEntity;
-import com.sun.corba.se.impl.io.TypeMismatchException;
 
-import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.text.ParseException;
@@ -51,7 +51,7 @@ public final class Utilities {
     public static IEntity cloneEntity(IEntity entity) {
         IEntity newEntity = new Entity(entity.getName(), new ArrayList<>(entity.getGroupIDs()));
         try {
-            Set<IComponent> components = entity.getComponents().stream().map(e -> (IComponent) deepClone(e)).collect(Collectors.toSet());
+            Set<IComponent> components = entity.getComponents().stream().map(e -> deepClone(e)).collect(Collectors.toSet());
             newEntity.addComponents(components);
         } catch (Exception e) {
             // TODO: warn
@@ -106,14 +106,21 @@ public final class Utilities {
 
     public static Serializable parseAsType(String s, Class c) {
         try {
-            if (c.equals(Integer.class)) {
+            // TODO: refactor
+            if (c.equals(String.class)) {
+                return s;
+            } else if (c.equals(Integer.class)) {
                 return Integer.valueOf(s);
             } else if (c.equals(Double.class)) {
                 return Double.valueOf(s);
             } else if (c.equals(Boolean.class)) {
-                return Boolean.valueOf(s);
-            } else if (c.equals(String.class)) {
-                return s;
+                return Boolean.valueOf(s); // TODO: select from two options
+            } else if (c.equals(SerializableObservableList.class)) {
+                return SerializableObservableList.construct(s);
+            } else if (c.equals(SerializableObservableMap.class)) {
+                return SerializableObservableMap.construct(s);
+            } else if (c.equals(SerializableObservableSet.class)) {
+                return SerializableObservableSet.construct(s);
             } else {
                 return null;
             }
