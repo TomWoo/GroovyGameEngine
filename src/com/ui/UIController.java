@@ -40,8 +40,8 @@ public class UIController {
     @FXML TreeTableColumn<IEntity, String> entityNameColumn;
     @FXML TreeTableColumn<IEntity, String> entityUIDColumn;
     @FXML TreeTableColumn<IEntity, String> entityGroupIDsColumn;
-    @FXML ConsoleTextArea consoleTextArea; // TODO: set font to mono
-//    @FXML TextArea consoleTextArea;
+    @FXML ConsoleTextArea consoleTextArea;
+    //private ConsoleTextArea consoleTextArea = new ConsoleTextArea();
 
     //@FXML
     //Canvas canvas;
