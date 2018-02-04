@@ -1,12 +1,13 @@
 package com.collections
 
+import com.core.IObservable
 import groovy.transform.TypeChecked
 
 /**
  * Created by Tom on 7/12/2017.
  */
 @TypeChecked
-public class SerializableObservableSet<E> extends LinkedHashSet<E> implements SerializableObservableCollection {
+public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Serializable, IObservable {
     @Delegate
     private transient ObservableSet<E> delegate = new ObservableSet<>();
 

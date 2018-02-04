@@ -1,5 +1,6 @@
 package com.collections
 
+import com.core.IObservable
 import groovy.transform.TypeChecked
 
 import java.util.*;
@@ -8,7 +9,7 @@ import java.util.*;
  * Created by Tom on 7/4/2017.
  */
 @TypeChecked
-public class SerializableObservableList<T> extends ArrayList<T> implements SerializableObservableCollection {
+public class SerializableObservableList<T> extends ArrayList<T> implements Serializable, IObservable {
     @Delegate
     private transient ObservableList delegate = new ObservableList();
 

@@ -58,9 +58,9 @@ public class ReturnMessage implements IReturnMessage {
     }
 
     @Override
-    public String toString() {
+    public String toString() { // TODO: format lists into columns
         String info = length>0 ? ("Info list:\n" + String.join("\n", infoLog) + "\n") : "";
         String errors = length>0 ? ("Error list:\n" + String.join("\n", errorLog) + "\n") : "";
-        return "EVAL\n" + info + errors;
+        return "-------- EVAL --------\n" + info + errors + "----------------------\n";
     }
 }

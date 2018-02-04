@@ -7,5 +7,5 @@ import java.lang.annotation.RetentionPolicy;
 @java.lang.annotation.Target({java.lang.annotation.ElementType.FIELD, java.lang.annotation.ElementType.TYPE})
 @org.codehaus.groovy.transform.GroovyASTTransformationClass({"groovy.beans.BindableASTTransformation"})
 public @interface BindableObservableProperty {
-    // functionally equivalent to the @Bindable annotation, but maintains runtime retention
+    // functionally equivalent to the @Bindable annotation, but maintains runtime retention for use in reflection
 }

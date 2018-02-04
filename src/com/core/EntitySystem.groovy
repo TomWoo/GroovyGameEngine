@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 @TypeChecked
 public class EntitySystem implements IEntitySystem {
-    private final String name //= Utilities.generateUID();
+    private String name = "universe" //Utilities.generateUID();
     @ObservableCollection
     private final SerializableObservableMap<String, IEntity> entitiesMap = new SerializableObservableMap<>();
 

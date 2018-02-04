@@ -18,9 +18,8 @@
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.scene.canvas.Canvas?>
-<?import com.ui.ZoomableScrollPane?>
 <?import com.ui.ConsoleTextArea?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.UIController">
@@ -100,8 +99,16 @@
                 <TreeTableColumn fx:id="entityGroupIDsColumn" prefWidth="149.0" text="Group IDs" />
               </columns>
             </TreeTableView>
-            <ConsoleTextArea fx:id="consoleTextArea" prefHeight="300.0" prefWidth="200.0" />
-            <!--<TextArea prefHeight="300.0" prefWidth="200.0" />-->
+             <ConsoleTextArea fx:id="consoleTextArea" prefHeight="300.0" prefWidth="200.0">
+                 <font>
+                     <Font name="Droid Sans Mono" size="12.0" />
+                 </font>
+             </ConsoleTextArea>
+            <!--<TextArea fx:id="consoleTextArea" prefHeight="300.0" prefWidth="200.0">-->
+               <!--<font>-->
+                  <!--<Font name="Droid Sans Mono" size="12.0" />-->
+               <!--</font>-->
+            <!--</TextArea>-->
             <ToolBar prefHeight="0.0" prefWidth="100.0">
               <items>
                   <SplitMenuButton mnemonicParsing="false" onAction="#execute" text="Execute">

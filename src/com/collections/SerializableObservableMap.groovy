@@ -1,12 +1,13 @@
 package com.collections
 
+import com.core.IObservable
 import groovy.transform.TypeChecked
 
 /**
  * Created by Tom on 7/4/2017.
  */
 @TypeChecked
-public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements SerializableObservableCollection {
+public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements Serializable, IObservable {
     @Delegate
     private transient ObservableMap delegate = new ObservableMap();
 

@@ -7,6 +7,7 @@ import com.components.Sound;
 import com.components.Sprite;
 import com.core.*;
 import groovy.lang.GroovyShell;
+import groovy.util.Eval;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -14,12 +15,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.codehaus.groovy.control.CompilationFailedException;
 import org.testng.reporters.Files;
 
 import java.io.File;
@@ -37,7 +40,8 @@ public class UIController {
     @FXML TreeTableColumn<IEntity, String> entityNameColumn;
     @FXML TreeTableColumn<IEntity, String> entityUIDColumn;
     @FXML TreeTableColumn<IEntity, String> entityGroupIDsColumn;
-    @FXML ConsoleTextArea consoleTextArea;
+    @FXML ConsoleTextArea consoleTextArea; // TODO: set font to mono
+//    @FXML TextArea consoleTextArea;
 
     //@FXML
     //Canvas canvas;
@@ -114,26 +118,26 @@ public class UIController {
         assetPaletteListView.setCellFactory(listCell -> new ListCell<String>() {
             @Override
             public void updateItem(String name, boolean empty) {
-                super.updateItem(name, empty);
-                if (empty) {
-                    setGraphic(null);
-                    setText(null);
-                } else {
-                    ImageView imageView;
-                    try {
-                        if(name.contains("/")) { // TODO: figure out why we need this check for *nix
-                            String[] path = name.split("/");
-                            name = path[path.length-1];
-                        }
-                        imageView = new ImageView(Utilities.getResourceFilename(AssetManager.IMAGE_ASSETS_PATH + name));
-                        imageView.setPreserveRatio(true);
-                        imageView.setFitHeight(16.0); // TODO: refactor
-                        setGraphic(imageView);
-                        setText(name);
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
+            super.updateItem(name, empty);
+            if (empty) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                ImageView imageView;
+                try {
+                    if(name.contains("/")) { // TODO: figure out why we need this check for *nix
+                        String[] path = name.split("/");
+                        name = path[path.length-1];
                     }
+                    imageView = new ImageView(Utilities.getResourceFilename(AssetManager.IMAGE_ASSETS_PATH + name));
+                    imageView.setPreserveRatio(true);
+                    imageView.setFitHeight(16.0); // TODO: refactor
+                    setGraphic(imageView);
+                    setText(name);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
+            }
             }
         });
         assetPaletteListView.setOnMouseClicked(e -> {
@@ -208,7 +212,25 @@ public class UIController {
 
     private void initConsole() {
         groovyShell.setVariable("universe", controller.getUniverse());
+        //groovyShell.setProperty("universe", controller.getUniverse());
         groovyShell.setVariable("palette" , controller.getPalette());
+        //consoleTextArea.setStyle("-fx-font-family: fantasy;");
+//        consoleTextArea.setFont(Font.font("fantasy"));
+        // REPL behavior
+        consoleTextArea.setOnKeyPressed(e -> {
+            if(e.getCode()== KeyCode.ENTER) {
+                e.consume();
+                execute();
+            }
+        });
+//        consoleTextArea.setOnKeyTyped(e -> {
+//            String s = e.getText();
+//            if(s.length()==1) {
+//                e.consume();
+//            }
+//            Text text = new Text(consoleTextArea.getText() + s);
+//            text.setFont(Font.font("fantasy"));
+//        });
     }
 
     private void log(IReturnMessage message) {
@@ -228,15 +250,17 @@ public class UIController {
     private void execute(String commands) {
         IReturnMessage message = new ReturnMessage();
         try {
-            message.appendInfo("Result: " + groovyShell.evaluate(commands)); //Eval.me(commands));
-        } catch (CompilationFailedException e) {
+            message.appendInfo("Result: " + groovyShell.evaluate(commands));
+            //message.appendInfo("Result: " + Eval.me(commands));
+        } catch (Exception e) {
             message.appendError(e.getMessage());
         }
         log(message);
     }
 
     public void execute() {
-        String commands = ""; // TODO: read user input
+        String commands = consoleTextArea.getLastLine();
+        consoleTextArea.println();
         execute(commands);
     }
 

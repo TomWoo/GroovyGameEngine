@@ -21,6 +21,7 @@ class SerializableTimer extends Timer implements Serializable {
         @Override
         void run() {
             closure()
+            //this.closure.run()
         }
     }
 

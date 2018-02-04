@@ -5,6 +5,7 @@ import com.Utilities;
 /**
  * Created by Tom on 6/18/2017.
  */
+@Deprecated
 class GameEvent implements Serializable { // TODO: interface?
     final String uniqueID = Utilities.generateUID() // final enforced at runtime
 
