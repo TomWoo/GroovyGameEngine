@@ -1,6 +1,7 @@
 package com.ui;
 
 import com.Utilities;
+import com.components.AbstractComponent;
 import com.components.IComponent;
 import com.core.IEntity;
 import groovy.ui.view.BasicStatusBar;
@@ -8,6 +9,8 @@ import groovy.util.MapEntry;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,42 +19,72 @@ import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+//import org.reflections.Reflections;
+//import sun.reflect.Reflection;
 
 import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ComponentEditor extends Stage {
+    private GridPane gridPane = new GridPane();
+    private ComboBox comboBox = new ComboBox();
+
+    // TODO: restrict window size
     public ComponentEditor(IEntity entity) {
         List<IComponent> components = new ArrayList<>(entity.getComponents());
         Group root = new Group();
         ScrollPane scrollPane = new ScrollPane();
         root.getChildren().add(scrollPane);
-        GridPane gridPane = new GridPane();
+        //GridPane gridPane = new GridPane();
         scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setPrefHeight(400);
         setScene(new Scene(root));
-//        BorderPane borderPane = new BorderPane();
-//        borderPane.setCenter(generateTable(components));
-//        root.getChildren().add(borderPane);
+
         HBox statusBar = new HBox();
-        //statusBar.setStyle("-fx-background: #444444;"); // TODO: check
-        //statusBar.setPrefHeight(40);
         //MenuBar statusBar = new MenuBar();
-        Label label = new Label("Double-click on any value to edit its contents. Press enter to commit.");
-        label.setPrefHeight(32);
-        statusBar.getChildren().add(label);
-        gridPane.addRow(0, label);
+        Label statusLabel = new Label("Double-click on any value to edit its contents. Press enter to commit.");
+        statusLabel.setPrefHeight(32);
+        statusBar.getChildren().add(statusLabel);
+        gridPane.addRow(0, statusLabel);
+        refresh(components, statusLabel);
+
+        HBox bottomBar = new HBox();
+        Button addComponentButton = new Button("+ Component");
+        gridPane.addRow(getNumRows(), bottomBar);
+//        Reflections reflections = new Reflections("my.project.prefix");
+//        List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
+//                .map(e -> e.getSimpleName()).collect(Collectors.toList());
+//        comboBox.setItems(FXCollections.observableArrayList(availableComponents));
+
+        setTitle("Component Editor");
+        show();
+    }
+
+    private int getNumRows() {
+        int numRows = 0;
+        try { // Access GridPane's private getter via reflection
+            Method method = gridPane.getClass().getDeclaredMethod("getNumberOfRows");
+            method.setAccessible(true);
+            numRows = (int) method.invoke(gridPane);
+        } catch (Exception ex) {
+            System.out.println("GridPane.getNumberOfRows() does not exist.");
+        }
+        return numRows;
+    }
+
+    // TODO: preserve encapsulation
+    private void refresh(List<IComponent> components, Label label) {
         int i = 1;
         for(IComponent component : components) {
             gridPane.addRow(i, generateTable(component, label));
             i++;
         }
-        setTitle("Component Editor");
-        show();
     }
 
     // TODO: split into init() sections
