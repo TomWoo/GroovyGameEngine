@@ -19,6 +19,7 @@ import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import org.reflections.Reflections;
 //import org.reflections.Reflections;
 //import sun.reflect.Reflection;
 
@@ -55,12 +56,14 @@ public class ComponentEditor extends Stage {
         refresh(components, statusLabel);
 
         HBox bottomBar = new HBox();
+        // Ref: https://stackoverflow.com/questions/20766363/get-the-number-of-rows-in-a-javafx-gridpane
+        Reflections reflections = new Reflections("com.components");
+        List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
+                .map(e -> e.getSimpleName()).collect(Collectors.toList());
+        comboBox.setItems(FXCollections.observableArrayList(availableComponents));
         Button addComponentButton = new Button("+ Component");
+        bottomBar.getChildren().addAll(comboBox, addComponentButton);
         gridPane.addRow(getNumRows(), bottomBar);
-//        Reflections reflections = new Reflections("my.project.prefix");
-//        List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
-//                .map(e -> e.getSimpleName()).collect(Collectors.toList());
-//        comboBox.setItems(FXCollections.observableArrayList(availableComponents));
 
         setTitle("Component Editor");
         show();
@@ -69,6 +72,7 @@ public class ComponentEditor extends Stage {
     private int getNumRows() {
         int numRows = 0;
         try { // Access GridPane's private getter via reflection
+            // Ref: https://stackoverflow.com/questions/520328/can-you-find-all-classes-in-a-package-using-reflection
             Method method = gridPane.getClass().getDeclaredMethod("getNumberOfRows");
             method.setAccessible(true);
             numRows = (int) method.invoke(gridPane);

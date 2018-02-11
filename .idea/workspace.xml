@@ -2,553 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/Utilities.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/assets/AssetManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/assets/audio/default.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/assets/images/default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/assets/images/gridworld_tileset.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/assets/images/map.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/ObservableCollection.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/ReadOnlyList.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/ReadOnlyMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/ReadOnlySet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableCollection.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableList.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap$_construct_closure2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap$_toFront_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/collections/SerializableObservableSet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/AbstractComponent$_getPropertiesMap_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/AbstractComponent$_getPropertiesMap_closure2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/AbstractComponent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Animation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/IComponent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Mass$_bindPropertyChangeVetoers_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Mass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Position.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sound.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite$_bindPropertyChangeVetoers_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite$_bindPropertyChangeVetoers_closure2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite$_bindPropertyChangeVetoers_closure3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite$_bindPropertyChangeVetoers_closure4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Sprite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/components/Velocity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/BindableObservableProperty.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/Controller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/Entity$_hasComponents_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/Entity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/EntitySystem$_getEntitiesByName_closure2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/EntitySystem$_getEntitiesWithComponents_closure3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/EntitySystem$_getEntities_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/EntitySystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/IEditorController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/IEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/IEntitySystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/IGameplayController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/IObservable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/IReturnMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/ReturnMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/core/SpriteAnimation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/events/GameEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/events/SerializableEvent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/events/SerializableTimer$GroovyTimerTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/events/SerializableTimer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/modules/GridWorld$Cell.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/modules/GridWorld$TileShape.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/modules/GridWorld.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/modules/GridWorldGenerator$_getGoogleMapImage_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/modules/GridWorldGenerator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/AbstractSystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/EventSystem$_register_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/EventSystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/GravitySystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/ISystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/systems/MovementSystem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/ComponentEditor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/ConsoleTextArea.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/UIController$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/UIController$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/UIController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/ZoomableScrollPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/com/ui/main.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/AnnotationUtils$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/AnnotationUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ArchUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ArrayUtils$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ArrayUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/BitField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/BooleanUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharEncoding.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharRange$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharRange$CharacterIterator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharRange.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharSequenceUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharSet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharSetUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/CharUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassPathUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassUtils$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassUtils$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassUtils$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassUtils$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassUtils$Interfaces.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ClassUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/Conversion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/EnumUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/JavaVersion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/LocaleUtils$SyncAvoid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/LocaleUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/NotImplementedException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ObjectUtils$Null.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ObjectUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/RandomStringUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/RandomUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/Range$ComparableComparator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/Range.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/SerializationException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/SerializationUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/StringEscapeUtils$CsvEscaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/StringEscapeUtils$CsvUnescaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/StringEscapeUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/StringUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/SystemUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils$AlwaysTruePredicate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils$NamePredicate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils$ThreadGroupPredicate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils$ThreadIdPredicate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils$ThreadPredicate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/ThreadUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/Validate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/arch/Processor$Arch.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/arch/Processor$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/arch/Processor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/CompareToBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/Diff.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$15.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$16.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$17.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$18.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/DiffResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/Diffable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/EqualsBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/EqualsExclude.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/HashCodeBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/HashCodeExclude.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/IDKey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/MultilineRecursiveToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/RecursiveToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ReflectionDiffBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ReflectionToStringBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/StandardToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringExclude.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$DefaultToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$JsonToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$MultiLineToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$NoClassNameToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$NoFieldNameToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$ShortPrefixToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle$SimpleToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/builder/ToStringStyle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AbstractCircuitBreaker$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AbstractCircuitBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AtomicInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/AtomicSafeInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/BackgroundInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/BasicThreadFactory$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/BasicThreadFactory$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/BasicThreadFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/CallableBackgroundInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/CircuitBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/CircuitBreakingException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/Computable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ConcurrentException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ConcurrentInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ConcurrentRuntimeException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ConcurrentUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ConstantInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker$StateStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker$StateStrategyClosed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker$StateStrategyOpen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/LazyInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/Memoizer$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/Memoizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer$MultiBackgroundInitializerResults.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/ThresholdCircuitBreaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/TimedSemaphore$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/concurrent/TimedSemaphore.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/event/EventListenerSupport$ProxyInvocationHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/event/EventListenerSupport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/event/EventUtils$EventBindingInvocationHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/event/EventUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/exception/CloneFailedException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/exception/ContextedException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/exception/ContextedRuntimeException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/exception/DefaultExceptionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/exception/ExceptionContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/exception/ExceptionUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/math/Fraction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/math/IEEE754rUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/math/NumberUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/Mutable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableBoolean.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableByte.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableDouble.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableFloat.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableInt.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableLong.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/mutable/MutableShort.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/ConstructorUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/FieldUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/InheritanceUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/MemberUtils$Executable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/MemberUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/MethodUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeLiteral.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeUtils$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeUtils$GenericArrayTypeImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeUtils$WildcardTypeBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeUtils$WildcardTypeImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/TypeUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/reflect/Typed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/CompositeFormat.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/ExtendedMessageFormat.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/FormatFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/FormattableUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrBuilder$StrBuilderReader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrBuilder$StrBuilderTokenizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrBuilder$StrBuilderWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrLookup$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrLookup$MapStrLookup.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrLookup$SystemPropertiesStrLookup.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrLookup.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrMatcher$CharMatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrMatcher$CharSetMatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrMatcher$NoMatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrMatcher$StringMatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrMatcher$TrimMatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrMatcher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrSubstitutor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/StrTokenizer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/WordUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/AggregateTranslator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/CharSequenceTranslator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/CodePointTranslator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/EntityArrays.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/JavaUnicodeEscaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/LookupTranslator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/NumericEntityEscaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/OctalUnescaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/UnicodeEscaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/UnicodeUnescaper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/text/translate/UnicodeUnpairedSurrogateRemover.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DateFormatUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DateParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DatePrinter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DateUtils$DateIterator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DateUtils$ModifyType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DateUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DurationFormatUtils$Token.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/DurationFormatUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateFormat$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateFormat.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$CaseInsensitiveTextStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$CopyQuotedStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$ISO8601TimeZoneStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$NumberStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$PatternStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$Strategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$StrategyAndWidth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$StrategyParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDateParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$CharacterLiteral.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$DayInWeekField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$NumberRule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$PaddedNumberField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$Rule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$StringLiteral.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TextField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TimeZoneNumberRule.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TwelveHourField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TwentyFourHourField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TwoDigitMonthField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TwoDigitNumberField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$TwoDigitYearField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$UnpaddedMonthField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$UnpaddedNumberField.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter$WeekYear.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FastDatePrinter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FormatCache$MultipartKey.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/FormatCache.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$SplitState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$State$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$State$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$State$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$State$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch$State.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/time/StopWatch.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/tuple/ImmutablePair.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/tuple/ImmutableTriple.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/tuple/MutablePair.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/tuple/MutableTriple.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/tuple/Pair.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/org/apache/commons/lang3/tuple/Triple.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/sample/Controller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/sample/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/GameEngine/sample/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/Utilities.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/assets/AssetManager.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/assets/audio/default.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/assets/images/default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/assets/images/gridworld_tileset.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/assets/images/map.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/ObservableCollection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/ReadOnlyList.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/ReadOnlyMap.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/ReadOnlySet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableCollection.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableList.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableMap.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/collections/SerializableObservableSet.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/AbstractComponent.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/Animation.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/IComponent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/Mass.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/Position.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/Sound.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/Sprite.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/components/Velocity.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/BindableObservableProperty.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/Entity.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/EntitySystem.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/IEditorController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/IEntity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/IEntitySystem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/IGameplayController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/IObservable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/IReturnMessage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/ReturnMessage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/core/SpriteAnimation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/events/GameEvent.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/events/SerializableEvent.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/events/SerializableTimer.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/modules/GridWorld.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/modules/GridWorldGenerator.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/systems/AbstractSystem.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/systems/EventSystem.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/systems/GravitySystem.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/systems/ISystem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/systems/MovementSystem.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ui/ConsoleTextArea.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ui/UIController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ui/ZoomableScrollPane.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/ui/main.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/AnnotationUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/ArchUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/ArrayUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/BitField.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/BooleanUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/CharEncoding.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/CharRange.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/CharSequenceUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/CharSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/CharSetUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/CharUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/ClassPathUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/ClassUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/Conversion.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/EnumUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/JavaVersion.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/LocaleUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/NotImplementedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/ObjectUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/RandomStringUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/RandomUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/Range.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/SerializationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/SerializationUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/StringEscapeUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/StringUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/SystemUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/ThreadUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/Validate.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/arch/Processor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/arch/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/Builder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/CompareToBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/Diff.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/DiffBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/DiffResult.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/Diffable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/EqualsBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/EqualsExclude.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/HashCodeBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/HashCodeExclude.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/IDKey.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/MultilineRecursiveToStringStyle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/RecursiveToStringStyle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/ReflectionDiffBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/ReflectionToStringBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/StandardToStringStyle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/ToStringBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/ToStringExclude.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/ToStringStyle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/builder/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/AbstractCircuitBreaker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/AtomicInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/AtomicSafeInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/BackgroundInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/BasicThreadFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/CallableBackgroundInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/CircuitBreaker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/CircuitBreakingException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/Computable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/ConcurrentException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/ConcurrentInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/ConcurrentRuntimeException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/ConcurrentUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/ConstantInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/EventCountCircuitBreaker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/LazyInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/Memoizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/ThresholdCircuitBreaker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/TimedSemaphore.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/concurrent/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/event/EventListenerSupport.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/event/EventUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/event/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/CloneFailedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/ContextedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/ContextedRuntimeException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/DefaultExceptionContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/ExceptionContext.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/ExceptionUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/exception/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/math/Fraction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/math/IEEE754rUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/math/NumberUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/math/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/Mutable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableBoolean.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableByte.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableDouble.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableFloat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableInt.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableLong.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/MutableShort.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/mutable/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/ConstructorUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/FieldUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/InheritanceUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/MemberUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/MethodUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/TypeLiteral.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/TypeUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/Typed.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/reflect/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/CompositeFormat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/ExtendedMessageFormat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/FormatFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/FormattableUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/StrBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/StrLookup.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/StrMatcher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/StrSubstitutor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/StrTokenizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/WordUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/AggregateTranslator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/CodePointTranslator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/EntityArrays.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/JavaUnicodeEscaper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/LookupTranslator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/NumericEntityEscaper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/OctalUnescaper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/UnicodeEscaper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/UnicodeUnescaper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/UnicodeUnpairedSurrogateRemover.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/text/translate/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/DateFormatUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/DateParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/DatePrinter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/DateUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/DurationFormatUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/FastDateFormat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/FastDateParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/FastDatePrinter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/FormatCache.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/StopWatch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/time/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/ImmutablePair.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/ImmutableTriple.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/MutablePair.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/MutableTriple.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/Pair.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/Triple.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/apache/commons/lang3/tuple/package-info.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/sample.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_annotations_2_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_15_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_19_0_GA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_10.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/collections/SerializableObservableList.class" afterPath="$PROJECT_DIR$/target/classes/com/collections/SerializableObservableList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/collections/SerializableObservableSet.class" afterPath="$PROJECT_DIR$/target/classes/com/collections/SerializableObservableSet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/components/Sound.class" afterPath="$PROJECT_DIR$/target/classes/com/components/Sound.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/components/Sprite.class" afterPath="$PROJECT_DIR$/target/classes/com/components/Sprite.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameEngine.iml" afterPath="$PROJECT_DIR$/GameEngine.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java" afterPath="$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -616,37 +81,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ComponentEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="282">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#807#808#0" expanded="true" />
-                <element signature="e#835#836#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -655,33 +106,20 @@
       <file leaf-file-name="UIController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="15">
               <caret line="147" column="69" lean-forward="false" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssetManager.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/core/AssetManager.groovy">
+      <file leaf-file-name="ComponentEditor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" column="52" lean-forward="false" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Utilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="74" column="71" lean-forward="false" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2885#2886#0" expanded="true" />
-                <element signature="e#2942#2943#0" expanded="true" />
-                <element signature="e#3059#3060#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -789,9 +227,10 @@
         <option value="$PROJECT_DIR$/src/com/ui/main.fxml" />
         <option value="$PROJECT_DIR$/src/com/ui/UIController.java" />
         <option value="$PROJECT_DIR$/src/com/ui/ComponentEditor.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/core/AssetManager.groovy" />
         <option value="$PROJECT_DIR$/src/main/java/com/Main.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java" />
       </list>
     </option>
   </component>
@@ -813,6 +252,16 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="GameEngine" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="GameEngine" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="GameEngine" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Run Configurations" type="21c1f71a:MavenProjectsStructure$RunConfigurationsNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
@@ -850,9 +299,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -891,24 +339,6 @@
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -937,25 +367,11 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -974,13 +390,13 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/ui" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/main/java/com/ui/main.fxml&#10;todo&#9;ACTION&#9;ActivateTODOToolWindow&#10;ui&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/UIController.java&#10;moveme&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/systems/MovementSystem.groovy&#10;contro&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/Controller.java&#10;uic&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/UIController.java&#10;getErrors&#9;PSI&#9;JAVA://com.core.IReturnMessage#getErrors&#10;return&#9;PSI&#9;JAVA://com.core.ReturnMessage&#10;getinfo&#9;PSI&#9;JAVA://com.core.IReturnMessage#getInfo&#10;geterr&#9;PSI&#9;JAVA://com.core.IReturnMessage#getErrors&#10;main.&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/main.fxml&#10;ieditor&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/IEditorController.java&#10;addenti&#9;null&#9;null&#10;abs&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/components/AbstractComponent.groovy&#10;adden&#9;null&#9;null&#10;adde&#9;null&#9;null&#10;assetma&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/assets/AssetManager.groovy&#10;zooma&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/ZoomableScrollPane.java&#10;updatesc&#9;FILE&#9;jar:///home/user/Dropbox/dev/groovy-2.4.13/lib/ivy-2.4.0.jar!/org/apache/ivy/osgi/updatesite/xml/UpdateSite.class&#10;addcom&#9;null&#9;null&#10;log&#9;PSI&#9;JAVA://com.ui.UIController#log&#10;update&#9;PSI&#9;JAVA://com.core.IGameplayController#update&#10;addentit&#9;null&#9;null&#10;entity&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/Entity.groovy&#10;sound&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/components/Sound.groovy&#10;ass&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/core/AssetManager.groovy&#10;main&#9;FILE&#9;file:///home/user/Dropbox/dev/JavaFX/GameEngine/src/com/ui/main.fxml&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;getresource&#9;PSI&#9;JAVA://com.Utilities#getResourcePath&#10;ut&#9;FILE&#9;file://C:/Users/Tom/OneDrive/dev/Java/JavaFX/GameEngine/src/com/UtilityFunctions.java&#10;IReturnMessage&#9;PSI&#9;JAVA://com.core.IReturnMessage&#10;pair&#9;PSI&#9;JAVA://org.apache.commons.lang3.tuple.ImmutablePair&#10;getfieldswith&#9;PSI&#9;JAVA://org.apache.commons.lang3.reflect.FieldUtils#getFieldsListWithAnnotation&#10;loadpalette&#9;PSI&#9;JAVA://com.core.IEditorController#loadPalette" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -1302,12 +718,13 @@
       <workItem from="1517296488736" duration="50000" />
       <workItem from="1517296603629" duration="379000" />
       <workItem from="1517297043355" duration="41840000" />
-      <workItem from="1518301558178" duration="4914000" />
+      <workItem from="1518301558178" duration="6240000" />
+      <workItem from="1518307879034" duration="1503000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270576000" />
+    <option name="totallyTimeSpent" value="273405000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1320,22 +737,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32590052" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3348485" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29502574" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22121212" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2915952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43053174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1351,6 +768,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2915952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1391,17 +809,11 @@
           <properties />
           <option name="timeStamp" value="173" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/Main.java</url>
-          <line>15</line>
-          <properties />
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="217" />
+      <option name="time" value="220" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1410,20 +822,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/layout/GridPane.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="553" column="16" lean-forward="false" selection-start-line="553" selection-start-column="16" selection-end-line="553" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/layout/Region.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="277" column="11" lean-forward="false" selection-start-line="277" selection-start-column="11" selection-end-line="277" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/control/MenuBar.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1457,6 +855,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,9 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#54#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1495,9 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="e#24#66#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1556,7 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1564,7 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1572,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1580,9 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#52#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1620,7 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1636,6 +1022,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="48" />
+          <folding>
+            <element signature="e#21#64#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1643,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1699,7 +1087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1713,21 +1100,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameEngine.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1743,15 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1770,35 +1137,17 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/main.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2885#2886#0" expanded="true" />
-            <element signature="e#2942#2943#0" expanded="true" />
-            <element signature="e#3059#3060#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2885#2886#0" expanded="false" />
+            <element signature="e#2942#2943#0" expanded="false" />
+            <element signature="e#3059#3060#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/UIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="147" column="69" lean-forward="false" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1810,14 +1159,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/ui/main.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/core/IEntitySystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#835#836#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/UIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="147" column="69" lean-forward="false" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ui/ComponentEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="74" column="71" lean-forward="false" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1902,7 +1296,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: org.apache.commons:commons-lang3:3.7</last-edited>
+          <last-edited>Maven: com.google.guava:guava:15.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
