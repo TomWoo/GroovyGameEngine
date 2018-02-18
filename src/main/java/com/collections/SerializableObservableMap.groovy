@@ -10,6 +10,7 @@ import groovy.transform.TypeChecked
 public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements Serializable, IObservable {
     @Delegate
     private transient ObservableMap delegate = new ObservableMap();
+    private transient ObservableMap test = new ObservableMap();
 
     public SerializableObservableMap() {
         super();
@@ -91,6 +92,6 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
         ois.defaultReadObject();
         ois.close();
-        delegate = new ObservableMap(this); // TODO: check
+        delegate = new ObservableMap()
     }
 }

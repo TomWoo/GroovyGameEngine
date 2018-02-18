@@ -2,6 +2,7 @@ package com.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tom on 6/9/2017.
@@ -24,8 +25,20 @@ public class ReturnMessage implements IReturnMessage {
     }
 
     @Override
+    public boolean hasInfo() {
+        List<String> log = infoLog.stream().filter(e -> e.length()>0).collect(Collectors.toList());
+        return log.size()>0;
+    }
+
+    @Override
     public List<String> getErrors() {
         return new ArrayList<>(errorLog);
+    }
+
+    @Override
+    public boolean hasErrors() {
+        List<String> log = errorLog.stream().filter(e -> e.length()>0).collect(Collectors.toList());
+        return log.size()>0;
     }
 
 //    @Override

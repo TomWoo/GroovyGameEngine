@@ -7,7 +7,9 @@ import java.util.List;
  */
 public interface IReturnMessage {
     List<String> getInfo();
+    boolean hasInfo();
     List<String> getErrors();
+    boolean hasErrors();
     //void append(IReturnMessage returnMessage);
     void append(String info, String error);
     void appendInfo(String info);

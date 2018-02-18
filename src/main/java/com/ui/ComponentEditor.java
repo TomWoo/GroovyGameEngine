@@ -4,11 +4,14 @@ import com.Utilities;
 import com.components.AbstractComponent;
 import com.components.IComponent;
 import com.core.IEntity;
+import com.core.IReturnMessage;
 import groovy.ui.view.BasicStatusBar;
 import groovy.util.MapEntry;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
@@ -32,44 +35,37 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ComponentEditor extends Stage {
-    private GridPane gridPane = new GridPane();
-    private ComboBox comboBox = new ComboBox();
+    private IEntity entity;
+    //private Group root = new Group();
+    private ScrollPane scrollPane = new ScrollPane();
+    //private ComboBox<Class> comboBox = new ComboBox<>();
+//    private ChoiceBox<String> choiceBox = new ChoiceBox<>();
+    private Label statusLabel = new Label("Double-click on any value to edit its contents. Press enter to commit.");
 
     // TODO: restrict window size
     public ComponentEditor(IEntity entity) {
-        List<IComponent> components = new ArrayList<>(entity.getComponents());
+        this.entity = entity;
         Group root = new Group();
-        ScrollPane scrollPane = new ScrollPane();
         root.getChildren().add(scrollPane);
         //GridPane gridPane = new GridPane();
-        scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
+        //scrollPane.setContent(gridPane);
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scrollPane.setPrefHeight(400);
+        scrollPane.setPrefHeight(400); // TODO: change
         setScene(new Scene(root));
 
         HBox statusBar = new HBox();
         //MenuBar statusBar = new MenuBar();
-        Label statusLabel = new Label("Double-click on any value to edit its contents. Press enter to commit.");
         statusLabel.setPrefHeight(32);
         statusBar.getChildren().add(statusLabel);
-        gridPane.addRow(0, statusLabel);
-        refresh(components, statusLabel);
-
-        HBox bottomBar = new HBox();
-        // Ref: https://stackoverflow.com/questions/20766363/get-the-number-of-rows-in-a-javafx-gridpane
-        Reflections reflections = new Reflections("com.components");
-        List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
-                .map(e -> e.getSimpleName()).collect(Collectors.toList());
-        comboBox.setItems(FXCollections.observableArrayList(availableComponents));
-        Button addComponentButton = new Button("+ Component");
-        bottomBar.getChildren().addAll(comboBox, addComponentButton);
-        gridPane.addRow(getNumRows(), bottomBar);
+        //gridPane.addRow(0, statusLabel);
+        //List<IComponent> components = new ArrayList<>(entity.getComponents());
+        refresh();
 
         setTitle("Component Editor");
         show();
     }
 
-    private int getNumRows() {
+    private int getNumRows(GridPane gridPane) {
         int numRows = 0;
         try { // Access GridPane's private getter via reflection
             // Ref: https://stackoverflow.com/questions/520328/can-you-find-all-classes-in-a-package-using-reflection
@@ -83,12 +79,69 @@ public class ComponentEditor extends Stage {
     }
 
     // TODO: preserve encapsulation
-    private void refresh(List<IComponent> components, Label label) {
+    private void refresh() {
+        List<IComponent> components = new ArrayList<>(entity.getComponents());
+        GridPane gridPane = new GridPane();
+        scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
         int i = 1;
         for(IComponent component : components) {
-            gridPane.addRow(i, generateTable(component, label));
+            gridPane.addRow(i, generateTable(component, statusLabel));
             i++;
         }
+
+        ComboBox<Class> comboBox = new ComboBox<>(); // TODO: place in constructor
+        // Ref: https://stackoverflow.com/questions/20766363/get-the-number-of-rows-in-a-javafx-gridpane
+        Reflections reflections = new Reflections("com.components");
+        //List<String> existingComponents = components.stream().map(c -> c.getClass().getSimpleName()).collect(Collectors.toList());
+        List<Class> existingComponents = components.stream().map(c -> c.getClass()).collect(Collectors.toList());
+        //List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
+        List<Class> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
+                .filter(e -> !existingComponents.contains(e))
+                .collect(Collectors.toList());
+        comboBox.setItems(FXCollections.observableArrayList(availableComponents)); // TODO: display simple class names
+//        choiceBox.setItems(FXCollections.observableArrayList(availableComponents));
+
+        HBox bottomBar = new HBox();
+        comboBox.getSelectionModel().selectFirst(); // TODO: place in refresh()?
+//        choiceBox.getSelectionModel().selectFirst();
+//        comboBox.getSelectionModel().selectedItemProperty().addListener(
+//                new ChangeListener<Class>() { // TODO: replace w/ lambda
+//                    @Override
+//                    public void changed(ObservableValue<? extends Class> observableValue, Class oldValue, Class newValue) {
+////                        try {
+////                            IReturnMessage returnMessage = entity.addComponents((IComponent) newValue.newInstance());
+////                            statusLabel.setText(returnMessage.hasErrors() ?
+////                                    "Error log: " + String.join(", ", returnMessage.getErrors()) :
+////                                    "Info log: " + String.join(", ", returnMessage.getInfo())
+////                            );
+////                        } catch (Exception ex) {
+////                            statusLabel.setText("Fatal Exception: " + ex.getMessage());
+////                        }
+//                        try {
+//                            IComponent c = (IComponent) newValue.newInstance();
+//                            entity.addComponents();
+//                            //refresh(new ArrayList<>(entity.getComponents()), statusLabel);
+//                        } catch (Exception ex) {
+//                            statusLabel.setText("Fatal Exception");
+//                        }
+//                        //comboBox.getSelectionModel().clearSelection();
+//                    }
+//                }
+//        );
+        Button addComponentButton = new Button("+ Component");
+        bottomBar.getChildren().addAll(comboBox, addComponentButton);
+        addComponentButton.setOnMouseClicked(e -> {
+            try {
+                IComponent c = (IComponent) comboBox.getSelectionModel().getSelectedItem().newInstance();
+                entity.addComponents(c);
+                refresh();
+            } catch (Exception ex) {
+                statusLabel.setText("Fatal Exception: " + ex.getMessage());
+            }
+        });
+        //bottomBar.getChildren().add(comboBox);
+//        bottomBar.getChildren().addAll(choiceBox, addComponentButton);
+        gridPane.addRow(getNumRows(gridPane), bottomBar);
     }
 
     // TODO: split into init() sections
