@@ -21,9 +21,9 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     }
 
     @Override
-    public V put(K key, V value) {
-        observableDelegate.put(key, value);
-        return (V) super.put(key, value);
+    final V put(K key, V value) {
+        observableDelegate.put(key, value)
+        return (V) super.put(key, value)
     }
 
     @Override
@@ -89,8 +89,9 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     }
 */
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-        ois.defaultReadObject();
-        ois.close();
-        observableDelegate = new ObservableMap(this); // TODO: check
+        //observableDelegate = new ObservableMap() // TODO: fix, re-populate delegate map w/o triggering recursive calls to put()
+        ois.defaultReadObject()
+        ois.close()
+        observableDelegate = new ObservableMap()
     }
 }

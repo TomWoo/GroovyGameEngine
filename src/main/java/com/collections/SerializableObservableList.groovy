@@ -101,6 +101,6 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
         ois.defaultReadObject();
         ois.close();
 
-        delegate = new ObservableList(this); // TODO: check
+        delegate = new ObservableList(this);
     }
 }

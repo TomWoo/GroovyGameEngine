@@ -5,6 +5,7 @@ import com.components.AbstractComponent;
 import com.components.IComponent;
 import com.core.IEntity;
 import com.core.IReturnMessage;
+import groovy.lang.GroovyClassLoader;
 import groovy.ui.view.BasicStatusBar;
 import groovy.util.MapEntry;
 import javafx.beans.property.Property;
@@ -47,24 +48,19 @@ public class ComponentEditor extends Stage {
         this.entity = entity;
         Group root = new Group();
         root.getChildren().add(scrollPane);
-        //GridPane gridPane = new GridPane();
+        GridPane gridPane = new GridPane();
         //scrollPane.setContent(gridPane);
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setPrefHeight(400); // TODO: change
         setScene(new Scene(root));
 
-        HBox statusBar = new HBox();
-        //MenuBar statusBar = new MenuBar();
-        statusLabel.setPrefHeight(32);
-        statusBar.getChildren().add(statusLabel);
-        //gridPane.addRow(0, statusLabel);
-        //List<IComponent> components = new ArrayList<>(entity.getComponents());
         refresh();
 
         setTitle("Component Editor");
         show();
     }
 
+    @Deprecated
     private int getNumRows(GridPane gridPane) {
         int numRows = 0;
         try { // Access GridPane's private getter via reflection
@@ -83,6 +79,15 @@ public class ComponentEditor extends Stage {
         List<IComponent> components = new ArrayList<>(entity.getComponents());
         GridPane gridPane = new GridPane();
         scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
+
+        HBox statusBar = new HBox();
+        //MenuBar statusBar = new MenuBar();
+        statusLabel.setPrefHeight(32);
+        statusBar.getChildren().add(statusLabel);
+        //gridPane.addRow(0, statusLabel);
+        //List<IComponent> components = new ArrayList<>(entity.getComponents());
+        gridPane.addRow(0, statusBar);
+
         int i = 1;
         for(IComponent component : components) {
             gridPane.addRow(i, generateTable(component, statusLabel));
@@ -108,20 +113,21 @@ public class ComponentEditor extends Stage {
         bottomBar.getChildren().addAll(comboBox, addComponentButton);
         addComponentButton.setOnMouseClicked(e -> {
             try {
-                IComponent c = (IComponent) Class.forName(
+                GroovyClassLoader loader = new GroovyClassLoader();
+                IComponent c = (IComponent) loader.loadClass(
                         comboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
-                System.out.println(c);
-                IReturnMessage message = entity.addComponents(c);
-                System.out.println(message);
+//                IComponent c = (IComponent) Class.forName(
+//                        comboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
+                entity.addComponents(c);
+                statusLabel.setText("Added " + c.toString());
                 refresh();
             } catch (Exception ex) {
                 statusLabel.setText("Fatal Exception: " + ex.getMessage());
-                System.out.println(ex.toString());
             }
         });
         //bottomBar.getChildren().add(comboBox);
 //        bottomBar.getChildren().addAll(choiceBox, addComponentButton);
-        gridPane.addRow(getNumRows(gridPane), bottomBar);
+        gridPane.addRow(i, bottomBar); // getNumRows(gridPane)
     }
 
     // TODO: split into init() sections
