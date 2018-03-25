@@ -22,7 +22,7 @@ class GridWorldGenerator {
         WebEngine webEngine = browser.getEngine();
         webEngine.load("http://maps.google.com/place/" + location);
 
-        webEngine.setCreatePopupHandler({ // TODO: check syntax on using delegate as callback
+        webEngine.setCreatePopupHandler({ // TODO: check syntax on using observableDelegate as callback
 
         });
 

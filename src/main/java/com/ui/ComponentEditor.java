@@ -93,7 +93,7 @@ public class ComponentEditor extends Stage {
         // Ref: https://stackoverflow.com/questions/20766363/get-the-number-of-rows-in-a-javafx-gridpane
         Reflections reflections = new Reflections("com.components");
         //List<String> existingComponents = components.stream().map(c -> c.getClass().getSimpleName()).collect(Collectors.toList());
-        List<Class> existingComponents = components.stream().map(c -> c.getClass()).collect(Collectors.toList());
+        List<Class> existingComponents = components.stream().map(IComponent::getClass).collect(Collectors.toList());
         //List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
         List<Class> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
                 .filter(e -> !existingComponents.contains(e))
@@ -103,40 +103,20 @@ public class ComponentEditor extends Stage {
 
         HBox bottomBar = new HBox();
         comboBox.getSelectionModel().selectFirst(); // TODO: place in refresh()?
-//        choiceBox.getSelectionModel().selectFirst();
-//        comboBox.getSelectionModel().selectedItemProperty().addListener(
-//                new ChangeListener<Class>() { // TODO: replace w/ lambda
-//                    @Override
-//                    public void changed(ObservableValue<? extends Class> observableValue, Class oldValue, Class newValue) {
-////                        try {
-////                            IReturnMessage returnMessage = entity.addComponents((IComponent) newValue.newInstance());
-////                            statusLabel.setText(returnMessage.hasErrors() ?
-////                                    "Error log: " + String.join(", ", returnMessage.getErrors()) :
-////                                    "Info log: " + String.join(", ", returnMessage.getInfo())
-////                            );
-////                        } catch (Exception ex) {
-////                            statusLabel.setText("Fatal Exception: " + ex.getMessage());
-////                        }
-//                        try {
-//                            IComponent c = (IComponent) newValue.newInstance();
-//                            entity.addComponents();
-//                            //refresh(new ArrayList<>(entity.getComponents()), statusLabel);
-//                        } catch (Exception ex) {
-//                            statusLabel.setText("Fatal Exception");
-//                        }
-//                        //comboBox.getSelectionModel().clearSelection();
-//                    }
-//                }
-//        );
+
         Button addComponentButton = new Button("+ Component");
         bottomBar.getChildren().addAll(comboBox, addComponentButton);
         addComponentButton.setOnMouseClicked(e -> {
             try {
-                IComponent c = (IComponent) comboBox.getSelectionModel().getSelectedItem().newInstance();
-                entity.addComponents(c);
+                IComponent c = (IComponent) Class.forName(
+                        comboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
+                System.out.println(c);
+                IReturnMessage message = entity.addComponents(c);
+                System.out.println(message);
                 refresh();
             } catch (Exception ex) {
                 statusLabel.setText("Fatal Exception: " + ex.getMessage());
+                System.out.println(ex.toString());
             }
         });
         //bottomBar.getChildren().add(comboBox);

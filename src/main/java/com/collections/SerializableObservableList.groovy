@@ -93,7 +93,7 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
     }
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {
-        oos.writeObject(new ArrayList<T>(delegate));
+        oos.writeObject(new ArrayList<T>(observableDelegate));
         oos.close();
     }
 */

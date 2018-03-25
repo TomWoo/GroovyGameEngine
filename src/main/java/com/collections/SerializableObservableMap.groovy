@@ -9,8 +9,7 @@ import groovy.transform.TypeChecked
 @TypeChecked
 public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> implements Serializable, IObservable {
     @Delegate
-    private transient ObservableMap delegate = new ObservableMap();
-    private transient ObservableMap test = new ObservableMap();
+    private transient ObservableMap observableDelegate = new ObservableMap();
 
     public SerializableObservableMap() {
         super();
@@ -18,24 +17,24 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
 
     public SerializableObservableMap(Map<? extends K, ? extends V> map) {
         super(map);
-        delegate = new ObservableMap(map);
+        observableDelegate = new ObservableMap(map);
     }
 
     @Override
     public V put(K key, V value) {
-        delegate.put(key, value);
+        observableDelegate.put(key, value);
         return (V) super.put(key, value);
     }
 
     @Override
     public V remove(Object key) {
-        delegate.remove(key);
+        observableDelegate.remove(key);
         return (V) super.remove(key);
     }
 
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
-        delegate.putAll(m);
+        observableDelegate.putAll(m);
         super.putAll(m);
     }
 
@@ -51,7 +50,7 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
 
     @Override
     public void clear() {
-        delegate.clear();
+        observableDelegate.clear();
         super.clear();
     }
 
@@ -85,13 +84,13 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
 
 /*
     private void writeObject(ObjectOutputStream oos) throws IOException {
-        oos.writeObject(new LinkedHashMap<K, V>(delegate));
+        oos.writeObject(new LinkedHashMap<K, V>(observableDelegate));
         oos.close();
     }
 */
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
         ois.defaultReadObject();
         ois.close();
-        delegate = new ObservableMap()
+        observableDelegate = new ObservableMap(this); // TODO: check
     }
 }

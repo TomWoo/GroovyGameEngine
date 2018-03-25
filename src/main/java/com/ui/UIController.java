@@ -50,6 +50,8 @@ public class UIController {
 
     private IEntity selectedEntity;
 
+    private double scrollSensitivity = 8.0;
+
     private void renderGraphics(IEntitySystem entitySystem, double alpha) {
         //gc.setGlobalAlpha(alpha);
         for(IEntity entity : entitySystem.getEntitiesWithComponents(Sprite.class, Position.class)) {
@@ -302,7 +304,7 @@ public class UIController {
 
     private void initCanvas() {
         //gc = canvas.getGraphicsContext2D();
-        viewPane.setContent(new VBox(root));
+        viewPane.setContent(root); // new VBox(root)
         viewPane.setPannable(true);
         //viewPane.setTarget(root);
 //        viewPane.setFitToWidth(true);
@@ -314,9 +316,12 @@ public class UIController {
         viewPane.setOnMouseMoved(e -> {
             if(selectedEntity!=null) {
                 if(!selectedEntity.hasComponents(Position.class)) {
-                    selectedEntity.addComponents(new Position(e.getX(), e.getY(), 0));
+                    selectedEntity.addComponents(new Position());
                 }
-                selectedEntity.getComponent(Position.class).setXY(e.getX(), e.getY());
+                selectedEntity.getComponent(Position.class).setXY(
+                        e.getX(),
+                        e.getY()
+                ); // TODO: account for zoom
             }
         });
         //canvas.setOnMouseClicked(e -> {
@@ -336,8 +341,8 @@ public class UIController {
         viewPane.addEventFilter(ScrollEvent.ANY, e -> { // TODO: setOnScroll buggy?
             if(!e.isShiftDown()) {
                 //e.consume();
-                double scrollDelta = e.getDeltaY()/40.0;
-                double zoomFactor = Math.pow(2.0, scrollDelta);
+                double scrollDelta = e.getDeltaY() / 40.0; // TODO: test on other machines
+                double zoomFactor = Math.pow(2.0, scrollDelta/scrollSensitivity);
                 root.setScaleX(root.getScaleX() * zoomFactor);
                 root.setScaleY(root.getScaleY() * zoomFactor);
 //                viewPane.setHvalue(viewPane.getHvalue() * zoomFactor);

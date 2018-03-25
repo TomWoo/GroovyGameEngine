@@ -36,7 +36,7 @@ class EventSystem extends AbstractSystem {
 
     @Override
     IReturnMessage update(Set<IEntity> entities, long dt) {
-        return new ReturnMessage() // TODO
+        return new ReturnMessage() // TODO: implement
     }
 
     IReturnMessage register(IObservable obj, String prop, String conditions,

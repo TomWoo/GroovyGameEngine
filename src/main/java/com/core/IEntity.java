@@ -26,6 +26,7 @@ public interface IEntity extends Serializable {
     IReturnMessage addComponents(Set<IComponent> components);
     IReturnMessage removeComponents(Class... classes);
     IReturnMessage removeComponents(Set<Class> classes);
+    boolean setComponent(IComponent component); // overrides any existing component
 
     void addComponentsChangeListener(PropertyChangeListener listener);
     void addGroupsChangeListener(PropertyChangeListener listener);

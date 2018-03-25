@@ -136,6 +136,17 @@ public class Entity implements IEntity { // TODO: add Node-based operations
     }
 
     @Override
+    boolean setComponent(IComponent component) {
+        Class c = component.getClass();
+        boolean hasComponent = this.hasComponents(c)
+        if(!hasComponent) {
+            this.addComponents(component)
+        }
+        componentsMap.put(c, component)
+        return hasComponent
+    }
+
+    @Override
     public void addComponentsChangeListener(PropertyChangeListener listener) {
         componentsMap.addPropertyChangeListener(listener);
     }
