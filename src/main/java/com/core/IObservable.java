@@ -17,7 +17,7 @@ public interface IObservable { // Sub-classes must override these methods!
         throw new NotImplementedException(getClass().getName() + " does not implement getPropertyChangeListeners()");
     }
 
-    default void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+    default void addPropertyChangeListener(PropertyChangeListener listener) {
         throw new NotImplementedException(getClass().getName() + " does not implement addPropertyChangeListener()");
     }
 

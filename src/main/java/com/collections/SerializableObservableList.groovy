@@ -11,7 +11,7 @@ import java.util.*;
 @TypeChecked
 public class SerializableObservableList<T> extends ArrayList<T> implements Serializable, IObservable {
     @Delegate
-    private transient ObservableList delegate = new ObservableList();
+    private transient ObservableList observableDelegate = new ObservableList();
 
     public SerializableObservableList() {
         super();
@@ -19,66 +19,66 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
 
     public SerializableObservableList(Collection<? extends T> c) {
         super(c);
-        delegate = new ObservableList(c.toList());
+        observableDelegate = new ObservableList(c.toList());
     }
 
     @Override
     public boolean add(T e) {
-        delegate.add(e);
+        observableDelegate.add(e);
         return super.add(e);
     }
 
     @Override
     public boolean remove(Object o) {
-        delegate.remove(o);
+        observableDelegate.remove(o);
         return super.remove(o);
     }
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        delegate.addAll(c);
+        observableDelegate.addAll(c);
         return super.addAll(c);
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
-        delegate.addAll(index, c);
+        observableDelegate.addAll(index, c);
         return super.addAll(index, c);
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        delegate.removeAll(c);
+        observableDelegate.removeAll(c);
         return super.removeAll(c);
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        delegate.retainAll(c);
+        observableDelegate.retainAll(c);
         return super.retainAll(c);
     }
 
     @Override
     public void clear() {
-        delegate.clear();
+        observableDelegate.clear();
         super.clear();
     }
 
     @Override
     public T set(int index, T element) {
-        delegate.set(index, element);
+        observableDelegate.set(index, element);
         return (T) super.set(index, element);
     }
 
     @Override
     public void add(int index, T element) {
-        delegate.add(index, element);
+        observableDelegate.add(index, element);
         super.add(element);
     }
 
     @Override
     public T remove(int index) {
-        delegate.removeAt(index); // TODO: verify
+        observableDelegate.removeAt(index); // TODO: verify
         return (T) super.removeAt(index);
     }
 
@@ -98,9 +98,9 @@ public class SerializableObservableList<T> extends ArrayList<T> implements Seria
     }
 */
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-        ois.defaultReadObject();
-        ois.close();
-
-        delegate = new ObservableList(this);
+        ois.defaultReadObject()
+        ois.close()
+        observableDelegate = new ObservableList()
+        observableDelegate.addAll(this)
     }
 }

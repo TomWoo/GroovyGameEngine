@@ -9,7 +9,7 @@ import groovy.transform.TypeChecked
 @TypeChecked
 public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Serializable, IObservable {
     @Delegate
-    private transient ObservableSet<E> delegate = new ObservableSet<>();
+    private transient ObservableSet<E> observableDelegate = new ObservableSet<>();
 
     public SerializableObservableSet() {
         super();
@@ -17,45 +17,45 @@ public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Se
 
     public SerializableObservableSet(Collection<? extends E> c) {
         super(c);
-        delegate = new ObservableSet<E>(c.toSet());
+        observableDelegate = new ObservableSet<E>(c.toSet());
     }
 
     @Override
     public boolean add(E e) {
-        delegate.add(e);
+        observableDelegate.add(e);
         return super.add(e);
     }
 
     @Override
     public boolean remove(Object o) {
-        delegate.remove(o);
+        observableDelegate.remove(o);
         return super.remove(o);
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        if(delegate==null) { // TODO: avoid workaround
-            delegate = new ObservableSet<>();
+        if(observableDelegate==null) { // TODO: avoid workaround
+            observableDelegate = new ObservableSet<>();
         }
-        delegate.addAll(c);
+        observableDelegate.addAll(c);
         return super.addAll(c);
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        delegate.retainAll(c);
+        observableDelegate.retainAll(c);
         return super.retainAll(c);
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        delegate.removeAll(c);
+        observableDelegate.removeAll(c);
         return super.removeAll(c);
     }
 
     @Override
     public void clear() {
-        delegate.clear();
+        observableDelegate.clear();
         super.clear();
     }
 
@@ -66,9 +66,9 @@ public class SerializableObservableSet<E> extends LinkedHashSet<E> implements Se
     }
 
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-        ois.defaultReadObject();
-        ois.close();
-
-        delegate = new ObservableSet<>(this);
+        ois.defaultReadObject()
+        ois.close()
+        observableDelegate = new ObservableSet<E>()
+        observableDelegate.addAll(this)
     }
 }

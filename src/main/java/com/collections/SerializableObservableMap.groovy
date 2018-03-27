@@ -89,9 +89,9 @@ public class SerializableObservableMap<K, V> extends LinkedHashMap<K, V> impleme
     }
 */
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-        //observableDelegate = new ObservableMap() // TODO: fix, re-populate delegate map w/o triggering recursive calls to put()
         ois.defaultReadObject()
         ois.close()
         observableDelegate = new ObservableMap()
+        observableDelegate.putAll(this) // re-populate observableDelegate map w/o triggering recursive calls to put()
     }
 }

@@ -116,8 +116,6 @@ public class ComponentEditor extends Stage {
                 GroovyClassLoader loader = new GroovyClassLoader();
                 IComponent c = (IComponent) loader.loadClass(
                         comboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
-//                IComponent c = (IComponent) Class.forName(
-//                        comboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
                 entity.addComponents(c);
                 statusLabel.setText("Added " + c.toString());
                 refresh();
