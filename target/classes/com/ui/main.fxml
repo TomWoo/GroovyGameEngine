@@ -97,11 +97,11 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <TreeTableView fx:id="universeECSTable" prefHeight="400.0" prefWidth="200.0">
+            <TreeTableView fx:id="universeEntityTable" prefHeight="400.0" prefWidth="200.0">
               <columns>
                 <TreeTableColumn fx:id="entityNameColumn" prefWidth="75.0" text="Name" />
-                <TreeTableColumn fx:id="entityUIDColumn" prefWidth="75.0" text="UID" />
-                <TreeTableColumn fx:id="entityGroupIDsColumn" prefWidth="149.0" text="Group IDs" />
+                <TreeTableColumn fx:id="entityUniqueIDColumn" prefWidth="75.0" text="UID" />
+                <TreeTableColumn fx:id="entityGroupsColumn" prefWidth="149.0" text="Group IDs" />
               </columns>
             </TreeTableView>
              <ConsoleTextArea fx:id="consoleTextArea" prefHeight="300.0" prefWidth="200.0">

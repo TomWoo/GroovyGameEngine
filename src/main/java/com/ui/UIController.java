@@ -33,10 +33,10 @@ public class UIController {
     //@FXML ZoomableScrollPane viewPane;
     @FXML ScrollPane viewPane;
     @FXML ToggleButton playButton;
-    @FXML TreeTableView<IEntity> universeECSTable;
+    @FXML TreeTableView<IEntity> universeEntityTable;
     @FXML TreeTableColumn<IEntity, String> entityNameColumn;
-    @FXML TreeTableColumn<IEntity, String> entityUIDColumn;
-    @FXML TreeTableColumn<IEntity, String> entityGroupIDsColumn;
+    @FXML TreeTableColumn<IEntity, String> entityUniqueIDColumn;
+    @FXML TreeTableColumn<IEntity, String> entityGroupsColumn;
     @FXML ConsoleTextArea consoleTextArea;
     //private ConsoleTextArea consoleTextArea = new ConsoleTextArea();
 
@@ -72,7 +72,7 @@ public class UIController {
         initPalette();
         initConsole();
         initCanvas();
-        initUniverseECSTable();
+        initUniverseEntityTable();
 
         // Top-level controls
         playButton.setOnMouseClicked(e -> {
@@ -157,24 +157,24 @@ public class UIController {
         }
     }
 
-    // Universe entity-component system table
+    // Universe entity table
 
-    private void initUniverseECSTable() {
+    private void initUniverseEntityTable() {
         TreeItem<IEntity> rootTreeItem = new TreeItem<>();
-        universeECSTable.setRoot(rootTreeItem);
-        universeECSTable.setShowRoot(false);
-        universeECSTable.setEditable(true); // TODO: implement
-//        universeECSTable.setRowFactory(
+        universeEntityTable.setRoot(rootTreeItem);
+        universeEntityTable.setShowRoot(false);
+        universeEntityTable.setEditable(true); // TODO: implement
+//        universeEntityTable.setRowFactory(
 //                (TreeTableColumn.CellDataFeatures<IEntity, String> param) -> new ReadOnlyStringWrapper(param.getValue().getValue().getName())
 //        );
-//        universeECSTable.getColumns().get(0).setCellValueFactory(
+//        universeEntityTable.getColumns().get(0).setCellValueFactory(
         entityNameColumn.setCellValueFactory(
                 (TreeTableColumn.CellDataFeatures<IEntity, String> e) -> new ReadOnlyStringWrapper(e.getValue().getValue().getName())
         );
-        entityUIDColumn.setCellValueFactory(
+        entityUniqueIDColumn.setCellValueFactory(
                 (TreeTableColumn.CellDataFeatures<IEntity, String> e) -> new ReadOnlyStringWrapper(e.getValue().getValue().getUID())
         );
-        entityGroupIDsColumn.setCellValueFactory(
+        entityGroupsColumn.setCellValueFactory(
                 (TreeTableColumn.CellDataFeatures<IEntity, String> e) -> new ReadOnlyStringWrapper(
                         String.join(",", e.getValue().getValue().getGroupIDs())
                 )
@@ -194,13 +194,14 @@ public class UIController {
 //                    break;
 //            }
         });
-        universeECSTable.setRowFactory(p -> {
+        universeEntityTable.setRowFactory(p -> {
             // Reference: https://stackoverflow.com/questions/26563390/detect-doubleclick-on-row-of-tableview-javafx
             TreeTableRow<IEntity> row = new TreeTableRow<>();
             row.setOnMouseClicked(event -> {
                 if(event.getClickCount()==2 && (!row.isEmpty())) {
                     IEntity entity = row.getItem();
-                    new ComponentEditor(entity);
+                    ComponentEditor editor = new ComponentEditor(entity);
+                    editor.show();
                 }
             });
             return row;
@@ -213,8 +214,7 @@ public class UIController {
         groovyShell.setVariable("universe", controller.getUniverse());
         //groovyShell.setProperty("universe", controller.getUniverse());
         groovyShell.setVariable("palette" , controller.getPalette());
-        //consoleTextArea.setStyle("-fx-font-family: fantasy;");
-//        consoleTextArea.setFont(Font.font("fantasy"));
+
         // REPL behavior
         consoleTextArea.setOnKeyPressed(e -> {
             if(e.getCode()== KeyCode.ENTER) {
@@ -222,27 +222,17 @@ public class UIController {
                 execute();
             }
         });
-//        consoleTextArea.setOnKeyTyped(e -> {
-//            String s = e.getText();
-//            if(s.length()==1) {
-//                e.consume();
-//            }
-//            Text text = new Text(consoleTextArea.getText() + s);
-//            text.setFont(Font.font("fantasy"));
-//        });
     }
 
     private void log(IReturnMessage message) {
-        if(!controller.isPlaying()) { // TODO: find a better solution to prevent incessant printing
-//        consoleTextArea.println(message.getErrors());
-//        consoleTextArea.println(message.getInfo());
+        if(!controller.isPlaying()) { // TODO: prevent incessant printing to console
             consoleTextArea.println(message.toString());
         }
     }
 
     private void logError(String error) {
         if(!controller.isPlaying()) {
-            consoleTextArea.println("ERROR: " + error); // TODO: use color
+            consoleTextArea.println("ERROR: " + error); // TODO: color text red
         }
     }
 
@@ -312,6 +302,8 @@ public class UIController {
         // TODO: implement real scrolling
         viewPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         viewPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        // Hotkey support
         //canvas.setOnMouseMoved(e -> {
         viewPane.setOnMouseMoved(e -> {
             if(selectedEntity!=null) {
@@ -327,13 +319,12 @@ public class UIController {
         //canvas.setOnMouseClicked(e -> {
         viewPane.setOnMouseClicked(e -> {
             if(e.getButton() == MouseButton.PRIMARY) {
-                boolean result = placeSelectedSprites(selectedEntity, e.getX(), e.getY());
-                if(!result) {
-                    // TODO: select sprite on canvas
-                    //selectSpriteOnCanvas(selectedEntity);
-                }
-            } else { // de-select
-                //consoleTextArea.println(String.valueOf(selectedEntity==null));
+                placeSelectedSprites(selectedEntity, e.getX(), e.getY());
+                // TODO: select if selectedEntity==null
+            }
+        });
+        viewPane.setOnKeyPressed(e -> {
+            if(e.getCode()==KeyCode.ESCAPE) { // de-select
                 selectedEntity = null;
                 controller.getPalette().clear();
             }
@@ -345,26 +336,8 @@ public class UIController {
                 double zoomFactor = Math.pow(2.0, scrollDelta/scrollSensitivity);
                 root.setScaleX(root.getScaleX() * zoomFactor);
                 root.setScaleY(root.getScaleY() * zoomFactor);
-//                viewPane.setHvalue(viewPane.getHvalue() * zoomFactor);
-//                viewPane.setVvalue(viewPane.getVvalue() * zoomFactor);
-//                viewPane.setScaleX(viewPane.getScaleX() * zoomFactor);
-//                viewPane.setScaleY(viewPane.getScaleY() * zoomFactor);
             }
         });
-
-        // TODO: replace the code below with real scrolling
-//        viewPane.setOnMousePressed(e -> {
-//            if(e.getButton()==MouseButton.PRIMARY) {
-//                rootX = e.getX();
-//                rootY = e.getY();
-//            }
-//        });
-//        viewPane.setOnMouseDragged(e -> {
-//            if(e.getButton()==MouseButton.PRIMARY) {
-//                root.setLayoutX(root.getLayoutX() + e.getX() - rootX);
-//                root.setLayoutY(root.getLayoutY() + e.getY() - rootY);
-//            }
-//        });
     }
 
     @Deprecated // TODO: replace with IEntity cells
@@ -397,22 +370,20 @@ public class UIController {
         return false;
     }
 
-    private boolean placeSelectedSprites(IEntity selectedEntity, double x, double y) {
+    private void placeSelectedSprites(IEntity selectedEntity, double x, double y) {
         if(selectedEntity!=null) {
             IEntity entity = Utilities.deepClone(selectedEntity);
             log(controller.addSprite(entity, x, y));
             //selectedEntity.getComponent(Sprite.class).getImageView().toFront();
             //controller.getUniverse().sendEntityToTop(entity.getName());
-            return true;
         }
-        return false;
     }
 
     // Entity editor
 
     private boolean selectSpriteOnCanvas(IEntity entity) {
         if(entity!=null) {
-            // TODO
+            selectedEntity = entity; // TODO: test
             return true;
         }
         return false;

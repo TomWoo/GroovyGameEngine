@@ -44,14 +44,12 @@ public class ComponentEditor extends Stage {
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setPrefHeight(400); // TODO: redesign UI for responsiveness
         setScene(new Scene(root));
+        setTitle("Component Editor");
 
 //        ChoiceBox<String> choiceBox = new ChoiceBox<>();
         initStatusBar();
         initControlBar();
         refresh();
-
-        setTitle("Component Editor");
-        show();
     }
 
     @Deprecated
