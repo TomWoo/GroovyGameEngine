@@ -124,13 +124,13 @@ public class UIController {
             } else {
                 ImageView imageView;
                 try {
-                    if(name.contains("/")) { // TODO: figure out why we need this check for *nix
+                    if(name.contains("/")) { // TODO: support *nix
                         String[] path = name.split("/");
                         name = path[path.length-1];
                     }
                     imageView = new ImageView(Utilities.getResourceFilename(AssetManager.IMAGE_ASSETS_PATH + name));
                     imageView.setPreserveRatio(true);
-                    imageView.setFitHeight(16.0); // TODO: refactor
+                    imageView.setFitHeight(16.0); // TODO: refactor out
                     setGraphic(imageView);
                     setText(name);
                 } catch (Exception e) {
@@ -149,7 +149,7 @@ public class UIController {
         // TODO: make cells of IEntity
         File[] files = (Utilities.getResourceFile(AssetManager.IMAGE_ASSETS_PATH)).listFiles();
         if(files != null) {
-            List<String> cells = Arrays.asList(files).stream().map(e -> {
+            List<String> cells = Arrays.stream(files).map(e -> {
                 String[] filePathArr = e.getAbsolutePath().split("\\\\");
                 return filePathArr[filePathArr.length-1];
             }).collect(Collectors.toList());

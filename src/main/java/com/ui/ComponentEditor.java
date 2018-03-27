@@ -31,8 +31,8 @@ public class ComponentEditor extends Stage {
     private GridPane gridPane = new GridPane();
     private HBox statusBar = new HBox();
     private Label statusLabel = new Label();
-    private ComboBox<Class> addComboBox = new ComboBox<>();
-    private ComboBox<Class> removeComboBox = new ComboBox<>();
+    private ComboBox<Class> addComponentComboBox = new ComboBox<>();
+    private ComboBox<Class> removeComponentComboBox = new ComboBox<>();
     private HBox bottomBar = new HBox();
 
     // TODO: restrict window size
@@ -42,7 +42,7 @@ public class ComponentEditor extends Stage {
         root.getChildren().add(scrollPane);
         //scrollPane.setContent(gridPane);
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scrollPane.setPrefHeight(400); // TODO: change
+        scrollPane.setPrefHeight(400); // TODO: redesign UI for responsiveness
         setScene(new Scene(root));
 
 //        ChoiceBox<String> choiceBox = new ChoiceBox<>();
@@ -68,7 +68,7 @@ public class ComponentEditor extends Stage {
         return numRows;
     }
 
-    private void updateGridPane(List<IComponent> components) {
+    private void updateTables(List<IComponent> components) {
         gridPane.addRow(0, statusBar);
 
         int rowIdx = 1;
@@ -87,9 +87,11 @@ public class ComponentEditor extends Stage {
         List<Class> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
                 .filter(e -> !existingComponents.contains(e))
                 .collect(Collectors.toList());
-        addComboBox.setItems(FXCollections.observableArrayList(availableComponents)); // TODO: display simple class names
+        addComponentComboBox.setItems(FXCollections.observableArrayList(availableComponents)); // TODO: display simple class names
 //        choiceBox.setItems(FXCollections.observableArrayList(availableComponents));
-        removeComboBox.setItems(FXCollections.observableArrayList(existingComponents));
+        addComponentComboBox.getSelectionModel().selectFirst();
+        removeComponentComboBox.setItems(FXCollections.observableArrayList(existingComponents));
+        removeComponentComboBox.getSelectionModel().selectFirst();
     }
 
     private void refresh() {
@@ -97,27 +99,24 @@ public class ComponentEditor extends Stage {
         gridPane = new GridPane();
         scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
 
-        updateGridPane(components);
+        updateTables(components);
         updateControlBar(components);
     }
 
     private void initStatusBar() {
         //MenuBar statusBar = new MenuBar();
         statusLabel.setText("Double-click on any value to edit its contents. Press enter to commit.");
-        statusLabel.setPrefHeight(32); // TODO: check
+        statusLabel.setPrefHeight(32);
         statusBar.getChildren().add(statusLabel);
     }
 
     private void initControlBar() {
-        addComboBox.getSelectionModel().selectFirst(); // TODO: place in refresh()?
-
         Button addComponentButton = new Button("+ Component");
-        bottomBar.getChildren().addAll(addComboBox, addComponentButton);
         addComponentButton.setOnMouseClicked(e -> {
             try {
                 GroovyClassLoader loader = new GroovyClassLoader();
                 IComponent c = (IComponent) loader.loadClass(
-                        addComboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
+                        addComponentComboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
                 entity.addComponents(c);
                 statusLabel.setText("Added " + c.toString());
                 refresh();
@@ -125,6 +124,22 @@ public class ComponentEditor extends Stage {
                 statusLabel.setText("Fatal Exception: " + ex.getMessage());
             }
         });
+
+        Button removeComponentButton = new Button("- Component");
+        removeComponentButton.setOnMouseClicked(e -> {
+            try {
+                String componentName = removeComponentComboBox.getSelectionModel().getSelectedItem().getName();
+                entity.removeComponents(Class.forName(componentName));
+                statusLabel.setText("Removed " + componentName);
+                refresh();
+            } catch (Exception ex) {
+                statusLabel.setText("Fatal Exception: " + ex.getMessage());
+            }
+        });
+
+        bottomBar.getChildren().addAll(
+                addComponentComboBox, addComponentButton,
+                removeComponentComboBox, removeComponentButton);
     }
 
     // TODO: split into init() sections
