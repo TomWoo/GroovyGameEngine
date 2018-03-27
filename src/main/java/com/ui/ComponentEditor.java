@@ -4,25 +4,15 @@ import com.Utilities;
 import com.components.AbstractComponent;
 import com.components.IComponent;
 import com.core.IEntity;
-import com.core.IReturnMessage;
 import groovy.lang.GroovyClassLoader;
-import groovy.ui.view.BasicStatusBar;
-import groovy.util.MapEntry;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 import org.reflections.Reflections;
 //import org.reflections.Reflections;
 //import sun.reflect.Reflection;
@@ -38,9 +28,12 @@ import java.util.stream.Collectors;
 public class ComponentEditor extends Stage {
     private IEntity entity;
     private ScrollPane scrollPane = new ScrollPane();
-    private ComboBox<Class> comboBox = new ComboBox<>();
-//    private ChoiceBox<String> choiceBox = new ChoiceBox<>();
-    private Label statusLabel = new Label("Double-click on any value to edit its contents. Press enter to commit.");
+    private GridPane gridPane = new GridPane();
+    private HBox statusBar = new HBox();
+    private Label statusLabel = new Label();
+    private ComboBox<Class> addComboBox = new ComboBox<>();
+    private ComboBox<Class> removeComboBox = new ComboBox<>();
+    private HBox bottomBar = new HBox();
 
     // TODO: restrict window size
     public ComponentEditor(IEntity entity) {
@@ -52,6 +45,9 @@ public class ComponentEditor extends Stage {
         scrollPane.setPrefHeight(400); // TODO: change
         setScene(new Scene(root));
 
+//        ChoiceBox<String> choiceBox = new ChoiceBox<>();
+        initStatusBar();
+        initControlBar();
         refresh();
 
         setTitle("Component Editor");
@@ -72,43 +68,56 @@ public class ComponentEditor extends Stage {
         return numRows;
     }
 
-    // TODO: preserve encapsulation
-    private void refresh() {
-        List<IComponent> components = new ArrayList<>(entity.getComponents());
-        GridPane gridPane = new GridPane();
-        scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
-
-        HBox statusBar = new HBox();
-        //MenuBar statusBar = new MenuBar();
-        statusLabel.setPrefHeight(32);
-        statusBar.getChildren().add(statusLabel);
+    private void updateGridPane(List<IComponent> components) {
         gridPane.addRow(0, statusBar);
 
-        int i = 1;
+        int rowIdx = 1;
         for(IComponent component : components) {
-            gridPane.addRow(i, generateTable(component, statusLabel));
-            i++;
+            gridPane.addRow(rowIdx, generateTable(component));
+            rowIdx++;
         }
 
+        gridPane.addRow(rowIdx, bottomBar); // getNumRows(gridPane)
+    }
+
+    private void updateControlBar(List<IComponent> components) {
         // Ref: https://stackoverflow.com/questions/20766363/get-the-number-of-rows-in-a-javafx-gridpane
         Reflections reflections = new Reflections("com.components");
         List<Class> existingComponents = components.stream().map(IComponent::getClass).collect(Collectors.toList());
         List<Class> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
                 .filter(e -> !existingComponents.contains(e))
                 .collect(Collectors.toList());
-        comboBox.setItems(FXCollections.observableArrayList(availableComponents)); // TODO: display simple class names
+        addComboBox.setItems(FXCollections.observableArrayList(availableComponents)); // TODO: display simple class names
 //        choiceBox.setItems(FXCollections.observableArrayList(availableComponents));
+        removeComboBox.setItems(FXCollections.observableArrayList(existingComponents));
+    }
 
-        HBox bottomBar = new HBox();
-        comboBox.getSelectionModel().selectFirst(); // TODO: place in refresh()?
+    private void refresh() {
+        List<IComponent> components = new ArrayList<>(entity.getComponents());
+        gridPane = new GridPane();
+        scrollPane.setContent(gridPane); // TODO: new VBox(gridPane)?
+
+        updateGridPane(components);
+        updateControlBar(components);
+    }
+
+    private void initStatusBar() {
+        //MenuBar statusBar = new MenuBar();
+        statusLabel.setText("Double-click on any value to edit its contents. Press enter to commit.");
+        statusLabel.setPrefHeight(32); // TODO: check
+        statusBar.getChildren().add(statusLabel);
+    }
+
+    private void initControlBar() {
+        addComboBox.getSelectionModel().selectFirst(); // TODO: place in refresh()?
 
         Button addComponentButton = new Button("+ Component");
-        bottomBar.getChildren().addAll(comboBox, addComponentButton);
+        bottomBar.getChildren().addAll(addComboBox, addComponentButton);
         addComponentButton.setOnMouseClicked(e -> {
             try {
                 GroovyClassLoader loader = new GroovyClassLoader();
                 IComponent c = (IComponent) loader.loadClass(
-                        comboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
+                        addComboBox.getSelectionModel().getSelectedItem().getName()).newInstance();
                 entity.addComponents(c);
                 statusLabel.setText("Added " + c.toString());
                 refresh();
@@ -116,25 +125,23 @@ public class ComponentEditor extends Stage {
                 statusLabel.setText("Fatal Exception: " + ex.getMessage());
             }
         });
-
-        gridPane.addRow(i, bottomBar); // getNumRows(gridPane)
     }
 
     // TODO: split into init() sections
-    private TreeTableView<Map.Entry<String, Serializable>> generateTable(IComponent component, Label label) {
+    private TreeTableView<Map.Entry<String, Serializable>> generateTable(IComponent component) {
         TreeTableView<Map.Entry<String, Serializable>> table = new TreeTableView<>();
         TreeItem<Map.Entry<String, Serializable>> rootTreeItem = new TreeItem<>();
         table.setRoot(rootTreeItem);
         table.setShowRoot(false);
         table.setEditable(true);
 
-        TreeTableColumn<Map.Entry<String, Serializable>, String> keyColumn = new TreeTableColumn(
+        TreeTableColumn<Map.Entry<String, Serializable>, String> keyColumn = new TreeTableColumn<>(
                 component.getClass().getSimpleName() + " Property");
         keyColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getKey()));
         keyColumn.setPrefWidth(200);
         table.getColumns().add(keyColumn);
 
-        TreeTableColumn<Map.Entry<String, Serializable>, String> valueColumn = new TreeTableColumn("Value");
+        TreeTableColumn<Map.Entry<String, Serializable>, String> valueColumn = new TreeTableColumn<>("Value");
         valueColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().toString()));
         valueColumn.setPrefWidth(360);
         table.getColumns().add(valueColumn);
@@ -147,18 +154,18 @@ public class ComponentEditor extends Stage {
             if(value!=null) {
                 try {
                     component.setValue(key, value);
-                    label.setText("Status: " + key + " = " + value);
+                    statusLabel.setText("Status: " + key + " = " + value);
                 } catch (Exception ex) {
-                    label.setText(ex.toString());
+                    statusLabel.setText(ex.toString());
                 }
             } else {
-                label.setText("Error: entry incompatible with type");
+                statusLabel.setText("Error: entry incompatible with type");
             }
             e.getRowValue().setValue(new AbstractMap.SimpleEntry<>(key, component.getValue(key))); // need to refresh entry
             //table.refresh();
         });
 
-        TreeTableColumn<Map.Entry<String, Serializable>, String> dataTypeColumn = new TreeTableColumn("Type");
+        TreeTableColumn<Map.Entry<String, Serializable>, String> dataTypeColumn = new TreeTableColumn<>("Type");
         dataTypeColumn.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().getValue().getValue().getClass().getSimpleName()));
         dataTypeColumn.setPrefWidth(200);
         table.getColumns().add(dataTypeColumn);
