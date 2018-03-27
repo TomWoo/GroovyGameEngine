@@ -304,7 +304,7 @@ public class UIController {
 
     private void initCanvas() {
         //gc = canvas.getGraphicsContext2D();
-        viewPane.setContent(root); // new VBox(root)
+        viewPane.setContent(new VBox(root)); // VBox required for scrolling
         viewPane.setPannable(true);
         //viewPane.setTarget(root);
 //        viewPane.setFitToWidth(true);
