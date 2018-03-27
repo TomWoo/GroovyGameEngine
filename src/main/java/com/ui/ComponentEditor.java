@@ -37,9 +37,8 @@ import java.util.stream.Collectors;
 
 public class ComponentEditor extends Stage {
     private IEntity entity;
-    //private Group root = new Group();
     private ScrollPane scrollPane = new ScrollPane();
-    //private ComboBox<Class> comboBox = new ComboBox<>();
+    private ComboBox<Class> comboBox = new ComboBox<>();
 //    private ChoiceBox<String> choiceBox = new ChoiceBox<>();
     private Label statusLabel = new Label("Double-click on any value to edit its contents. Press enter to commit.");
 
@@ -48,7 +47,6 @@ public class ComponentEditor extends Stage {
         this.entity = entity;
         Group root = new Group();
         root.getChildren().add(scrollPane);
-        GridPane gridPane = new GridPane();
         //scrollPane.setContent(gridPane);
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setPrefHeight(400); // TODO: change
@@ -84,8 +82,6 @@ public class ComponentEditor extends Stage {
         //MenuBar statusBar = new MenuBar();
         statusLabel.setPrefHeight(32);
         statusBar.getChildren().add(statusLabel);
-        //gridPane.addRow(0, statusLabel);
-        //List<IComponent> components = new ArrayList<>(entity.getComponents());
         gridPane.addRow(0, statusBar);
 
         int i = 1;
@@ -94,12 +90,9 @@ public class ComponentEditor extends Stage {
             i++;
         }
 
-        ComboBox<Class> comboBox = new ComboBox<>(); // TODO: place in constructor
         // Ref: https://stackoverflow.com/questions/20766363/get-the-number-of-rows-in-a-javafx-gridpane
         Reflections reflections = new Reflections("com.components");
-        //List<String> existingComponents = components.stream().map(c -> c.getClass().getSimpleName()).collect(Collectors.toList());
         List<Class> existingComponents = components.stream().map(IComponent::getClass).collect(Collectors.toList());
-        //List<String> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
         List<Class> availableComponents = reflections.getSubTypesOf(AbstractComponent.class).stream()
                 .filter(e -> !existingComponents.contains(e))
                 .collect(Collectors.toList());
@@ -123,8 +116,7 @@ public class ComponentEditor extends Stage {
                 statusLabel.setText("Fatal Exception: " + ex.getMessage());
             }
         });
-        //bottomBar.getChildren().add(comboBox);
-//        bottomBar.getChildren().addAll(choiceBox, addComponentButton);
+
         gridPane.addRow(i, bottomBar); // getNumRows(gridPane)
     }
 
@@ -157,7 +149,6 @@ public class ComponentEditor extends Stage {
                     component.setValue(key, value);
                     label.setText("Status: " + key + " = " + value);
                 } catch (Exception ex) {
-                    //System.out.println(ex.toString());
                     label.setText(ex.toString());
                 }
             } else {
